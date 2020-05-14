@@ -1,0 +1,28 @@
+package demo;
+import java.util.*;
+
+public class Demo extends p{
+	public static void main(String[] args) {
+		Scanner sc= new Scanner(System.in);
+		int a=sc.nextInt();
+		
+		switch(a) {
+		case 1:
+			Cat c=new Cat();
+			println("I am a cat");
+			break;
+		case 2:
+			Fish c=new Fish();
+			println("I am a cat");
+			break;
+		
+		}
+		c.eat();
+		c.ClimbWays();
+		c.eatten();
+		c.live();
+	}
+}
+	
+
+

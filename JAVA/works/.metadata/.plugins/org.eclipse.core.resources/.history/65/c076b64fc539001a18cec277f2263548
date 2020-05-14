@@ -1,0 +1,21 @@
+package demo;
+
+public class Rabbit extends LandAnimal implements ClimbTree {
+	public void eat() {
+		p.print("I can eat carrots");
+	}
+	public void live() {
+		p.print("I live in farm");
+	}
+	
+	public void eatten() {
+		p.print("I can be eatten!");
+	}
+	
+	public void Climb() {
+		p.print("I can't climb!");
+		
+	}
+	public void ClimbWays() {}
+
+}

@@ -1,0 +1,15 @@
+package demo2;
+
+public class Main {
+	public static void main(String[] args) {
+		Human []obj = new Human[4];
+		obj[0]=new Man();
+		obj[1]=new Woman();
+		
+		for (int i = 0; i < obj.length; i++) {
+				obj[i].eat();
+				obj[i].age();
+		}
+
+	}
+}

@@ -1,0 +1,18 @@
+package stu;
+
+import java.util.Scanner;
+
+public class TypeTest {
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		System.out.println("«Î ‰»ÎSTB");
+		String STB=scan.next();
+		System.out.println("«Î ‰»ÎJAVA");
+		String JAVA=scan.next();
+		System.out.println("«Î ‰»ÎSQL");
+		String SQL=scan.next();
+		
+		
+	}
+
+}

@@ -1,0 +1,20 @@
+package demo;
+
+public class p {
+	public static void rint(int x) {
+		System.out.print(x);
+	}
+	public static void rint(double x) {
+		System.out.print(x);
+	}
+	public static void rint(char x) {
+		System.out.print(x);
+	}
+	public static void rint(String x) {
+		System.out.print(x);
+	}
+	public static void rint(Boolean x) {
+		System.out.print(x);
+	}
+
+}

@@ -1,0 +1,21 @@
+package stu;
+import java.util.*;
+public class Work {
+
+	public static void main(String[] args) {
+		Scanner input=new Scanner(System.in);
+		int score;
+		int sum=0;
+		double avg=0.0;
+		
+		System.out.println("请输入学生姓名");
+		String name = input.next();
+		for (int i = 0; i < 5; i++) {
+			System.out.println("请输入五门功课中第"+(i+1)+"门课的成绩");
+			score = input.nextInt();
+			sum+=score;
+			
+			
+		}
+		}
+	}

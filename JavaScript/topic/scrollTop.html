@@ -1,0 +1,151 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>循环向上滚动的文字</title>
+<link href="css/scrollTop.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<!--循环向上滚动的文字开始-->
+<div class="domes">
+  <div class="dome_top">近7日畅销榜</div>
+  <div id="dome">
+    <div id="dome1">
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td><img src="images/scrollTop_1.jpg" alt="scroll" /></td>
+    <td><div class="title">社交疯狂项语</div>
+     <font class="price">￥57.00</font> 折扣：52折</td>
+  </tr>
+  <tr>
+    <td><img src="images/scrollTop_2.jpg" alt="scroll" /> </td>
+    <td><div class="title">傲慢与偏见</div>
+     <font class="price">￥20.00</font> 折扣：25折</td>
+  </tr>
+  <tr>
+    <td><img src="images/scrollTop_3.jpg" alt="scroll" /></td>
+    <td><div class="title">玻璃鞋全集（50集34VCD）</div>
+    主演：金贤珠 金芝荷
+     <font class="price">￥300.00</font> 折扣：52折</td>
+  </tr>
+  <tr>
+    <td><img src="images/scrollTop_4.jpg" alt="scroll" /></td>
+    <td><div class="title">澳大利亚：假日之旅</div>
+     <font class="price">￥53.00</font> 折扣：51折</td>
+  </tr>
+  <tr>
+    <td><img src="images/scrollTop_5.jpg" alt="scroll" /> </td>
+    <td><div class="title">浪漫地中海：假日之旅</div>
+     <font class="price">&yen;80.00</font> 折扣：52折</td>
+  </tr>
+  <tr>
+    <td><img src="images/scrollTop_6.jpg" alt="scroll" /></td>
+    <td><div class="title">老人与海</div>
+     <font class="price">&yen;57.00</font> 折扣：52折</td>
+  </tr>
+   <tr>
+    <td><img src="images/scrollTop_7.jpg" alt="scroll" /></td>
+    <td><div class="title">欧陆风情：假日之旅</div>
+     <font class="price">&yen;53.00</font> 折扣：52折</td>
+  </tr>
+</table>
+      </div>
+    <div id="dome2"></div>
+  </div>
+</div>
+
+<!--循环向上滚动的文字结束-->
+<!--循环向上滚动的文字的实现思路-->
+<div class="main">
+一、循环向上滚动的文字，如上面的滚动效果<br />
+二、实现的思路 <br />
+<div class="left_indent">1、建立三个层dome、dome1、dome2 <br /> 2、垂直滚动的文字在dome1上 <br /> 3、通过层的滚动来实现文字滚动 
+</div>
+三、源代码 <br />
+<div class="left_indent">&lt;html&gt;<br />
+  &lt;head&gt;<br />
+  &lt;title&gt;循环向上滚动的文字&lt;/title&gt;<br />
+  <font class="red">&lt;link href=&quot;css/scrollTop.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;<br /></font>
+  &lt;/head&gt;<br />
+  &lt;body&gt;<br />
+  &lt;div class=&quot;domes&quot;&gt;<br />
+&lt;div class=&quot;dome_top&quot;&gt;近7日畅销榜&lt;/div&gt;<br />
+<font class="red">&lt;div id=&quot;dome&quot;&gt;<br />
+&lt;div id=&quot;dome1&quot;&gt;<br /></font>
+&lt;table width=&quot;100%&quot; border=&quot;0&quot; cellspacing=&quot;0&quot; cellpadding=&quot;0&quot;&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;img src=&quot;images/scrollTop_1.jpg&quot; alt=&quot;scroll&quot; /&gt;&lt;/td&gt;<br />
+&lt;td&gt;&lt;div class=&quot;title&quot;&gt;社交疯狂项语&lt;/div&gt;<br />
+&lt;font class=&quot;price&quot;&gt;￥57.00&lt;/font&gt; 折扣：52折&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;img src=&quot;images/scrollTop_2.jpg&quot; alt=&quot;scroll&quot; /&gt; &lt;/td&gt;<br />
+&lt;td&gt;&lt;div class=&quot;title&quot;&gt;傲慢与偏见&lt;/div&gt;<br />
+&lt;font class=&quot;price&quot;&gt;￥20.00&lt;/font&gt; 折扣：25折&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;img src=&quot;images/scrollTop_3.jpg&quot; alt=&quot;scroll&quot; /&gt;&lt;/td&gt;<br />
+&lt;td&gt;&lt;div class=&quot;title&quot;&gt;玻璃鞋全集（50集34VCD）&lt;/div&gt;<br />
+主演：金贤珠 金芝荷<br />
+&lt;font class=&quot;price&quot;&gt;￥300.00&lt;/font&gt; 折扣：52折&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;img src=&quot;images/scrollTop_4.jpg&quot; alt=&quot;scroll&quot; /&gt;&lt;/td&gt;<br />
+&lt;td&gt;&lt;div class=&quot;title&quot;&gt;澳大利亚：假日之旅&lt;/div&gt;<br />
+&lt;font class=&quot;price&quot;&gt;￥53.00&lt;/font&gt; 折扣：51折&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;img src=&quot;images/scrollTop_5.jpg&quot; alt=&quot;scroll&quot; /&gt; &lt;/td&gt;<br />
+&lt;td&gt;&lt;div class=&quot;title&quot;&gt;浪漫地中海：假日之旅&lt;/div&gt;<br />
+&lt;font class=&quot;price&quot;&gt;&amp;yen;80.00&lt;/font&gt; 折扣：52折&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;img src=&quot;images/scrollTop_6.jpg&quot; alt=&quot;scroll&quot; /&gt;&lt;/td&gt;<br />
+&lt;td&gt;&lt;div class=&quot;title&quot;&gt;老人与海&lt;/div&gt;<br />
+&lt;font class=&quot;price&quot;&gt;&amp;yen;57.00&lt;/font&gt; 折扣：52折&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;tr&gt;<br />
+&lt;td&gt;&lt;img src=&quot;images/scrollTop_7.jpg&quot; alt=&quot;scroll&quot; /&gt;&lt;/td&gt;<br />
+&lt;td&gt;&lt;div class=&quot;title&quot;&gt;欧陆风情：假日之旅&lt;/div&gt;<br />
+&lt;font class=&quot;price&quot;&gt;&amp;yen;53.00&lt;/font&gt; 折扣：52折&lt;/td&gt;<br />
+&lt;/tr&gt;<br />
+&lt;/table&gt;<br />
+&lt;/div&gt;<br />
+<font class="red">&lt;div id=&quot;dome2&quot;&gt;&lt;/div&gt;<br /></font>
+&lt;/div&gt;<br />
+&lt;/div&gt;<br />
+<font class="red">&lt;script src=&quot;js/scrollTop.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;<br /></font>
+&lt;/body&gt;<br />
+&lt;/html&gt;</div>
+四、设置id为dome的层的div源代码
+<div class="left_indent">#dome{<br />
+overflow:hidden;   /*溢出的部分不显示*/<br />
+height:180px;<br />
+padding:5px;<br />
+}</div>
+五、实现循环向上滚动的JavaScript代码
+<div class="left_indent"> function $(element){<br />
+return document.getElementById(element);<br />
+}<br />
+var dome=$(&quot;dome&quot;);<br />
+var dome1=$(&quot;dome1&quot;);<br />
+var dome2=$(&quot;dome2&quot;);<br />
+var speed=50;  //设置向上滚动速度<br />
+dome2.innerHTML=dome1.innerHTML //复制dome1为dome2<br />
+function moveTop(){<br />
+<font class="red">if(dome2.offsetTop-dome.scrollTop&lt;=0)</font>   //当滚动至dome1与dome2交界时<br />
+<font class="red">dome.scrollTop-=dome1.offsetHeight</font>      //dome跳到最顶端<br />
+else{<br />
+<font class="red">dome.scrollTop++</font><br />
+}<br />
+}<br />
+<font class="red">var MyMar=setInterval(moveTop,speed)</font> //设置定时器<br />
+<font class="red">dome.onmouseover=function() {clearInterval(MyMar)} </font>  //鼠标移上时清除定时器达到滚动停止的目的<br />
+<font class="red">dome.onmouseout=function() {MyMar=setInterval(moveTop,speed)}</font>  //鼠标移开时重设定时器，继续滚动
+<br /><br />
+
+</div>
+</div>
+</body>
+</html>

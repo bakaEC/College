@@ -1,0 +1,8 @@
+package demo2;
+
+public class Human {
+	public void eat() {
+		p.print("I can eat");
+	}
+
+}

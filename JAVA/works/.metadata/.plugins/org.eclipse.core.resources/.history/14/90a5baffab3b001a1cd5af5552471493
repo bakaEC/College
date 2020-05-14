@@ -1,0 +1,11 @@
+package demo2;
+
+//public abstract class Human {
+//	public abstract void age();
+//	
+//}
+public interface Human{
+	public abstract void eat();
+	public abstract void age();
+
+}

@@ -1,0 +1,94 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>带按钮的横幅广告</title>
+<link href="css/adRotator.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<!--带按钮的横幅广告开始-->
+<div class="adver"><img src="images/adRotator_1.jpg" alt="广告图片" id="Rotator"/>
+<div class="Rotator_bg">
+<div class="number" id="fig_1" onclick="show(1);">1</div>
+<div class="number" id="fig_2" onclick="show(2);">2</div>
+<div class="number" id="fig_3" onclick="show(3);">3</div>
+<div class="number" id="fig_4" onclick="show(4);">4</div>
+<div class="number" id="fig_5" onclick="show(5);">5</div>
+</div>
+</div>
+
+<!--带按钮的横幅广告结束-->
+<div class="main">
+<br />
+一、带按钮的轮换显示的横幅广告，五张广告图片循环显示，并且下面的标题随图片显示不同的内容，单击数字按钮时可以即时显示对应的图片和相应的标题，如上面显示的效果所示<br />
+二、实现思路
+<div class="left_indent">
+1、在网页适当位置插入一张带ID名称的图片，黙认显示第一张图片，例如：<br />
+&lt;img src=&quot;images/adRotator_1.jpg&quot; alt=&quot;广告图片&quot; id=&quot;Rotator&quot; /&gt;<br />
+ 2、在循环显示的图片位置下方插入五个图片按钮，当单击按钮时调用显示当前图片的函数，并在当前层中显示对应的标题，因此数字按钮所在层的ID以数字结尾，方使调用函数，代码如下所示<br />
+ &lt;div class=&quot;number&quot; id=&quot;fig_1&quot; onclick=&quot;show(1);&quot;&gt;1&lt;/div&gt;<br />
+ &lt;div class=&quot;number&quot; id=&quot;fig_2&quot; onclick=&quot;show(2);&quot;&gt;2&lt;/div&gt;<br />
+ &lt;div class=&quot;number&quot; id=&quot;fig_3&quot; onclick=&quot;show(3);&quot;&gt;3&lt;/div&gt;<br />
+ &lt;div class=&quot;number&quot; id=&quot;fig_4&quot; onclick=&quot;show(4);&quot;&gt;4&lt;/div&gt;<br />
+ &lt;div class=&quot;number&quot; id=&quot;fig_5&quot; onclick=&quot;show(5);&quot;&gt;5&lt;/div&gt;<br />
+3、函数show(）的实现思路<br />
+首页定义两个全局变量，NowFrame和MaxFrame；分别表示页面载入时显示的第一张图片及轮换显示的图片张数；另外创建一个包含五个元素的数组，数组中保存五张图片各自对应的标题，其次函数开始，判断show( )参数是否存在，如果存在，设定当前显示的图片为传递参数的图片，否则按原顺序显示下一张图片，通过for循环显示每一张图片，使用document.getElementById(&quot;Rotator&quot;).src=&quot;图片路径&quot;的方式显示当前的图片，并且从数组中读取当前图片对应的标题显示在当前图片对应的数字按钮对应的层中，最后用setInterval( )函数的定时器功能，间隔一段时间显示下一张图片；最终实现四五张带按钮图片不间断的轮换显示效果 </div>
+三、页面源代码
+<div class="left_indent">&lt;html&gt;<br />
+  &lt;head&gt;<br />
+  &lt;title&gt;带按钮的横幅广告&lt;/title&gt;<br />
+  &lt;link href=&quot;css/adRotator.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;<br />
+  &lt;/head&gt;<br />
+  &lt;body&gt;<br />
+  &lt;div class=&quot;adver&quot;&gt;&lt;img src=&quot;images/adRotator_1.jpg&quot; alt=&quot;广告图片&quot; id=&quot;Rotator&quot;/&gt;<br />
+  &lt;div class=&quot;Rotator_bg&quot;&gt;<br />
+  &lt;div class=&quot;number&quot; id=&quot;fig_1&quot; onclick=&quot;show(1);&quot;&gt;1&lt;/div&gt;<br />
+  &lt;div class=&quot;number&quot; id=&quot;fig_2&quot; onclick=&quot;show(2);&quot;&gt;2&lt;/div&gt;<br />
+  &lt;div class=&quot;number&quot; id=&quot;fig_3&quot; onclick=&quot;show(3);&quot;&gt;3&lt;/div&gt;<br />
+  &lt;div class=&quot;number&quot; id=&quot;fig_4&quot; onclick=&quot;show(4);&quot;&gt;4&lt;/div&gt;<br />
+  &lt;div class=&quot;number&quot; id=&quot;fig_5&quot; onclick=&quot;show(5);&quot;&gt;5&lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+  &lt;/div&gt;<br />
+  <font class="red">&lt;script src=&quot;js/adRotator.js&quot; type=&quot;text/javascript&quot;&gt;&lt;/script&gt;</font><br />
+  &lt;/html&gt;<br />
+  &lt;/body&gt;</div>
+ 四、实现带按钮的图片横幅广行告的JavaScript代码源文件
+ <div class="left_indent">//定义全局变量<br />
+   var title=new Array();<br />
+   title[0]=&quot;1.店庆第一波 限时抢购 一日三疯！&quot;;<br />
+   title[1]=&quot;2.十年店庆均价场 39/99/169专场！&quot;;<br />
+   title[2]=&quot;3.全场69折封顶 享当当的超值低价！&quot;;<br />
+   title[3]=&quot;4.店庆钜献 海量图书69折封顶&quot;;<br />
+   title[4]=&quot;5.十年店庆 名家跨界祝贺 珍藏签名本专区&quot;;<br />
+   var NowFrame = 1;   //最先显示第一张图片<br />
+   var MaxFrame = 5;   //一共五张图片<br />
+   function show(d1) {<br />
+if(Number(d1)){<br />
+<font class="red">clearTimeout(theTimer)</font>;  //当触动按扭时，清除计时器<br />
+NowFrame=d1;             //设当前显示图片<br />
+}<br />
+for(var i=1;i&lt;(MaxFrame+1);i++){<br />
+if(i==NowFrame){<br />
+<font class="red">document.getElementById(&quot;Rotator&quot;).src =&quot;images/adRotator_&quot;+i+&quot;.jpg&quot;</font>;   //显示当前图片<br />
+<font class="red">document.getElementById(&quot;fig_&quot;+i).innerHTML=title[i-1]</font>;       //显示当前图片对应的标题<br />
+<font class="red">document.getElementById(&quot;fig_&quot;+i).className=&quot;numberOver&quot;</font>;    //设置当前标题的CSS样式<br />
+}<br />
+else{<br />
+<font class="red">document.getElementById(&quot;fig_&quot;+i).innerHTML=i</font>;<br />
+<font class="red">document.getElementById(&quot;fig_&quot;+i).className=&quot;number&quot;</font>;<br />
+}<br />
+}<br />
+if(NowFrame == MaxFrame){   //设置下一个显示的图片<br />
+NowFrame = 1;<br />
+}<br />
+else{<br />
+NowFrame++;<br />
+}<br />
+}<br />
+<font class="red">var theTimer=setInterval('show()', 3000)</font>;   //设置定时器，显示下一张图片<br />
+window.onload=show;   //页面加载时运行函数show()<br /><br />
+ </div>
+</div>
+</body>
+</html>

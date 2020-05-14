@@ -1,0 +1,25 @@
+package demo;
+import java.util.*;
+
+public class Demo extends p{
+	public static void main(String[] args) {
+		Scanner scan=new Scanner(System.in);
+		int a=0;
+
+		print("sdf\n");
+		println(a);
+		println(234.2344);
+		print(1==2);
+		Cat c=new Cat();
+		println("This is a cat");
+		c.eat();
+		c.ClimbWays();
+		c.eatten();
+		c.live();
+		
+		
+	}
+}
+	
+
+

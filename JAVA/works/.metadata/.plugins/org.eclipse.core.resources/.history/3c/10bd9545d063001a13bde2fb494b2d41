@@ -1,0 +1,18 @@
+package stu;
+
+import java.util.Scanner;
+
+public class homework {
+
+	public static void main(String[] args) {
+		int tshirt=245;
+		int shoes=570;
+		int pat=320;
+		System.out.println("※※※※※※※*消费单*※※※※※※※");
+		System.out.println("购买物品\t单价\t个数\t金额");
+		System.out.println("T恤\t￥"+tshirt+"\t2\t"+2*tshirt);
+		
+		 
+	}
+
+}

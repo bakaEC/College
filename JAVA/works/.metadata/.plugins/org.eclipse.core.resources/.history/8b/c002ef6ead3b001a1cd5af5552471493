@@ -1,0 +1,11 @@
+package demo2;
+
+
+public abstract class Human{
+	public void dec() {
+		p.print("(I am a human");
+	}
+	public abstract void eat();
+	public abstract void age();
+
+}

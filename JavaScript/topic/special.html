@@ -1,0 +1,73 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>JavaScript综合特效</title>
+<link href="css/special.css" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+<div class="header">
+<div class="logo"><img src="images/special_logo.gif" alt="logo"/>
+&nbsp;&nbsp;
+<img src="images/special_top.jpg" alt="top"/></div>
+<div class="header_right"><!--<a onclick="this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.ifindu.com.cn');return false;" > 【设为首页】</a>-->
+<a onclick="setHomePages()"> 【设为首页】</a>
+<br />
+<a onclick="addCookie()">【收藏本站】</a>
+</div>
+<div class="menu"><img src="images/special_menu.jpg" alt="menu" /></div>
+</div>
+
+<div class="main">
+一、页面实现的功能
+<div class="left_indent">
+1、设为首页功能<br />
+2、收藏本站功能<br />
+3、屏蔽右键功能
+</div>
+二、实现思路
+<div class="left_indent">1、设为首页：&lt;a onclick=&quot;this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.ifindu.com.cn');return false;&quot; &gt; 【设为首页】&lt;/a&gt;<br />
+  上面的代码中的url(#default#homepage)的意思就是指向当前页；this.setHomePage('http://www.ifindu.com.cn')的意思则是设置主页为http://www.ifindu.com.cn<br />
+  2、收藏本站：IE浏览器和Firefore浏览器加入收藏夹的代码不同<br />
+  （1）IE浏览器的代码如下：<br />
+    <font class="red"> window.external.addFavorite(url,title)</font><br />
+     参数：<br />
+     url：添加到收藏夹的完整网页页面地址<br />
+     title：添加到收藏夹中的网站页面标题名称<br />
+     （2）Firefox浏览器加入收藏夹的代码如下：<br />
+     <font class="red">window.sidebar.addPanel(title,url,'')</font><br />
+     参数：<br />
+     url：添加到收藏夹的完整网页页面地址<br />
+     title：添加到收藏夹中的网站页面标题名称<br />
+  3、屏蔽右键：document.oncontextmenu=click;点击右键时，调用函数click，弹出对话框，屏蔽右键</div>
+ 三、实现页面综合功能的源代码
+ <div class="left_indent">&lt;html&gt;<br />
+   &lt;head&gt;<br />
+   &lt;title&gt;JavaScript综合特效&lt;/title&gt;<br />
+   &lt;link href=&quot;css/special.css&quot; rel=&quot;stylesheet&quot; type=&quot;text/css&quot; /&gt;<br />
+   &lt;script type=&quot;text/javascript&quot;&gt;<br />
+   function click(){<br />
+   alert('您这是干什么呢？')  //点击右键时，弹出警告框，屏蔽右键<br />
+   return false;<br />
+   }<br />
+  <font class="red"> document.oncontextmenu=click;</font><br />
+   &lt;/script&gt;<br />
+   &lt;/head&gt;<br />
+   &lt;body&gt;<br />
+   &lt;div class=&quot;header&quot;&gt;<br />
+   &lt;div class=&quot;logo&quot;&gt;&lt;img src=&quot;images/special_logo.gif&quot; alt=&quot;logo&quot;/&gt;<br />
+   &amp;nbsp;&amp;nbsp;<br />
+   &lt;img src=&quot;images/special_top.jpg&quot; alt=&quot;top&quot;/&gt;&lt;/div&gt;<br />
+   &lt;div class=&quot;header_right&quot;&gt;<br />
+    <font class="red">&lt;a onclick=&quot;this.style.behavior='url(#default#homepage)';this.setHomePage('http://www.ifindu.com.cn');return false;&quot; &gt;【设为首页】&lt;/a&gt;&lt;br /&gt;</font><br />
+   <font class="red"> &lt;a onclick=&quot;window.external.addFavorite('http://www.ifindu.com.cn','六人行')&quot;&gt;【收藏本站】&lt;/a&gt;</font><br />
+   &lt;/div&gt;<br />
+   &lt;div class=&quot;menu&quot;&gt;&lt;img src=&quot;images/special_menu.jpg&quot; alt=&quot;menu&quot; /&gt;&lt;/div&gt;<br />
+   &lt;/div&gt;<br />
+   &lt;/html&gt;<br />
+  &lt;/body&gt;</div>
+</div>
+</body>
+</html>

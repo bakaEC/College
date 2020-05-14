@@ -1,0 +1,11 @@
+package demo;
+
+public interface ClimbTree extends LandAnimal{
+	public void Climb() {
+		p.println("I can climb tree!");
+		
+	}
+	public abstract void ClimbWays();
+	
+
+}

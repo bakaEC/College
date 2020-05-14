@@ -1,0 +1,9 @@
+package demo2;
+
+public class Woman extends Human{
+
+	public void age() {
+		p.print("I live for 150 years ");
+	
+}
+}

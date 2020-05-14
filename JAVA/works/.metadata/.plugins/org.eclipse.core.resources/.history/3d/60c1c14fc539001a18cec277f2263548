@@ -1,0 +1,18 @@
+package demo;
+
+
+
+public class Cat extends LandAnimal implements Animal {
+	public void eat() {
+		p.print("I can eat fish");
+	}
+	public void live() {
+		p.print("I live in house");
+	}
+	@Override
+	public void eatten() {
+		p.print("I can be eatten");
+		
+	}
+
+}

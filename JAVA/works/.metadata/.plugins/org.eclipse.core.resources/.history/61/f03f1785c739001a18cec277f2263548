@@ -1,0 +1,23 @@
+package demo;
+
+public class Fish extends WaterAnimal {
+	public void eat() {
+		p.println("I can eat stone");
+	}
+	public void live() {
+		p.println("I live in sea");
+	}
+	public void Climb() {
+		p.println("I can't climb");
+	}
+	public void ClimbWays() {
+		super.move();
+	}
+
+	public void eatten() {
+		p.println("I can be eatten!");
+	}
+		
+	}
+
+

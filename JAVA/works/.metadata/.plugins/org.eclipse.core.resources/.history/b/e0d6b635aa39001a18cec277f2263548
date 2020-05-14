@@ -1,0 +1,18 @@
+package demo;
+
+public class Demo extends p{
+	public static void main(String[] args) {
+		Person obj = new Person();
+		obj.setId(200);
+		rint(obj.getId());
+		obj.setId(300);
+		rint(obj.getId());
+		obj.setId(400);
+		rint(obj.getId());
+		obj.setId(500);
+		rint(obj.getId());
+	}
+}
+	
+
+

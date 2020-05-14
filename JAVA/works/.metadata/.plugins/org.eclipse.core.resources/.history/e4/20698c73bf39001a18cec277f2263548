@@ -1,0 +1,37 @@
+package demo;
+
+
+
+public interface p {
+	public static void print(int x) {
+		System.out.print(x);
+	}
+	public static void println(int x) {
+		System.out.println(x);
+	}
+	public static void print(double x) {
+		System.out.print(x);
+	}
+	public static void println(double x) {
+		System.out.println(x);
+	}
+	public static void print(char x) {
+		System.out.print(x);
+	}
+	public static void println(char x) {
+		System.out.println(x);
+	}
+	public static void print(String x) {
+		System.out.print(x);
+	}
+	public static void println(String x) {
+		System.out.println(x);
+	}
+	public static void print(Boolean x) {
+		System.out.print(x);
+	}
+	public static void println(Boolean x) {
+		System.out.println(x);
+	}
+	
+}

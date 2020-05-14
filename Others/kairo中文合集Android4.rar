@@ -1,0 +1,46 @@
+[common]
+filename=C:\Users\ASUS\Documents\Tencent Files\1064071566\FileRecv\kairo中文合集Android4.rar
+DicFile=E:\Program Files (x86)\ElcomSoft\Advanced Archive Password Recovery\english.dic
+PlaintextFile=
+Attack=0
+Priority=1
+Autosave=1
+AutosaveTimer=5
+AutosaveFilename=~archpr.axr
+AutosaveDirectory=E:\Program Files (x86)\ElcomSoft\Advanced Archive Password Recovery
+[passlen]
+MinLen=3
+MaxLen=6
+[brute-force]
+AllCaps=0
+AllSmall=1
+AllDigits=0
+AllSpecial=0
+Space=0
+AllPrint=0
+Custom=0
+IsOEM=0
+IsDictOEM=0
+CustomcharSetII=
+StartFrom=acgwk
+EndAt=
+mask=
+[dictionary]
+CapF=0
+CapA=0
+DicStartLine=0
+[PlainText]
+BinaryOK=0
+EKey0=-
+EKey1=-
+EKey2=-
+PTStartFromValue=0
+[Advanced]
+UseKnownStart=0
+KnownByte1=
+KnownByte2=
+KnownByte3=
+KnownByte4=
+CodeOptFor=4
+UseWinzip=1
+WinzipPercent=90

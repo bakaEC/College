@@ -1,0 +1,8 @@
+package demo;
+
+public interface ClimbTree {
+	public abstract void Climb();
+	public abstract void ClimbWays();
+	
+
+}

@@ -1,0 +1,12 @@
+package demo2;
+
+public class Woman implements Human{
+
+	public void age() {
+		p.println("I live for 150 years ");
+	}
+	public void eat() {
+		p.print(",and I eat less");
+	}
+}
+

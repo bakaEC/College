@@ -1,0 +1,10 @@
+package demo;
+
+public class Demo extends p{
+	public static void main(String[] args) {
+		print("sdf");
+	}
+}
+	
+
+

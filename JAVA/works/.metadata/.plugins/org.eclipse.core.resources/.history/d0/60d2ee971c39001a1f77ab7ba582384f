@@ -1,0 +1,15 @@
+package demo;
+
+public class Demo {
+	public static void main(String[] args) {
+		int a[]= {};
+		for (int i = 0; i < args.length; i++) {
+			p.rint(args[i]);
+			p.rint(i);
+			p.rint("\n");
+			
+		}
+		
+	}
+
+}

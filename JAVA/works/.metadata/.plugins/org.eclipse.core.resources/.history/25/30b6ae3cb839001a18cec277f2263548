@@ -1,0 +1,10 @@
+package demo;
+
+public abstract class LandAnimal implements Animal{
+	 public void eat(){
+		 p.print("I can eat");
+	 }
+	 public abstract void move();
+	
+
+}

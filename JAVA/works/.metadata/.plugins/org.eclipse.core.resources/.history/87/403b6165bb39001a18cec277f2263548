@@ -1,0 +1,15 @@
+package demo;
+
+public class Fish extends WaterAnimal implements ClimbTree {
+	public void eat() {
+		p.print("I can eat stone");
+	}
+	public void live() {
+		p.print("I live in sea");
+	}
+	public void Climb() {
+		p.print("I can't climb");
+		
+	}
+
+}

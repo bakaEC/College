@@ -1,0 +1,353 @@
+﻿电子科技大学九里堤校区 2019级 计算机应用技术 黄子寒
+
+				HTML5笔记整理
+
+HTML 				主文件
+	HEAD 			文件头
+		TITLE		标题
+		META		定义特殊信息
+			NAME	描述定义
+				-keywords	网页关键字
+				-description	网页描述
+				-author		网页作者
+				-copyright	版权信息
+			HTTP-EQUIV		定义编码与设置自动刷新
+				-Content-Type content(text/html) charset(utf-8) 定义编码
+				-refresh content(time) url(http://)		网页自动刷新/跳转
+
+	BODY 			文件主体
+	*文本*
+		H(1/2/3)	标题(级别）[Header}		//与TITLE区别:页面文字标题与地址栏标题
+		P		段落
+		BR\		换行[Break]			//自闭合标签
+		STRONG(B)	加粗				//尽量使用带有语义性的STRONG
+		I(EM/CITE)	斜体[Emphasis]
+		Sup		上标标签[Superscripted]
+		Sub		下标标签[Subscripted]
+		S		中划线
+		U		下划线
+		BIG		大号字体
+		SMALL		小号字体
+		HR\		水平线				//自闭合标签
+		DIV		划分结构[Division]		//配合CSS；可放入其他标签
+			-id	定义块名称			//配合超链接使用
+
+		常用特殊符号
+			&nbsp	空格( )[Non-Breaking Space]
+			&quot	双引号（英）(")[Quote]
+			&lsquo	左单引号(‘)[Left-side Quote]
+			&rsquo	右单引号(’)[Right-side Quote]
+			&times	乘号(*)
+			&divide	除号(/)
+			&lt	大于号(>)
+			&gt	小于号(>)
+			&amp	“与”号(&)
+			&mdash	长破折号(——)
+			&#124	竖线(|)
+	*列表*
+		OL		有序列表[ordered list]		//子元素只能是LI
+			
+			-type	定义列表项符号
+				-1	阿拉伯数字
+				-a	小写字母
+				-A	大写字母
+				-i	小写罗马数字
+				-I	大写罗马数字
+		
+		UL		无序列表[Unordered list]	//子元素只能是LI，网站建设常用
+			
+			-type	定义列表项符号
+				-disc	实心圆
+				-circle	空心圆
+				-square	正方形
+		
+		LI		列表项[List]			//只能与OL/UL结合使用，可以添加子元素
+		DL		定义列表[Definition list]	//定义列表开始/结束
+		DT		定义名词[Definition term]	//添加需要解释的名词
+		DD		定义描述[Definition description]//添加名词解释
+	*表格*
+		CAPTION		表格标题
+		TR		表格行[Table row]		
+		TD		表格单元行[Table data cell]
+		TH		表头单元格[Table header cell]	//粗体、居中表示表头内容
+		THEAD		划分表头
+		TBODY		划分表身
+		TFOOT		划分表脚			//三者为语义化表格需要的结构格式，配合CSS
+		ROWSPAN		合并行
+		COLSPAN		合并列
+	*图片*
+		IMG		定义图片
+			-src	指定路径			//相对/绝对路径
+			-alt	描述图片（针对搜索引擎）
+			-title	描述图片（针对用户）		//鼠标指针处于上方会显示
+	*超链接*
+		A		定义超链接
+			-herf	定义链接地址			//相对/绝对路径（内部链接）
+			-target	定义打开方式
+				_self	原窗口打开链接（默认值）
+				_blank	在新窗口打开链接	//最常用
+				_parent	在父窗口打开链接
+				_top	在顶层窗口打开链接
+				#*	页内锚点链接		//配合DIV内id标签使用
+	*表单*
+		FORM		定义表单
+			-name	表单名称
+			-method	提交方式
+				-get
+				-post				//安全性较高
+			-action	提交地址
+			-target	打开方式
+				-_blank				//常用，与a标签内属性相同			
+			-enctype 编码方式
+		INPUT		单行文本框
+			-type	输入类型
+				-text	默认输入文本+
+				-password 密码文本
+			-value	设置文本框默认值		//未填写内容时的默认值
+			-size	设置文本框长度
+			-maxlength	设置最多输入字数
+		INPUT		定义输入
+			-type	输入类型
+				-radio	单选框
+				-checkbox 复选框
+					-checked  默认选中
+				-button	普通按钮
+				-submit	提交按钮
+				-reset	重置按钮		//以上三种按钮只能操作在其form表单里的内容
+				-file	文件上传
+				-name	组名			//定义输入属于的组
+				-value	取值			//取值一般和后面文本相同，按钮的value取值为按钮文字
+		TEXTAREA	多行文本框
+			-rows	行数
+			-cols	列数
+		SELECT		下拉列表
+			-multiple	设置下拉列表可以选择多项
+			-size	显示行数
+		OPTION		列表选项
+			-selected	是否选中
+			-value		选项值
+	*框架*
+		IFRAME	定义内嵌框架 
+			-src	链接地址
+			-width	宽度
+			-height	高度
+---------------------------------------------------------------------------------------------------
+						*CSS*
+---------------------------------------------------------------------------------------------------
+		LINK	引入外部样式表
+			-rel	链接[relative]			//固定值为stylesheet
+			-type	类型				//默认值为text/css
+			-href	链接地址
+		STYLE	引入外部样式表
+			-type	类型				//默认值为text/css
+		<[DIV] STYLE>	行内样式表			//一般使用STYLE=""
+	*CSS选择器
+		<[*] ID> 选择元素				//同一页面只能出现一个ID相同元素
+		<[*] CLASS> 选择元素“类”			//允许多个元素有相同的CLASS
+			选择器格式：	选择器{属性n : 取值n ;}
+			选择器类型：
+				标签	选中相同的标签元素定义同一CSS样式
+				#name	选中一页面中相同id的的元素定义CSS样式	//不允许重复
+				.name	选中相同的class元素定义同一CSS样式
+				标签 标签 指定标签内包含的子元素定义CSS样式	//子元素和父元素以空格隔开
+				标签,标签 指定多个标签定义同一CSS样式		//多个元素用逗号隔开
+		-关系选择符-	
+		E>F		子选择						//选择所有作为E元素的子元素F
+		E+F		相邻兄弟选择					//选择紧贴在E元素后的F元素
+		E F		后代选择					//选择所有被E包含的F元素
+		E~F		通用兄弟选择					//选择E元素所有兄弟元素F
+		-伪类选择符-
+		E:first-child	作为父元素的第一个子元素E	
+		E:last-child	作为父元素的最后一个子元素E
+		E:nth-child(n)	作为父元素的第n个子元素E
+		E:first-of-type	匹配同类型中第一个兄弟元素E
+		E:last-of-type	匹配同类型中最后一个兄弟元素E
+		E:nth-of-type(n)匹配同类型中第n个兄弟元素E
+		-属性选择符-
+		E[att]		选择具有att属性的E元素
+		E[att="val"]	选择具有att属性且属性值为val的元素
+		E[att~="val"]	选择具有att属性且属性值为含有val的属性列表的E元素
+		E[att^="val"]	选择具有att属性且属性值以val开头的字符串的的E元素
+		E[att$="val"]	选择具有att属性且属性值以val结尾的字符串的的E元素
+		E[att*="val"]	选择具有att属性且属性值为含有val的字符串的E元素
+	*属性*     
+		-字体-
+		font-family	字体类型			//如果只是单个英文单词则不需要加双引号，
+								  可以定义多个备用项，默认项为宋体。
+		font-size	字体大小			//一般使用数值
+		font-weight	字体粗细			//一般使用关键字
+		font-style	字体风格
+			-normal 正常
+			-italic	斜体
+			-oblique 斜体
+		color		字体颜色			//关键字：RED 16进制RGB值：FF0000		
+		-文本-
+		text-indent	首行缩进			//使用像素值
+		text-align	水平对齐
+			-left	左对齐				//默认值
+			-right	右对齐
+			-center	居中
+		text-decoration	文本修饰
+			-none		无修饰			//默认值，多用于去除超链接下划线
+			-underline	下划线
+			-line-trough	中划线
+			-overline	顶划线
+		text-transform	大小写
+			-none		无修饰
+			-uppercase	转换为大写
+			-lowercase	转换为小写
+			-capitalize	转换为首字母大写
+		line-height	行高				//使用像素值
+		litter-spacing	字间距				
+		word-spacing	词间距				//使用像素值
+		-边框-
+		border-width	边框宽度			//使用像素值
+		boder-style	边框外观
+			-none	无
+			-dashed	虚线
+			-solid	实线
+		boder-color	定义边框颜色			//关键字、16进制RGB值
+		boder-top	局部样式-上边框
+		boder-bottom	局部样式-下边框
+		boder-left	局部样式-左边框
+		boder-right	局部样式-右边框
+	*整体样式*
+		-边框属性-
+		border-width	定义宽度
+		border-style	定义外观
+			-none	无样式
+			-dashed	虚线
+			-solid	实线
+		border-color	定义颜色
+		border-top	上边框
+		border-bottom	下边框
+		border-left	左边框
+		border-right	右边框
+		-列表样式-
+		list-style-type	定义列表项符号
+		    有序列表
+			-decimal 阿拉伯数字
+			-lower-roman 小写罗马数字
+			-upper-roman 大写罗马数字
+			-lower-alpha 小写字母
+			-upper-alpha 大写字母
+		    无序列表
+			-disc	实心圆			//默认值
+			-circle 空心圆
+			-square	正方形
+			-none	去除列表项符号 
+		list-style-image:url() 定义列表项图片
+		-表格样式-
+			caption-side	  表格标题位置
+				-top	  顶部标题
+				-bottom   底部位置		//默认值
+			border-collapse   表格边框合并
+				-separate 边框分开，有空隙	//默认值
+				-collapse 边框合并，无空隙
+			border-spacing:px 表格边框间距
+		-图片-
+			width		宽度
+			height		高度
+			border		边框属性
+			text-align	图片对齐	//水平对齐
+				-left	左对齐		//默认值
+				-center	中对齐
+				-right  右对齐
+			vertical-align	垂直对齐
+				-top	顶部对齐
+				-middle	中部对齐
+				-baseline 基线对齐
+				-bottom	底部对齐
+			float		文字环绕
+				-left	向左浮动
+				-right	向右滑动
+		-背景样式-
+			background-color	背景颜色
+			background-image:url()	背景图片
+			background-repeat	背景图片重复
+				-repeat		水平垂直平铺
+				-repeat-x	只在水平方向平铺
+				-repeat-y	只在垂直方向平铺
+				-no-reapeat	不平铺
+			background-position	背景图片位置
+				-px px		水平、垂直位置
+				-top left	左上
+				-top center	中上
+				-top right	右上
+				-left center	左中
+				-center center	正中
+				-right center	右中
+				-bottom left	左下
+				-bottom center	中下
+				-bottom right	右下
+			background-attachment	背景图片固定
+				-scroll		随元素滚动		//默认值
+				-fixed		固定不动
+		-超链接样式-
+			a:link		未访问前样式
+			a:visited	访问后样式
+			a:hover		鼠标经过时样式			//常用
+			a:active	点击激活时样式
+		-鼠标样式-
+			cursor
+				default		默认指针
+				pointer		点击指针
+				text		文本指针	//以上三者常用
+				crosshair	十字箭头
+				wait		等待箭头
+				help		帮助箭头
+				move		十字移动箭头
+				e(w)-resize	水平调整大小箭头
+				ne(sw)-resize	左下右上调整大小箭头
+				nw(sw)-resize	右上左下调整大小箭头
+				n(s)-resize	垂直调整大小箭头
+				url()		自定义箭头
+	*盒子模型*
+		-基本元素-
+				content		内容
+					-width		定义宽
+					-height		定义高
+					-overflow	溢出处理
+				padding		内边距		//内容与边框之间的距离
+					-padding-top
+					-padding-bottom
+					-padding-left
+					-padding-right	上下左右距离
+				margin		外边距		//定义当前元素与其他元素之间的距离
+					-margin-top
+					-margin-bottom
+					-margin-left
+					-margin-right	上下左右距离
+				border		边框		//定义元素边框
+					-border-width	边框宽度
+					-border-style	边框类型
+						-solid	实线
+						-dashed	虚线
+					-border-color	边框颜色
+	*浮动元素*
+				float			设置浮动元素
+					-left		设置向左浮动
+					-right		设置向右浮动
+				clear			清除浮动
+					-left		清除左浮动
+					-right		清除右浮动
+					-both		清除双侧浮动
+				overflow
+					-visible	内容不被修剪，呈现于盒子之外
+					-hidden		内容会被修剪，其余内容不可见
+					-scroll		内容会被修剪，提供滚动条查看
+					-auto		如内容被修剪，提供滚动条查看
+		-防止父级边框塌陷-
+				1 清除浮动
+				2 设置空div
+				3 设置父边框高度
+	*定位布局*
+				position	
+					-fixed		固定定位		//参考系为浏览器窗口
+					-relative	相对定位		//参考系为原始位置
+					-absolute	绝对定位		//无视元素参考系
+					-static		静态定位		//默认值
+---------------------------------------------------------------------------------------------------
+	
+
+		

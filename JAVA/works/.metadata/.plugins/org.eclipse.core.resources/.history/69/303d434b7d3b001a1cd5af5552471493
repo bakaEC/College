@@ -1,0 +1,5 @@
+package demo;
+
+public interface Eatten extends Animal{
+	public abstract void eatten(); 
+}

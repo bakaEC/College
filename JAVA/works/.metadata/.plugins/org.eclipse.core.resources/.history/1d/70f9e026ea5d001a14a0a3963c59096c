@@ -1,0 +1,12 @@
+package stu;
+public class study {
+
+	public static void main(String[] args) {
+		System.out.println("»Æ×Óº®");
+		System.out.print("18Ëê\n");
+		System.out.print("\t");
+		System.out.println("´óÒ»");
+
+	}
+
+}

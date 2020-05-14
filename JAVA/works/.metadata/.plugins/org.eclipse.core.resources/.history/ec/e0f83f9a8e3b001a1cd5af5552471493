@@ -1,0 +1,8 @@
+package demo2;
+
+public abstract class Human {
+	public int sex=2;
+	public void eat() {
+		p.print("I can eat");
+	}
+}

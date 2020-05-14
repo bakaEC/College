@@ -1,0 +1,22 @@
+package demo;
+
+
+
+public class Cat extends LandAnimal implements ClimbTree {
+	public void eat() {
+		p.println("I can eat fish");
+	}
+	public void live() {
+		p.println("I live in house");
+	}
+	@Override
+	public void eatten() {
+		p.println("I can be eatten");
+		
+	}
+	public void ClimbWays() {
+		p.print("I can climb by my claws");
+		
+	}
+
+}

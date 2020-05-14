@@ -1,0 +1,11 @@
+package demo;
+
+public class fish extends LandAnimal implements Animal {
+	public void eat() {
+		p.print("I can eat carrots");
+	}
+	public void live() {
+		p.print("I live in farm");
+	}
+
+}

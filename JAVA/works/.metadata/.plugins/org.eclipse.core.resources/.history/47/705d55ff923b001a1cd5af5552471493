@@ -1,0 +1,16 @@
+package demo2;
+
+public class Main {
+	public static void main(String[] args) {
+		Human obj1=new Human();
+		Human obj2=new Man();
+		Human obj3=new Woman();
+		
+		Human obj4=obj2;
+		
+		obj1.eat();
+		obj2.eat();
+		obj3.eat();
+		obj4.eat();
+	}
+}

@@ -1,0 +1,18 @@
+package demo;
+
+public class Demo {
+	public static void main(String[] args) {
+		Person obj = new Person(100);
+		obj.setId(200);
+		p.rint(obj.getId());
+		obj.setId(300);
+		p.rint(obj.getId());
+		obj.setId(400);
+		p.rint(obj.getId());
+		obj.setId(500);
+		p.rint(obj.getId());
+	}
+}
+	
+
+

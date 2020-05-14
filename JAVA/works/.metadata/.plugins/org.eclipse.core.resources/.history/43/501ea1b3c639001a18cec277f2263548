@@ -1,0 +1,18 @@
+package demo;
+import java.util.*;
+
+public class Demo extends p{
+	public static void main(String[] args) {
+		Cat c=new Cat();
+		println("This is a cat");
+		c.eat();
+		c.ClimbWays();
+		c.eatten();
+		c.live();
+		
+		
+	}
+}
+	
+
+

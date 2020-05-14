@@ -1,0 +1,11 @@
+package demo2;
+
+public class Man implements Human{
+	public void eat() {
+		p.print("Man:I eat more!");
+	}
+	public void age() {
+		p.println(",and I live for 120 years ");
+	
+}
+}

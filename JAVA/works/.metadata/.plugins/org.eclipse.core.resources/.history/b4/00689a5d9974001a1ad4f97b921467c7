@@ -1,0 +1,15 @@
+package stu;
+import java.util.*;
+public class Work {
+
+	public static void main(String[] args) {
+		for(int num = 1;num<=10;num++) {
+			if(num%2!=0) {
+				continue;
+			}
+			sum+=num;asdf
+		}
+		System.out.println(sum);
+	}
+	}
+	

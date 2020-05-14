@@ -1,0 +1,21 @@
+package demo;
+
+public class Rabbit extends LandAnimal{
+	public void eat() {
+		p.println("I can eat carrots");
+	}
+	public void live() {
+		p.println("I live in farm");
+	}
+	
+	public void eatten() {
+		p.println("I can be eatten!");
+	}
+	
+	
+	public void ClimbWays() {
+		super.move();
+		p.println("I can't limb on a tree");
+	}
+
+}

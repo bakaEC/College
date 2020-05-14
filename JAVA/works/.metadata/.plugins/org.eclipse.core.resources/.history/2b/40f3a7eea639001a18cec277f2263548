@@ -1,0 +1,12 @@
+package demo;
+
+public class Demo {
+	public static void main(String[] args) {
+		InfoHiding obj = new InfoHiding(100);
+		obj.setId(200);
+		p.rint(obj.getId());
+	}
+}
+	
+
+

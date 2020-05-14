@@ -1,0 +1,9 @@
+package demo2;
+
+public abstract class Human {
+	public abstract void age();
+	public void eat() {
+		p.println("Human:I can eat");
+	}
+
+}

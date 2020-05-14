@@ -1,0 +1,23 @@
+package demo;
+
+import demo2.p;
+
+public class Cat extends LandAnimal{
+	public void eat() {
+		p.println("I can eat fish");
+	}
+	public void live() {
+		p.println("I live in house");
+	}
+
+	public void eatten() {
+		p.println("I can't be eatten");
+		
+	}
+	public void ClimbWays() {
+		super.move();
+		p.println("I can climb by my claws");
+		
+	}
+
+}

@@ -1,0 +1,8 @@
+package demo;
+
+public class Rabbit extends LandAnimal implements Animal {
+	public void eat() {
+		p.print("I can eat fish");
+	}
+
+}

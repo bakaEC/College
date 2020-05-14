@@ -1,0 +1,19 @@
+package demo;
+
+public class Demo {
+	public static void main(String[] args) {
+		int []a=new int[args.length];
+		int count=1;
+		for (int i = 0; i < args.length; i++) {
+			a[i]=Integer.parseInt(args[i]);
+		}
+		for (int i = 0; i < (int)a[0]; i++) {
+			for (int j = 0; j < (int)a[0]; j++) {
+				p.rint(count++);
+				p.rint("\t");
+				if(j==(int)a[0]-1) p.rint("\n");
+			}
+		}
+	}
+}
+

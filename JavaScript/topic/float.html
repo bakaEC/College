@@ -1,0 +1,71 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>漂浮广告</title>
+<link href="css/float.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="float" class="float"><img src="images/float.jpg" id="floatImg" alt="漂浮广告" /></div>
+
+<div class="main"><br />
+一、在浏览器中漂浮的广告图片，当图片漂浮至浏览器边界时，自动向相反方向继续漂浮，如页面效果。
+<br />
+二、实现思路
+<div class="left_indent">
+1、在页面上放入一个层，并在层中插入一张图片。<br />
+2、在JavaScript代码中，分别定义图片所在层在X轴、Y轴方向移动的距离，在X轴、Y轴移动的方向，以及图片移动的速度。<br />
+3、在图片漂浮函数中，使用clientWidth和clientHeight计算出浏览器的宽度和高度，使用图片的width和height计算图片的宽度和高度，然后使用层的left和top属性设置图片所在层在页面中的坐标。<br />
+4、图片在移运的过程中需要判断当前图片的移动方向，如果图片是在X轴、Y轴的正方向移动则坐标要加上移动的距离，如果在负方向移动则坐标要减去移动的距离。<br />
+5、图片在移动的过程中需要判断图片是否移动到浏览器的边界，根据当前图片在X轴、Y轴的坐标分别加上图片的宽度和高度是否大于浏览器的宽度和高度，如果大于则图片向相反的方向移动。
+</div>
+三、实现漂浮文告的JavaScript源代码
+<div class="left_indent">
+  <p>//定义全局变量<br />
+    var moveX = 0;       //X轴方向移动的距离<br />
+    var moveY = 0;      //Y轴方向移动的距离<br />
+    var step = 1;      //图片移动的速度<br />
+    var directionY = 0;   //设置图片在Y轴的移动方向<br />
+    var directionX = 0;   //设置图片在X轴的移动方向 </p>
+  <p>function changePos(){<br />
+    var img = document.getElementById(&quot;float&quot;);  //图片所在层ID<br />
+    var width = document.documentElement.clientWidth;       //浏览器宽度<br />
+    var height = document.documentElement.clientHeight;    //浏览器高度<br />
+    var imgHeight=document.getElementById(&quot;floatImg&quot;).height;   //漂浮图片高度<br />
+    var imgWidth=document.getElementById(&quot;floatImg&quot;).width;     //漂浮图片宽度 <br />
+    <font class="red">img.style.left =parseInt(moveX + document.documentElement.scrollLeft)+&quot;px&quot;</font>;     //漂浮图片距浏览器左侧位置<br />
+    <font class="red">img.style.top = parseInt(moveY + document.documentElement.scrollTop)+&quot;px&quot;</font>;      //漂浮图片距浏览器顶端位置<br />
+    if (directionY==0){ <br />
+    moveY = moveY + step;   //漂浮图片在Y轴方向上向下移动<br />
+    }<br />
+    else{<br />
+    moveY = moveY - step;   //漂浮图片在Y轴方向上向上移动<br />
+    }<br />
+    if (moveY &lt; 0) {     //如果漂浮图片漂到浏览器顶端时，设置图片在Y轴方向上向下移动<br />
+    directionY = 0;<br />
+    moveY = 0;<br />
+    }<br />
+   <font class="red"> if (moveY &gt;= (height - imgHeight)) </font>{   //如果漂浮图片漂到浏览器底端时，设置图片在Y轴方向上向上移动<br />
+    <font class="red">directionY = 1;<br />
+    moveY = (height - imgHeight);</font><br />
+    }<br />
+    if (directionX==0){<br />
+    moveX = moveX + step;     //漂浮图片在X轴方向上向右移动<br />
+    }<br />
+    else {<br />
+    moveX = moveX - step;     //漂浮图片在X轴方向上向左移动<br />
+    }<br />
+    if (moveX &lt; 0) {     //如果漂浮图片漂到浏览器左侧时，设置图片在X轴方向上向右移动<br />
+    directionX = 0;<br />
+    moveX = 0;<br />
+    }<br />
+   <font class="red"> if (moveX &gt;= (width - imgWidth)) </font>{     //如果漂浮图片漂到浏览器右侧时，设置图片在X轴方向上向左移动<br />
+    <font class="red">directionX = 1;<br />
+    moveX = (width - imgWidth);</font><br />
+    }<br />
+    }<br />
+    setInterval(&quot;changePos()&quot;,30); </p>
+</div>
+</div>
+</body>
+</html>

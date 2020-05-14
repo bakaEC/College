@@ -1,0 +1,13 @@
+package demo;
+
+public class Demo extends p{
+	public static void main(String[] args) {
+		print("sdf\n");
+		println(1);
+		println(234.2344);
+		print(1==2);
+	}
+}
+	
+
+

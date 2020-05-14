@@ -1,0 +1,15 @@
+package stu;
+
+public class Work {
+
+	public static void main(String[] args) {
+		long students = 250000;
+		int year = 2012;
+		while(students <= 1000000) {
+			students *= (1+0.25);
+			year++;
+		}
+		System.out.println("到"+year+"年时人数到达100万人，为"+students+"万人");
+		
+	}
+}

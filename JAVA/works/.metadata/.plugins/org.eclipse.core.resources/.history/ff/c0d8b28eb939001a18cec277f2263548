@@ -1,0 +1,10 @@
+package demo;
+
+public abstract class WaterAnimal implements Animal{
+	 public void move(){
+		 p.print("I can move by feet");
+	 }
+	 public abstract void eat();
+	 public abstract void live();
+
+}

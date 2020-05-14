@@ -1,0 +1,13 @@
+package demo2;
+
+class declare{
+	public void dec() {
+		p.print("I am human");
+	}
+}
+
+public interface Human{
+	public abstract void eat();
+	public abstract void age();
+
+}
