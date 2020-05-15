@@ -1,0 +1,262 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+<title>新用户注册页面</title>
+<link type="text/css" rel="stylesheet" href="css/register.css" />
+<script type="text/javascript">
+//通过	id获取HTML对象的通用方法
+function $(elementid){
+   return document.getElementById(elementid);
+}
+
+//当鼠标放在通行用户名文本框时，提示文本及样式 
+function userNameFocus(){
+   var usernameid=$("userNameId");
+   usernameid.className="import_prompt";
+   usernameid.innerHTML="1、由字母、数字、下划线、点、减号组成<br/>2、只能以数字、字母、开头或结尾，且长度为4-18";
+   
+}
+
+//当鼠标离开通行用户名文本框时，提示文本及样式
+function userNameBlur(){
+   var username=$("userName");
+   var usernameid=$("userNameId");
+   var reg=/^[0-9a-zA-Z][0-9a-zA-Z_.-]{2,16}[0-9a-zA-Z]$/;
+   if(username.value==""){
+      usernameid.className="error_prompt";
+	  usernameid.innerHTML="通行证用户名不能为空，请输入通行证用户名";
+	  return false;
+   }
+   if(reg.test(username.value)==false){
+      usernameid.className="error_prompt";
+	  usernameid.innerHTML="1、由字母、数字、下划线、点、减号组成<br/>2、只能以数字、字母、开头或结尾，且长度为4-18";
+	  return false;
+   }
+   usernameid.className="ok_prompt";
+   usernameid.innerHTML="通行证用户名输入正确";
+   return true;
+   
+}
+
+//当鼠标放入密码框时，提示文件有样式 
+function pwdFocus(){
+   var pwdId=$("pwdId");
+   pwdId.className="import_prompt";
+   pwdId.innerHTML="密码长度为6-16";
+}
+
+//当鼠标离开密码框时，提示文件有样式 
+function pwdBlur(){
+   var pwd=$("pwd");
+   var pwdId=$("pwdId");
+   if(pwd.value==""){
+      pwdId.className="error_prompt";
+	  pwdId.innerHTML="密码不能为空，请输入密码";
+	  return false;
+   }
+   if(pwd.value.length<6||pwd.value.length>16){
+      pwdId.className="error_prompt";
+	  pwdId.innerHTML="密码长度为6-16";
+	  return false;
+   }
+    pwdId.className="ok_prompt";
+	  pwdId.innerHTML="密码输入正确";
+	  return true;
+}
+//当鼠标离开重复密码框时，提示
+function repwdBlur(){
+   var repwd =$("repwd");
+   var pwd = $("pwd");
+   var repwdId=$("repwdId");
+   if(repwd.value==""){
+      repwdId.className="error_prompt";
+	  repwdId.innerHTML="重复密码不能为空，请重新输入密码";
+	  return false;
+   }
+   if(repwd.value!=pwd.value){
+      repwdId.className="error_prompt";
+	  repwdId.innerHTML="两次输入的密码不一致，请重新输入密码";
+	  return false;
+   }
+
+   repwdId.className="ok_prompt";
+   repwdId.innerHTML="两次密码输入正确";
+   return true;
+}
+//当鼠标放入昵称文本框提示
+function nickNameFocus(){
+    var nickNameId=$("nickNameId");
+	 nickNameId.className="import_prompt";
+	  nickNameId.innerHTML="昵称包含字母、数字、下划线，长度为4-20之间";
+}
+
+//当鼠标离开昵称文本框提示
+function nickNameBlur(){
+   var nickName = $("nickName");
+   var nickNameId = $("nickNameId");
+   var k = 0;
+   var reg=/^([\u4e00-\u9fa5]|\w)+$/;
+   var chinaReg=/[\u4e00-\u9fa5]/g;
+   if(nickName.value==""){
+      nickNameId.className="error_prompt";
+	  nickNameId.innerHTML="昵称不能为空，请重新输入密码";
+	  return false;
+   }
+   if(reg.test(nickName.value)==false){
+    nickNameId.className="error_prompt";
+	  nickNameId.innerHTML="只能为汉字、字母、数字、下划线组成";
+	  return false;
+   }
+
+   nickNameId.className="ok_prompt";
+   nickNameId.innerHTML="昵称输入正确";
+   return true
+}
+
+//当鼠标放入手机文本框提示
+function telFocus(){
+    var telId=$("telId");
+	 telId.className="import_prompt";
+	  telId.innerHTML="手机号以1开头的11位数字组成";
+}
+//当鼠标离开手机文本框提示
+function telBlur(){
+  var tel = $("tel");
+  var telId = $("telId");
+  var reg=/^1\d{10}$/;
+  if(tel.value==""){
+      telId.className="error_prompt";
+	  telId.innerHTML="手机号不能为空，请重新输入手机号";
+	  return false;
+   }
+   if(reg.test(tel.value)==false){
+    telId.className="error_prompt";
+	  telId.innerHTML="手机号输入不正确，请重新输入";
+	  return false;
+   }
+   telId.className="ok_prompt";
+   telId.innerHTML="手机输入正确";
+   return true
+}
+//当鼠标放入保密邮箱文本框提示
+function emailFocus(){
+    var emailId=$("emailId");
+	 emailId.className="import_prompt";
+	  emailId.innerHTML="请输入你常用的电子邮箱";
+}
+
+//当鼠标离开保密邮箱文本框提示
+function emailBlur(){
+  var email = $("email");
+  var emailId = $("emailId");
+  var reg=/^\w+@\w+(\.[a-zA-Z]{2,3}){1,2}$/;
+  if(email.value==""){
+      emailId.className="error_prompt";
+	  emailId.innerHTML="保密邮箱不能为空，请重新输入邮箱";
+	  return false;
+   }
+   if(reg.test(email.value)==false){
+    emailId.className="error_prompt";
+	  emailId.innerHTML="保密邮箱输入不正确，请重新输入";
+	  return false;
+   }
+   emailId.className="ok_prompt";
+   emailId.innerHTML="保密邮箱输入正确";
+   return true
+}
+
+//统一验证表单内容
+function checkForm(){
+  var flagUserName= userNameBlur();
+  var flagPwd = pwdBlur();
+  var flagRepwd=repwdBlur();
+  var flagNickName=nickNameBlur();
+  var flagTel=telBlur();
+  var flagEmail=emailBlur();
+  
+  userNameBlur();
+  pwdBlur();
+  repwdBlur();
+  nickNameBlur();
+  telBlur();
+  emailBlur();
+  if(flagUserName==true&&flagPwd==true&&flagRepwd==true&&flagNickName==true&&flagTel==true&&flagEmail==true)
+	{
+		return true;						
+	}else{
+	    return false;
+	}
+}
+</script>
+</head>
+
+<body>
+<div id="header"><img src="images/register_logo.gif" alt="logo"/></div>
+<div id="main">
+ <table width="100%" border="0" cellspacing="0" cellpadding="0">
+  <tr>
+    <td class="bg bg_top_left"></td>
+    <td class="bg_top"></td>
+    <td class="bg bg_top_right"></td>
+  </tr>
+  <tr>
+    <td class="bg_left"></td>
+    <td class="content">
+      <form action="" method="post" name="myform" onsubmit="return checkForm()">
+        <dl>
+          <dt>通行证用户名：</dt>
+          <dd><input type="text" id="userName" class="inputs userWidth" onfocus="userNameFocus()" onblur="userNameBlur()" /> @163.com</dd>
+          <div id="userNameId"></div>
+        </dl>
+         <dl>
+          <dt>登录密码：</dt>
+          <dd><input type="password" id="pwd" class="inputs"  onfocus="pwdFocus()" onblur="pwdBlur()"/></dd>
+          <div id="pwdId"></div>
+        </dl>
+         <dl>
+          <dt>重复登录密码：</dt>
+          <dd><input type="password" id="repwd" class="inputs"  onblur="repwdBlur()"/></dd>
+          <div id="repwdId"></div>
+        </dl>
+        <dl>
+          <dt>性别：</dt>
+          <dd><input name="sex" type="radio" value="" checked="checked"/>男 <input name="sex" type="radio" value="" />女 </dd>
+        </dl>
+        <dl>
+          <dt>真实姓名：</dt>
+          <dd><input type="text" id="realName" class="inputs" /></dd>
+        </dl>
+        <dl>
+          <dt>昵称：</dt>
+          <dd><input type="text" id="nickName" class="inputs"  onfocus="nickNameFocus()" onblur="nickNameBlur()"/></dd>
+          <div id="nickNameId"></div>
+        </dl>
+        <dl>
+          <dt>关联手机号：</dt>
+          <dd><input type="text" id="tel" class="inputs"  onfocus="telFocus()" onblur="telBlur()" /></dd>
+          <div id="telId"></div>
+        </dl>
+        <dl>
+          <dt>保密邮箱：</dt>
+          <dd><input type="text" id="email" class="inputs" onfocus="emailFocus()" onblur="emailBlur()" /></dd>
+          <div id="emailId"></div>
+        </dl>
+        <dl>
+          <dt></dt>
+          <dd><input name=" " type="image" src="images/button.gif"/></dd>
+        </dl>
+      </form>
+    </td>
+    <td class="bg_right"></td>
+  </tr>
+  <tr>
+     <td class="bg bg_end_left"></td>
+    <td class="bg_end"></td>
+    <td class="bg bg_end_right"></td>
+  </tr>
+</table>
+
+</div>
+</body>
+</html>
