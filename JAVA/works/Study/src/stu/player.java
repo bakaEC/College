@@ -17,7 +17,6 @@ public class player {
      */
     System.out.println("请输入出拳：1.石头 2.剪刀 3.布");
     int choice = input.nextInt();
-    input.close();
     switch(choice){
         case 1: System.out.println("你出石头");
         break;

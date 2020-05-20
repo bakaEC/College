@@ -6,7 +6,7 @@ public class Game {
     player p;
     Computer c;
     int count;
-    Scanner input = new Scanner(System.in);
+
     
 
     //初始化
@@ -19,6 +19,7 @@ public class Game {
     //开始游戏
     public void startGame(){
         initial();
+        Scanner input = new Scanner(System.in);
         System.out.println("-------------欢迎进入游戏--------------");
         System.out.println("\n\t\t****************************");
         System.out.println("\t\t******猜拳来了*********");
@@ -38,10 +39,10 @@ public class Game {
         System.out.println("你选择了"+c.name);
         //开始游戏
         System.out.println("要开始吗？(y/n)");
-        String con;
-        con = input.next();
+
         int perFist;
         int comFist;
+        String con = input.next();
         while(con.equals("y")){
             perFist = p.choice();
             comFist = c.choice();
@@ -56,7 +57,7 @@ public class Game {
                 p.score++;
             }
             count++;
-            System.out.println("是否进行下一局？");
+            System.out.println("是否继续？");
             con = input.next();
         }
         calcScore();
@@ -71,7 +72,7 @@ public class Game {
     }
 
     public void showResult(){
-        System.out.print("游戏结束,总共PK了"+count+1+"局,");
+        System.out.print("游戏结束,总共PK了"+(count+1)+"局,");
         switch(calcScore()){
             case 1 : System.out.print("双方平局，得分："+p.score);break;
             case 2 : System.out.print("恭喜您赢了！您的得分："+p.score);break;
