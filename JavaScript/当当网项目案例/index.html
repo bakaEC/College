@@ -5,7 +5,52 @@
 <title>当当网首页</title>
 <link href="css/global.css" rel="stylesheet" type="text/css" />
 <link href="css/layout.css" rel="stylesheet" type="text/css" />
-
+<script type="text/javascript">
+  function $(element){
+     return document.getElementById(element);
+  }
+  //轮换广告
+  var scorll_img=new Array();//用数组来存放图片路径
+  scorll_img[0]="images/dd_scroll_1.jpg";
+  scorll_img[1]="images/dd_scroll_2.jpg";
+  scorll_img[2]="images/dd_scroll_3.jpg";
+  scorll_img[3]="images/dd_scroll_4.jpg";
+  scorll_img[4]="images/dd_scroll_5.jpg";
+  scorll_img[5]="images/dd_scroll_6.jpg";
+  //按钮的ID编号
+  var scroll_number=new Array();
+  scroll_number[0] ="scroll_number_1";
+  scroll_number[1] ="scroll_number_2";
+  scroll_number[0] ="scroll_number_3";
+  scroll_number[0] ="scroll_number_4";
+  scroll_number[0] ="scroll_number_5";
+  scroll_number[0] ="scroll_number_6";
+  
+  var NowFrame = 1;//最先显示第一张图片
+  var MaxFrame = 6;//一共六张图片
+  
+  function loopShow(d1){
+    if(Number(d1)){
+       NowFrame = d1; //设当前显示图片
+    }
+    for(var i=1;i<(MaxFrame+1);i++){
+       if(i==NowFrame){
+          document.getElementById("dd_scroll").src=scorll_img[i-1];//显示当前图片
+        document.getElementById("dd_scroll").className="scroll_number_over";//设置当前按键的CSS
+       }else{
+          document.getElementById("dd_scroll").className="scroll_number_out";//设置当前按键的CSS
+       }
+    }
+    
+    if(NowFrame==MaxFrame){
+        NowFrame=1;
+    }else{
+        NowFrame++;
+    }
+  }
+  
+  var theTime=setInterval('loopShow()',3000);
+	</script>
 </head>
 <body>
 <div id="right" class="right">
