@@ -48,8 +48,46 @@
         NowFrame++;
     }
   }
-  
-  var theTime=setInterval('loopShow()',3000);
+	var theTime=setInterval('loopShow()',3000);
+	
+	var bookCate = new Array();
+	bookCate[0] = "book_history";
+	bookCate[1] = "book_family";
+	bookCate[3] = "book_culture";
+	bookCate[4] = "book_novel";
+	
+	var bookClass = new Array();
+	bookClass[0] = "history";
+	bookClass[1] = "family";
+	bookClass[3] = "culture";
+	bookClass[4] = "novel";
+	
+	function bookPutUp(elementId){
+		for (var i = 0; i<bookCate.length;i++){
+			if (elementId == i){
+				document.getElementById(bookCate[i]).className = "book_show"£»
+				document.getElementById(bookClass[i]).className = "book_type_out";
+			}else{
+				document.getElementById(bookCate[i]).className = "book_none";
+				document.getElementById(bookClass[i]).className = "book_type";
+			}
+		}
+	}
+	var dome = $("dome");
+	var dome1 = $("dome1");
+	var dome2 = $("dome2");
+	var speed = 50;
+	dome2.innerHTML = dome1.innerHTML;
+	function moveTop(){
+		if(dome2.offsetTop - dome.scrollTop <= 0){
+			dome.scrollTop -= dome1.offsetHeight;
+		}else{
+		dome.scrollTop++;
+		}
+	}
+	var MyMar =setInterval(moveTop.speed);
+	dome.onmouseover = function(){clearInterval(MyMar)}
+	dome.onmouseout = function(){MyMar = setInterval(moveTop,speed);}
 	</script>
 </head>
 <body>

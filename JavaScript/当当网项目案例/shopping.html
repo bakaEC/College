@@ -5,7 +5,26 @@
 <title>当当网购物车页面</title>
 <link href="css/global.css" rel="stylesheet" type="text/css" />
 <link href="css/layout.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/shopping.js"></script>
+<script type="text/javascript" >
+	//显示和隐藏推荐
+	function shopping_commend_show(){
+		var imgId = document.getElementById("shopping_commend_arrow");
+		var sortId = document.getElementById("shopping_commend_sort");
+			sortId.style.display = "block";
+			imgId.src = "images/shopping_arrow_up.gif"
+	}
+	function shopping_commend_hide(){
+		var imgId = document.getElementById("shopping_commend_arrow");
+		var sortId = document.getElementById("shopping_commend_sort");
+			sortId.style.display = "none";
+			imgId.src = "images/shopping_arrow_down.gif"
+	}
+								
+								
+	
+</script>
+
+	
 </head>
 
 <body>
@@ -16,9 +35,9 @@
   <!--为您推荐商品开始-->
   <div class="shopping_commend">
      <div class="shopping_commend_left">根据您挑选的商品，当当为您推荐</div>
-     <div class="shopping_commend_right"><img src="images/shopping_arrow_up.gif" alt="shopping" id="shopping_commend_arrow" onClick="shopping_commend_show()"></div>
+     <div class="shopping_commend_right"><img src="images/shopping_arrow_up.gif" alt="shopping" id="shopping_commend_arrow" onMouseOver="shopping_commend_show()" onMouseOut="shopping_commend_hide()"></div>
   </div>
-  <div id="shopping_commend_sort">
+  <div id="shopping_commend_sort" style="display: none">
    <div class="shopping_commend_sort_left">
     <ul>
       <li class="shopping_commend_list_1">·<a href="#" class="blue">JavaScript DOM编程艺术</a></li>
