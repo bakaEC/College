@@ -1,0 +1,73 @@
+{
+  "name": "111",
+  "origin": [
+    -58,
+    69,
+    -117
+  ],
+  "current_version_id": 0,
+  "selection_normal": {
+    "name": "111"
+  },
+  "selection_simple": {
+    "name": "111",
+    "current": "Unnamed",
+    "boxes": [
+      {
+        "pos1": [
+          101,
+          62,
+          -79
+        ],
+        "pos2": [
+          101,
+          62,
+          -79
+        ],
+        "name": "Unnamed"
+      }
+    ],
+    "origin": [
+      -58,
+      69,
+      -117
+    ]
+  },
+  "last_seen_area": {
+    "name": "111",
+    "boxes": [
+      {
+        "pos1": [
+          -5,
+          90,
+          -101
+        ],
+        "pos2": [
+          -20,
+          68,
+          -85
+        ],
+        "name": "Unnamed"
+      }
+    ],
+    "origin": [
+      -58,
+      69,
+      -117
+    ]
+  },
+  "selection_mode": "SIMPLE",
+  "versions": [
+    {
+      "name": "111",
+      "file_name": "111_00001",
+      "area_offset": [
+        0,
+        0,
+        0
+      ],
+      "version": 1,
+      "timestamp": 1583142603067
+    }
+  ]
+}
