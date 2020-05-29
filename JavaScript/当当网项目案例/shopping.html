@@ -20,7 +20,49 @@
 			imgId.src = "images/shopping_arrow_down.gif"
 	}
 								
-								
+	function productCount(){
+		
+		var total = 0;
+		var save = 0;
+		var integral  = 0;
+		var point;
+		var price;
+		var number;
+		var ddPrice;
+		
+		var myTableTr = document.getElementById("myTableProduct").getElementsByTagName("tr");
+		for(var i = 0;i<myTableTr.length;i++){
+			point = myTableTr[i].getElementsByTagName("td")[1].getElementsByTagName("label")[0].innerHTML;
+			price = myTableTr[i].getElementsByTagName("td")[2].getElementsByTagName("label")[0].innerHTML;
+			ddPrice = myTableTr[i].getElementsByTagName("td")[3].getElementsByTagName("label")[0].innerHTML;
+			number = myTableTr[i].getElementsByTagName("td")[4].getElementsByTagName("label")[0].value;
+			integral += point*number;
+			total += ddPrice*number;
+			save +=(price - ddPrice)*number;
+		}
+		document.getElementById("product_total").innerHTML=total;
+		document.getElementById("product_save").innerHTML=save;
+		document.getElementById("product_integral").innerHTML=integral;
+		
+	}			
+	window.onload = productCount;
+	
+	function deleteProduct(elementId){
+		var delElement = document.getElementById(elementId);
+		var flag = confirm("你确定要移除此商品？");
+		if (flag == true){
+			delElement.parentNode.removeChild(delElement);
+			productCount();
+		}
+	}
+	function productOver(elementid){
+		var Element = document.getElementById(elementid);
+		Element.style.backgroundColor="ffffff";
+	}
+	function productOut(elementid){
+		var Element = document.getElementById(elementid);
+		Element.style.backgroundColor="fefbf2";
+	}
 	
 </script>
 

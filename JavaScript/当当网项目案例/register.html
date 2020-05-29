@@ -5,7 +5,191 @@
 <title>当当网注册页面</title>
 <link href="css/global.css" rel="stylesheet" type="text/css" />
 <link href="css/layout.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/register.js"></script>
+<script type="text/javascript">
+	function emailFocus(){
+		var email = document.getElementById("email");
+		var promptid = document.getElementById("email_prompt");
+		email.className = "register_input register_input_Focus";
+		promptid.innerHTML="此邮箱是你登陆当当网的账号，用于接收验证邮件";
+		promptid.className="register_prompt";
+	}					
+	function emailBlur(){
+		var email = document.getElementById("email");
+		var promptid = document.getElementById("email_prompt");
+		promptid.innerHTML = "";
+		var reg = /^\w+@\w+(\.[A-Za-z]{2,3}){1,2}$/;
+		if(email.value == ""){
+			promptid.innerHTML = "不能为空";
+			promptid.className = "register_input register_input_Blur";
+			return false;
+		}
+		if(reg.test(email.value)==false){
+			promptid.innerHTML = "格式不正确";
+			promptid.className = "register_prompt_error";
+			email.className = "register_input register_input_Blur";
+			return false;
+		}
+		promptid.className = "register_prompt_ok";
+		email.className ="register_input";
+		return true;
+	}
+	
+	function nickNameFocus(){
+		var nickName = document.getElementById("nickName");
+		var nickNameid= document.getElementById("nickName_prompt");
+		nickName.className= "register_input register_input_Focus";
+		nickNameid.innerHTML = "大小写数字4-20";
+		nickNameid.className = "register_prompt";
+		
+	}
+	
+	function nickNameBlur(){
+		var nickName = document.getElementById("nickName");
+		var nickNameid = document.getElementById("nickName_prompt");
+		nickNameid.innerHTML = "";
+		var reg = /^[a-zA-Z0-9]{4,20}$/;
+		if(nickName.value == ""){
+			nickNameid.innerHTML = "不能为空";
+			nickNameid.className = "register_prompt_error";
+			nickName.className = "register_input register_input_Blur";
+			return false;
+		}
+		if(reg.test(nickName.value)==false){
+			nickNameid.innerHTML = "格式不正确";
+			nickNameid.className = "register_prompt_error";
+			nickName.className = "register_input register_input_Blur";
+			return false;
+		}
+		nickNameid.className = "register_prompt_ok";
+		nickName.className = "register_input";
+		return true;
+	}
+	function pwdFocus(){
+		var pwd = document.getElementById("pwd");
+		var pwdid= document.getElementById("pwd_prompt");
+		pwd.className= "register_input register_input_Focus";
+		pwdid.innerHTML = "大小写数字6-20";
+		pwdid.className = "register_prompt";
+		
+	}
+	
+	function pwdBlur(){
+		var pwd = document.getElementById("pwd");
+		var pwdid = document.getElementById("pwd_prompt");
+		pwdid.innerHTML = "";
+		var reg = /^[a-zA-Z0-9]{4,20}$/;
+		if(pwd.value == ""){
+			pwdid.innerHTML = "不能为空";
+			pwdid.className = "register_prompt_error";
+			pwd.className = "register_input register_input_Blur";
+			return false;
+		}
+		if(reg.test(pwd.value)==false){
+			pwdid.innerHTML = "格式不正确";
+			pwdid.className = "register_prompt_error";
+			pwd.className = "register_input register_input_Blur";
+			return false;
+		}
+		pwdid.className = "register_prompt_ok";
+		pwd.className = "register_input";
+		return true;
+	}
+	function repwdFocus(){
+		var repwd = document.getElementById("repwd");
+		repwd.className = "register_input register_input_Focus";
+	}
+	function repwdBlur(){
+		var repwd = document.getElementById("repwd");
+		var repwdid = document.getElementById("repwd_prompt");
+		repwdid.innerHTML = "";
+		if(repwd.value == ""){
+			repwdid.innerHTML = "不能为空";
+			repwdid.className = "register_prompt_error";
+			repwd.className = "register_input register_input_Blur";
+			return false;
+		}
+		if(pwd.value!=repwd.value){
+			repwdid.innerHTML = "两次不一致";
+			repwdid.className = "register_prompt_error";
+			repwd.className = "register_input register_input_Blur";
+			return false;
+		}
+		repwdid.className = "register_prompt_ok";
+		repwd.className = "register_input";
+		return true;
+	}
+	function checkRegister(){
+		emailBlur();
+		nickNameBlur();
+		pwdBlur();
+		repwdBlur();
+		var flagEmail = emailBlur();
+		var flagNickName=nickNameBlur();
+		var flagPwd = pwdBlur();
+		var flagRepwd = repwdBlur();
+		if(flagEmail == true && flagNickName == true && flagPwd == true && flagRepwd == true){
+			return true;
+		}else{
+			return false;
+		}
+	}
+	
+	var cityList = new Array();
+     cityList['北京市'] = ['朝阳区','东城区','西城区', '海淀区','宣武区','丰台区','怀柔','延庆','房山'];
+   cityList['上海市'] = ['宝山区','长宁区','丰贤区', '虹口区','黄浦区','青浦区','南汇区','徐汇区','卢湾区'];
+   cityList['广州省'] = ['广州市','惠州市','汕头市','珠海市','佛山市','中山市','东莞市'];
+     cityList['深圳市'] = ['福田区', '罗湖区', '盐田区', '宝安区', '龙岗区', '南山区', '深圳周边'];
+   cityList['重庆市'] = ['俞中区', '南岸区', '江北区', '沙坪坝区', '九龙坡区', '渝北区', '大渡口区', '北碚区'];
+     cityList['天津市'] = ['和平区', '河西区', '南开区', '河北区', '河东区', '红桥区', '塘古区', '开发区'];
+   cityList['江苏省'] = ['南京市','苏州市','无锡市'];
+   cityList['浙江省'] = ['杭州市','宁波市','温州市'];
+   cityList['四川省'] = ['四川省','成都市'];
+   cityList['海南省'] = ['海口市'];
+   cityList['福建省'] = ['福州市','厦门市','泉州市','漳州市'];
+   cityList['山东省'] = ['济南市','青岛市','烟台市'];
+   cityList['江西省'] = ['江西省','南昌市'];
+   cityList['广西省'] = ['柳州市','南宁市'];
+   cityList['安徽省'] = ['安徽省','合肥市'];
+   cityList['河北省'] = ['邯郸市','石家庄市'];
+   cityList['河南省'] = ['郑州市','洛阳市'];
+   cityList['湖北省'] = ['武汉市','宜昌市'];
+   cityList['湖南省'] = ['湖南省','长沙市'];
+   cityList['陕西省'] = ['陕西省','西安市'];
+   cityList['山西省'] = ['山西省','太原市'];
+   cityList['黑龙江省'] = ['黑龙江省','哈尔滨市'];
+   cityList['其他'] = ['其他'];
+
+	function changeCity(){
+		var province = document.getElementById("province").value;
+		var city = document.getElementById("city");
+		city.options.length = 0;
+		for(var i in cityList){
+			if(i == province){
+				for(var j in cityList[i]){
+					try{
+						city.add(new Option(cityList[i][j],cityList[i][j]),null);
+				}catch(e){
+					city.add(new Option(cityList[i][j],cityList[i][j]));
+				}
+			}
+		}
+	}
+	}
+	function allProvince(){
+		
+		var province = document.getElementById("province");
+		for(var i in cityList){
+			try{
+				province.add(new Option(i,i),null);
+			}catch(e){
+				province.add(new Option(i,i));
+			}
+		}
+	}
+	
+	
+	
+	</script>
 </head>
 
 <body>
