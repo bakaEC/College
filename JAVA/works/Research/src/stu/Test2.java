@@ -17,7 +17,6 @@ public class Test2 {
         st3.name = "张三";
         st3.age = 18;
         st3.score = 93;
-        StudentBiz stb = new StudentBiz();
 
     }
 }

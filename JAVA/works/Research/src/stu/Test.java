@@ -21,16 +21,17 @@ public class Test {
         }
         cb.showNames();
         System.out.println("\n请输入要修改的客户姓名");
-        String oldname = input.next();
+        String oldName = input.next();
         System.out.println("请输入新的用户名");
-        String newname = input.next();
+        String newName = input.next();
         System.out.println("*************修改结果************");
-        if (cb.editName(oldname, newname) == true) {
+        if (cb.editName(oldName, newName) == true) {
             System.out.println("修改成功！");
             cb.showNames();
         }
-        if (cb.editName(oldname, newname) == false) {
+        if (cb.editName(oldName, newName) == false) {
             System.out.println("修改失败！");
         }
+        input.close();
     }
 }
