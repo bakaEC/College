@@ -1,0 +1,141 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+	table{
+		border-collapse: collapse;
+	}
+	td{
+		border: solid #966 1px;
+		height: 36px;
+		width: 36px;
+		cursor: pointer;
+	}
+	td img{
+		height: 30px;
+		width: 30px;
+		border: solid #fff 2px;
+		opacity: 0.8;
+	}
+</style>
+	
+<script type="text/javascript">
+	var X = 16;
+	var Y = 14;
+	var types = 6;
+	var arr= new Array(Y);
+	var tb1;
+	var p1 = null;//坐标
+	var p2 = null;
+	var e1 = null;
+	var e21 = null;//元素  
+	
+	function getPath(p1,p2){
+		if (p1.x>p2.x){
+			var t = p1;
+			p1 = p2;
+			p2 = t;
+		}else if(p1.x==p2.x){
+			if(p1.y>p2.y){
+				var t = p1;
+				p1 = p2;
+				p2 = t;
+			}
+		}
+		//第一种，两点在一条直线上且可以联通
+		if(onlineY(p1,p2)||onlineX(p1,p2)&&hasLine(p1,p2)){
+			status = "type 1";
+			return [p1,p2];
+		}
+		//第二种，如果两点中任意一点被全包围，则不通
+		if(!isEmpty({x:p1.x,y:p1.y+1})&&!isEmpty({x:p1.x,y:p1.y-1})&&!isEmpty({x:p1.x-1,y:p1,y})&&!isEmpty({x:p1.x+1,y:p1.y})){
+			status = "type 2"
+			return null;
+		}
+		if(!isEmpty({x:p2.x,y:p2.y+1})&&!isEmpty({x:p2.x,y:p2.y-1})&&!isEmpty({x:p2.x-1,y:p2,y})&&!isEmpty({x:p2.x+1,y:p2.y})){
+			status = "type 2"
+			return null;
+		}
+		//第三种，两点在一条直线上，但不能直线链接
+		var pt0,pt1,pt2,pt3;
+		if(onlineX(p1,p2)){
+			for(var i = 0;i<Y;i++){
+				if(i==p1.y){
+					continue;
+				}
+				pt0 = p1;
+				pt1 = {x:p1.x,y:i};
+				pt1 = {x:p2.x,y:i};
+				pt3 = p2;
+				if(!isEmpty(pt1)||!isEmpty(pt2)){
+					continue;
+				}
+				if(hasLine(pt0,pt1)&&hasLine(pt1,pt2)&&hasLine(pt2,pt3)){
+					status = '(x:'+pt0.x+',y'+pt0.y+')'+'(x:'+pt1.x+',y:'+pt1.y+')'+'(x:'+pt2.x+',y:'+pt2.y+')'+'(x:'+pt3.x+',y:'+pt3.y+')';
+					return [pt0,pt1,pt2,pt3];
+				}
+			}
+		}
+		if(onLineY(p1,p2)){
+			for(var j = 0;j<X;j++){
+				if(j==p1.x){
+					continue;
+				}
+			pt0 = p1;
+			pt1 = {x:j,y:p1.y};
+			pt2 = {x:j,y:p2.y};
+			pt3 = p2;
+			if(!isEmpty(pt1)||isEmpty(pt2)){
+				continue;
+			}
+				if(hasLine(pt0,pt1)&&hasLine(pt1,pt2)&&hasLine(pt2,pt3)){
+					status = '(x:'+pt0.x+',y'+pt0.y+')'+'(x:'+pt1.x+',y:'+pt1.y+')'+'(x:'+pt2.x+',y:'+pt2.y+')'+'(x:'+pt3.x+',y:'+pt3.y+')';
+					return [pt0,pt1,pt2,pt3];
+				}
+			}
+		}
+		for(var k = 0;k<Y;k++){
+			pt0 = p1;
+			pt1 = {x:p1.x,y : k};
+			pt2 = {x:p2.x,y : k};
+			pt3 = p2;
+			status = '(x:'+pt0.x+',y'+pt0.y+')'+'(x:'+pt1.x+',y:'+pt1.y+')'+'(x:'+pt2.x+',y:'+pt2.y+')'+'(x:'+pt3.x+',y:'+pt3.y+')';
+			if(equal(pt0,pt1)){
+				if(!isEmpty(pt2)){
+					continue;
+				}
+				if(hasLine(pt1,pt2)&&hasLine(pt2,pt3)){
+					return [pt1,pt2,pt3];
+				}else{
+					continue;
+				}
+			}
+			else if(equal(pt2,pt3)){
+				if(!isEmpty(pt1)){
+					continue;
+				}
+				if(hasLine(pt1,pt2)&&hasLine(pt2,pt3)){
+					return[pt0,pt1,pt2];
+				}else{
+					continue;
+			}
+		}
+			if(!isEmpty(pt1)||isEmpty(pt2)){
+				continue;
+			}
+			if(hasLine(pt0,pt1)&&hasLine(pt1,pt2)&&hasLine(pt2,pt3)){
+				return [pt0,pt1,pt2,pt3];
+			}
+		}
+	
+	</script>
+</head>
+
+<body>
+	连连看小游戏
+	<table id = "tb1" cellspacing="0" cellpadding="0" border="1">
+	</table>
+</body>
+</html>

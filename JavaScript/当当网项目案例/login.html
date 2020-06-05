@@ -5,7 +5,44 @@
 <title>当当网登录页面</title>
 <link href="css/global.css" rel="stylesheet" type="text/css" />
 <link href="css/layout.css" rel="stylesheet" type="text/css" />
-<script type="text/javascript" src="js/login.js"></script>
+<script type="text/javascript">
+	function emailFocus(){
+		var email = document.getElementById("email");
+		email.className = "login_content_input login_content_input_Focus";
+		
+	}
+	function emailBlur(){
+		var email = document.getElementById("email");
+		email.className = "login_content_input";
+		
+	}
+	function pwdFocus(){
+		var pwd = document.getElementById("pwd");
+		pwd.className = "login_content_input login_content_input_Focus";
+		
+	}
+	function pwdBlur(){
+		var pwd = document.getElementById("pwd");
+		pwd.className = "login_content_input";
+		
+	}
+	//单击登陆按钮的时候，要验证email是否为空
+	function checkLogin(){
+		var email = document.getElementById("email").value;
+		var pwd = document.getElementById("pwd").value;
+		if(email == ""){
+			alert("请输入Email地址或昵称");
+			return false;
+			
+		}
+		if(pwd ==""){
+			alert("请输入密码");
+	}
+		return true;
+	function jump(){
+		window.location.href = "register.html";
+	}
+	</script>
 </head>
 
 <body>
