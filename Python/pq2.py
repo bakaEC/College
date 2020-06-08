@@ -18,7 +18,8 @@ while (True):
     urls = re.findall('<img src="(.*?)"  />', html)
     dir_name = re.findall('<title>(.*?)</title>', html)
     ddir = ''.join(dir_name)
-    os.mkdir("E:/GHS_research/PIC/" + ddir)
+    if not os.path.exists("E:/GHS_research/PIC/" + ddir):
+        os.mkdir("E:/GHS_research/PIC/" + ddir)
     print(ddir)
 
     for url in urls:
@@ -27,8 +28,9 @@ while (True):
         i += 1
         file_name = url.split('/')[-1]
         response = requests.get(url, headers=headers)
-        with open("E:/GHS_research/PIC/"+ddir + "/" + file_name, 'wb') as f:
-            f.write(response.content)
+        with open("E:/GHS_research/PIC/" + ddir + "/" + file_name, 'wb') as f:
+            if not os.path.exists("E:/GHS_research/PIC/" + ddir + "/" + file_name):
+                f.write(response.content)
     mainoff = re.findall('<a href="(.*?)" class="am_img_bg">', html)[1]
     print(mainoff)
     main = 'http://www.lyckapp.com/'+mainoff
