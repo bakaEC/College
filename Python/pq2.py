@@ -10,27 +10,25 @@ import re
 headers = {
     'user-agent': 'adapt'
 }
-main = 'http://www.lyckapp.com/index.php?p=3&type=0&mg_code=154207'
-r = 3
+main = 'http://www.lyckapp.com/index.php?p=3&type=0&mg_code=123270'
 while (True):
+    i = 1
     response = requests.get(main, headers=headers)
     html = response.text
     urls = re.findall('<img src="(.*?)"  />', html)
     dir_name = re.findall('<title>(.*?)</title>', html)
     ddir = ''.join(dir_name)
+    os.mkdir("E:/GHS_research/PIC/" + ddir)
+    print(ddir)
 
-    os.mkdir("E:/GHS/" + ddir + str(r))
-    print(ddir+str(r))
-
-    print(urls)
     for url in urls:
-        time.sleep(0.1)
+        time.sleep(0.01)
+        print(i)
+        i += 1
         file_name = url.split('/')[-1]
         response = requests.get(url, headers=headers)
-        with open("E:/GHS/" + ddir + str(r) + "/" + file_name, 'wb') as f:
+        with open("E:/GHS_research/PIC/"+ddir + "/" + file_name, 'wb') as f:
             f.write(response.content)
     mainoff = re.findall('<a href="(.*?)" class="am_img_bg">', html)[1]
     print(mainoff)
     main = 'http://www.lyckapp.com/'+mainoff
-    print(main)
-    r += 1
