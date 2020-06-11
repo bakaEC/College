@@ -24,7 +24,8 @@ CREATE TABLE IF NOT EXISTS student( studentId INT(4) PRIMARY KEY, studentName VA
 ```
 - ### 创建学生表 字段的约束及属性 主键 注释 字符集
 ```
-CREATE TABLE IF NOT EXISTS student ( studentId INT(4) PRIMARY KEY, studentName VARCHAR(20)) COMMENT="学生表" DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS student ( studentId INT(4) PRIMARY KEY, studentName VARCHAR(20)) 
+COMMENT="学生表" DEFAULT CHARSET=utf8;
 ```
 - ### 查看表
 ```
@@ -66,12 +67,15 @@ CREATE TABLE tongxunlu (SELECT studentname,phone, FROM student);
 ```
 - ### 把成绩都降低10%后加5分，再查询及格成绩，并按照成绩从高到低排序
 ```
-SELECT studentresult*0.9+5 FROM result WHERE studentresult*0.9+5>=60 ORDER BY studentresult*0.9+5 DESC;
+SELECT studentresult*0.9+5 FROM result WHERE studentresult*0.9+5>=60 
+ORDER BY studentresult*0.9+5 DESC;
 ```
 - ### 查询所有年级编号为1的学员信息，按学号升序排序，显示前4条记录，每页4条，显示第2页，即从第5条记录开始显示4条数据
 ```
 SELECT * FROM student WHERE gradeId = 1 ORDER BY studentNo LIMIT 4,4;
+```
 - ### 将学生表中学号为20000的学生的邮箱修改为stu20000@163.com，密码改为000
+```
 UPDATE student SET email='stu20000@163.com' WHERE studentNO = 20000;
 ```
 - ### 将科目表中课时数大于200且年级编号为1的科目的课时减少10
@@ -84,7 +88,8 @@ CREATE TABLE student_grade1(SELECT studentName,sex,bornDate,phone FROM student);
 ```
 - ### 查询2016年2月17日考试前5名的学员的学号和分数
 ```
-SELECT studentNO,studentresult FROM result WHERE examdate = '2016-02-17' ORDER BY studentresult DESC LIMIT 5;
+SELECT studentNO,studentresult FROM result WHERE examdate = '2016-02-17' 
+ORDER BY studentresult DESC LIMIT 5;
 ```
 - ### 将所有女学生按年龄从大到小排序，从第2条记录开始显示6名女学生的姓名、年龄、出生日期、手机号信息
 ```
@@ -100,7 +105,10 @@ SELECT * FROM student WHERE bornDate < (SELECT borndate FROM student WHERE stude
 ```
 - ### 查询参加最近一次Logic Java考试成绩的学生的最高分和最低分
 ```
-SELECT MAX(studentResult),MIN(studentResult) FROM result WHERE examDate = (SELECT MAX(examdate) FROM result WHERE subjectno = (SELECT subjectno FROM `subject` WHERE subjectName = 'logicjava'));
+SELECT MAX(studentResult),MIN(studentResult) FROM result 
+WHERE examDate = (SELECT MAX(examdate) FROM result 
+WHERE subjectno = (SELECT subjectno FROM `subject` 
+WHERE subjectName = 'logicjava'));
 ```
 - ### 查询“Logic Java”课程考试成绩为60分的学生名单
 ```
