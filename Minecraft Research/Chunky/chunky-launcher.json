@@ -1,0 +1,15 @@
+{
+  "updateSite": "http://chunky.nyakon.wang/CN/",
+  "javaDir": "C:\\Program Files\\Java\\jre1.8.0_251",
+  "memoryLimit": 1024,
+  "showConsole": false,
+  "verboseLogging": false,
+  "verboseLauncher": false,
+  "closeConsoleOnExit": true,
+  "javaOptions": "-Dprism.order=sw",
+  "chunkyOptions": "",
+  "version": "latest",
+  "showLauncher": true,
+  "showAdvancedSettings": true,
+  "downloadSnapshots": false
+}

@@ -1,0 +1,19 @@
+{
+  "name": "1.4.5汉化版",
+  "timestamp": "2020-02-14T14:05:50Z",
+  "notes": "1.4.5汉化版\n\n\n\n2020年02月14日14:05:50\n\n补充汉化若干\n\n\n\n2020年02月09日13:35:18\n\n初版汉化",
+  "libraries": [
+    {
+      "name": "chunky-core-cn-1.4.5.jar",
+      "md5": "16761C7558BA3EBCF490DCAE867BA7A0",
+      "url": "",
+      "size": 1231026
+    },
+    {
+      "name": "commons-math3-3.2.jar",
+      "md5": "AAA32530C0F744813570FF73DB018698",
+      "url": "",
+      "size": 1692782
+    }
+  ]
+}
