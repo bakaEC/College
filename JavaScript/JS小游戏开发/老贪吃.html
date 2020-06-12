@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>贪吃蛇</title>
+	
+</head>
+<body>
+	<script type="text/javascript">
+		document.write("请用方向键控制方向，空格键暂停")；
+		
+		var rowindex = new Array(40);
+		var colindex;
+		var cell;
+		//图像单元定义
+		var backcolor="black";
+		for(var i =0;i<40;i++){
+			colindex=new Array(40);
+			for(var j =0;j<40;j++){
+				
+				cell=document.createElement("div");
+				cell.style.width="10px";
+				cell.style.height="10px";
+				cell.style.position="absolute";
+				cell.style.left=""+(j*10+100)+px;
+				cell.style.top=""+(i*10+100)+px;
+				cell.style.overflow="hidden";
+				//添加单元
+				document.body.appendChild(cell);
+				//填充列
+				colindex[j]=cell;
+			}
+				//填充行
+				rowindex[i]=colindex;
+		}
+		
+		//创建类，创建基本图像单元
+		function snake(){
+			
+			this.bodycolor="white";
+			this.bodys = new Array();
+			for(var i =20;i<20;i++){
+				rowindex[20][i].style.backgroundColor=this.bodycolor;
+				this.bodys.push(rowindex[20][i]);
+			}
+			
+			this.head=[20][20];
+			//定义方向，左下右上
+			this.direct=0; 
+		}
+		
+		
+	</script>
+</body>
+</html>
