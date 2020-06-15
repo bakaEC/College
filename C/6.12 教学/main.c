@@ -8,13 +8,17 @@ int main() {
 	int a = 7/4;				//int 整型 
 	int a2 = 7%4;				//%模运算 
 	long int a1 = 1;			//长整型 
-	float b = 1232.0; 			//float 浮点型->单精度浮点数 
+	float b = 1232.6; 			//float 浮点型->单精度浮点数 
 	double b1 = 2.12313;		//double 长浮点->双精度浮点数 
 	char c = 'a'; 				//char 字符型
 	
 	printf("整型:%d\n浮点数:%.1f\n字符型:%c\n",a,b,c);
 	printf("整型:%d\t浮点数:%.1f\t字符型:%c\n\n",a,b,c);
-	printf("模：%d\n\n",a2);		//  \n 换行  \t	tab			
+	printf("模：%d\n\n",a2);		//  \n 换行  \t	tab	
+	
+	//printf("c=%c,(int)c=%d",c+1,(int)c+1);	//强制转型 
+	
+			
 //		printf("请输入a和a2的值,用逗号隔开：");
 //		scanf("%d,%d",&a,&a1);				//输入函数 记得&寄存符号 
 //		printf("a=%d a1=%d",a,a1);

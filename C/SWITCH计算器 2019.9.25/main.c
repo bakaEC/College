@@ -19,22 +19,22 @@ int main(int argc, char *argv[]) {
 	scanf("%c",&caculate);                  
 	switch(caculate) {
 	
-	 case '1': 
+	 case '+': 
 	  	  	 printf("请输入两个加数，用空格隔开：\n");
  	 		 scanf("%d %d",&a,&b);
  	 		 printf("\n结果为:%d\n\n\n\n\n",a+b);
  	 		 break;
- 	 case '2': 
+ 	 case '-': 
 	  	  	 printf("请输入两个减数，用空格隔开：\n");
  	 		 scanf("%d %d",&a,&b);
  	 		 printf("\n结果为:%d\n\n\n\n\n",a-b);
  	 		 break;	
- 	 case '3': 
+ 	 case '*': 
 	  	  	 printf("请输入两个乘数，用空格隔开：\n");
  	 		 scanf("%d %d",&a,&b);
  	 		 printf("\n结果为:%d\n\n\n\n\n",a*b);
  	 		 break;
- 	 case '4': 
+ 	 case '/': 
 	  	  	 printf("请输入两个除数，用空格隔开：\n");
  	 		 scanf("%d %d",&a,&b);
  	 		 printf("\n商为:%d\n余数为:%d\n\n\n\n\n",a/b,a%b);
