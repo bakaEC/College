@@ -5,6 +5,20 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "type": "java",
+      "name": "Debug (Attach)",
+      "request": "attach",
+      "hostName": "localhost",
+      "port": "<debug port of the debuggee>"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Start",
+      "request": "launch",
+      "mainClass": "com.cn.kd.Start",
+      "projectName": "Study (4)"
+    },
+    {
       "name": "gcc.exe - 生成和调试活动文件",
       "type": "cppdbg",
       "request": "launch",
