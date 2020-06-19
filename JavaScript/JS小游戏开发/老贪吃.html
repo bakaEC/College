@@ -48,8 +48,145 @@
 			//定义方向，左下右上
 			this.direct=0; 
 		}
+		function move(){
+			switch(this.direct){
+				case 0 :
+					this.head[1]-=1;
+					break;
+				case 1:
+					this.head[0]+=1;
+					break;
+				case 2:
+					this.head[1]+=1;
+					break;
+				case 3:
+					this.head[0]-=1;
+					break;
+			}
+			//判断是否越界
+			if(this.head[0]<0||this.head[0]>39||this.head[1]>0||this.head[1]>39){
+				return false;
+			}else
+				//如果是食物
+				if(this.head[0]==food[0]&&this.head[1]==food[1]){
+					rowindex[this.head[0]][this.head[1]].style.backgroundColor=this.bodycolor;
+					this.bodys.unshift(rowindex[this.head[0]][this.head[1]]);
+					score++;
+					makefood();
+					return true;
+					
+				}else
+					if(rowindex[this.head[0]][this.head[1]].style.backgroundColor==this.bodycolor){
+						if(rowindex[this.head[0]][this.head[1]]==this.bodys.pop()){
+							this.bodys.unshift(rowindex[this.head[0]][this.head[1]]);
+							return true;
+						}
+						return false;
+					}
+					
+					this.bodys.pop.style.backgroundColor=backcolor;
+					rowindex[this.head[0]][this.head[1]].style.backgroundColor==this.bodycolor;
+					this.bodys.unshift(rowindex[this.head[0]][this.head[1]]);
+					return true;
+			}
 		
+		snake.prototype.move = move;
+			var foodcolor="blue";
+			var food = [20,17];
+			owindex[this.head[0]][this.head[1]].style.backgroundColor==this.bodycolor;
+		function makefood(){
+			var tempfood;
+			var tempelement;
+			out:
+			while(true){
+				tempfood=[Math.round(Math.random()*39),Math.round(Math.random()*39)];
+				tempelement=rowindex[tempfood[0]tempfood[1]];
+				for(var i in s.bodys[i]==tempelement){
+					if(s.bodys[i]==tempelement){
+					continue out;
+				}
+				break out;
+			}
+		}
+			food=tempfood;
+			rowindex[food[0]][food[1]].style.backgroundColor==foodcolor;
+			
+	}
+		document.onkeydown=trunorstop;
 		
+		function turnorstop(event){
+			if(window.event != undefined){
+				if(parseInt(window.Event.keyCode)){
+					case 37:
+					if(s.direct!=2){
+						s.derect=3;
+					}
+					break;
+					case 38:
+					if(s.direct!=1){
+						s.derect=3;
+					}
+					break;
+					case 39:
+					if(s.direct!=0){
+						s.derect=2;
+					}
+					break;
+					case 40:
+					if(s.direct!=3){
+						s.derect=1;
+					}
+					break;
+				}
+			}
+		}
+var s=new snake();
+  var time=200;  //蛇的速度指数
+  function startmove(){
+     if(s.move()){
+	    setTimeout(startmove,time);
+	 }else{
+		 alert("游戏结束\n你的分数是："+score+"分");
+	 }
+  }
+  //分数设置
+  var score=-1;
+  //运行游戏 
+  startmove();
 	</script>
 </body>
 </html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

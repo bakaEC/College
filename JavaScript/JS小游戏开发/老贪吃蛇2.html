@@ -1,0 +1,192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>贪吃蛇</title>
+</head>
+
+<body>
+<script type="text/javascript">
+document.write("用键盘方向键控制方向，空格键暂停。");
+//添加基本图形块，160个10*10的二维矩阵
+var rowindex = new Array(40);
+var colindex;
+var cell;
+//图像单元的定义
+var backcolor="black";
+for(var i=0;i<40;i++){
+  colindex=new Array(40);
+  for(var j=0;j<40;j++){
+     //设置每一个单元的属性
+	 cell = document.createElement("div");
+	 cell.style.backgroundColor=backcolor;
+	 cell.style.width="10px";
+	 cell.style.height="10px";
+	 cell.style.position="absolute";
+	 cell.style.left=""+(j*10+100)+"px";
+	 cell.style.top=""+(i*10+100)+"px";
+	 cell.style.overflow="hidden";
+	 //添加单元
+	 document.body.appendChild(cell);
+	 //填充列
+	 colindex[j]=cell;
+  }
+  //填充行
+  rowindex[i]=colindex;
+}
+
+//创建贪吃蛇类，创建基本图像单元
+function snake(){
+   //定义蛇的身体，并初始化
+   this.bodycolor="white";
+   this.bodys=new Array();
+   for(var i=20;i<21;i++){
+      rowindex[20][i].style.backgroundColor=this.bodycolor;
+	  this.bodys.push(rowindex[20][i]);
+   }
+   //定义蛇头部坐标
+   this.head=[20,20];
+   //定义蛇前进方向，0代表左，1代表下，2代表右，3代表上
+   this.direct=0;
+}
+
+//蛇的移动方法
+function move(){
+  //根据蛇头前进方向计算头部坐标
+  switch(this.direct){
+     case 0:
+	   this.head[1]-=1;
+	   break;
+	 case 1:
+	   this.head[0]+=1;
+	   break;
+	 case 2:
+	   this.head[1]+=1;
+	   break;
+	 case 3:
+	   this.head[0]-=1;
+	   break;
+  }
+  
+  //判断是否越界
+  if(this.head[0]<0||this.head[0]>39||this.head[1]<0||this.head[1]>39){
+     return false;
+  }else
+     //如果没有越界，如果食物被吃掉，并再生成新的食物
+	 if(this.head[0]==food[0]&&this.head[1]==food[1]){
+		 //如果是食物
+		 rowindex[this.head[0]][this.head[1]].style.backgroundColor=this.bodycolor;
+		 this.bodys.unshift(rowindex[this.head[0]][this.head[1]]);
+		 score++;
+		 makefood();  //重新生成食物
+		 return true;
+	 }else
+	    //如果是它自身
+		if(rowindex[this.head[0]][this.head[1]].style.backgroundColor==this.bodycolor){
+			if(rowindex[this.head[0]][this.head[1]]==this.bodys.pop()){  //如果是它的尾部
+			   this.bodys.unshift(rowindex[this.head[0]][this.head[1]]);
+			   return true;
+			}
+			
+			return false;   //如果不是尾部
+   }
+  	//以上情况都不是
+		this.bodys.pop().style.backgroundColor=backcolor;
+		rowindex[this.head[0]][this.head[1]].style.backgroundColor=this.bodycolor;
+		this.bodys.unshift(rowindex[this.head[0]][this.head[1]]);
+		return true;
+}
+
+  snake.prototype.move = move;
+  //生成食物模块
+  var foodcolor="blue";
+  var food=[20,17];
+  rowindex[food[0]][food[1]].style.backgroundColor=foodcolor;
+  function makefood(){
+	 var tempfood;
+	 var tempelement;
+	 out:
+	 while(true){
+	   tempfood=[Math.round(Math.random()*39),Math.round(Math.random()*39)];
+	   tempelement=rowindex[tempfood[0]][tempfood[1]];
+	   for(var i in s.bodys){
+	      if(s.bodys[i]==tempelement){  //生成的食物在蛇身上，跳出继续
+		     continue out; 
+		  }
+		  break out;  //生成食物成功
+	   }
+	 }
+	 food = tempfood;
+	 rowindex[food[0]][food[1]].style.backgroundColor=foodcolor;  
+  }
+  document.onkeydown = turnorstop;  //转向和暂停模块
+  
+  function turnorstop(event){
+    if(window.event != undefined){
+	  if(parseInt(window.event.keyCode)==32){
+	      alert("休息一下");
+	    }else{
+		   switch(parseInt(window.event.keyCode)){
+		      case 37:
+			  if(s.direct!=2)
+			    s.direct=0;
+			   break;
+			  case 38:
+			  if(s.direct!=1)
+			    s.direct=3;
+			   break;
+			  case 39:
+			  if(s.direct!=0)
+			    s.direct=2;
+			   break;
+			  case 40:
+			  if(s.direct!=3)
+			    s.direct=1;
+			   break;
+		   }
+		}
+	}else{
+	   if(parseInt(event.which)==32){
+	      alert("休息一下");
+	    }else{
+		   switch(parseInt(event.which)){
+		      case 37:
+			  if(s.direct!=2)
+			    s.direct=0;
+			   break;
+			  case 38:
+			  if(s.direct!=1)
+			    s.direct=3;
+			   break;
+			  case 39:
+			  if(s.direct!=0)
+			    s.direct=2;
+			   break;
+			  case 40:
+			  if(s.direct!=3)
+			    s.direct=1;
+			   break;
+		   }
+		}
+	}
+  }
+  
+  //启动游戏
+  var s=new snake();
+  var time=200;  //蛇的速度指数
+  function startmove(){
+     if(s.move()){
+	    setTimeout(startmove,time);
+	 }else{
+		 alert("游戏结束\n你的分数是："+score+"分");
+	 }
+  }
+  //分数设置
+  var score=-1;
+  //运行游戏 
+  startmove();
+</script>
+
+
+</body>
+</html>

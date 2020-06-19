@@ -6,6 +6,30 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - Snake",
+      "request": "launch",
+      "mainClass": "Snake"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch) - Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - Snake",
+      "request": "launch",
+      "mainClass": "de.ImOlli.game.Snake"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - App",
+      "request": "launch",
+      "mainClass": "App"
+    },
+    {
+      "type": "java",
       "name": "Debug (Attach)",
       "request": "attach",
       "hostName": "localhost",
