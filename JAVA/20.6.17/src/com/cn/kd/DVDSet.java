@@ -2,7 +2,8 @@ package com.cn.kd;
 
 public class DVDSet {
 
-	 String[] name=new String[50];  //´æ·ÅDVDÃû³ÆÊı×é
-	 int[] state=new int[50];   //´æ·ÅDVD½è³ö×´Ì¬ 0ÒÑ½è³ö£¬1¿É½è
-	 String[] date=new String[50];  //´æ·ÅDVD½è³öÈÕÆÚ
+	 String[] name=new String[50];  //å­˜æ”¾DVDåç§°æ•°ç»„
+	 int[] state=new int[50];   //å­˜æ”¾DVDå€Ÿå‡ºçŠ¶æ€ 0å·²å€Ÿå‡ºï¼Œ1å¯å€Ÿ
+	 String[] date=new String[50];  //å­˜æ”¾DVDå€Ÿå‡ºæ—¥æœŸ
+	 int[] count=new int[50];  //å€Ÿå‡ºæ¬¡æ•°
 }

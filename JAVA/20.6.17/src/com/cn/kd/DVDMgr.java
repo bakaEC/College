@@ -1,36 +1,39 @@
 package com.cn.kd;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.*;
 public class DVDMgr {
 
 	DVDSet dvd = new DVDSet();
-	//³õÊ¼»¯Êı¾İ
+	//åˆå§‹åŒ–æ•°æ®
 	public void initial(){
-		dvd.name[0]="ÂŞÂí¼ÙÈÕ";
+		dvd.name[0]="ç½—é©¬å‡æ—¥";
 		dvd.state[0]=0;
 		dvd.date[0]="2013-7-1";
 		
-		dvd.name[1] ="·çÉùº×à¦";
+		dvd.name[1] ="é£å£°é¹¤å”³";
 		dvd.state[1]=1;
 		
-		dvd.name[2] ="ÀËÂşÂúÎİ";
+		dvd.name[2] ="æµªæ¼«æ»¡å±‹";
 		dvd.state[2]=1;
 		
-		dvd.name[3] ="´ó»°Î÷ÓÎ";
+		dvd.name[3] ="å¤§è¯è¥¿æ¸¸";
 		dvd.state[3]=1;
 	}
-	//¿ªÊ¼²Ëµ¥
+	//å¼€å§‹èœå•
 	public void startMenu(){
-	   System.out.println("»¶Ó­Ê¹ÓÃ¿Æ´óÃÔÄãDVD¹ÜÀíÏµÍ³");
+	   System.out.println("æ¬¢è¿ä½¿ç”¨ç§‘å¤§è¿·ä½ DVDç®¡ç†ç³»ç»Ÿ");
 	   System.out.println("---------------------------");
-	   System.out.println("1.ĞÂÔöDVD");
-	   System.out.println("2.²é¿´DVD");
-	   System.out.println("3.É¾³ıDVD");
-	   System.out.println("4.½è³öDVD");
-	   System.out.println("5.¹é»¹DVD");
-	   System.out.println("6.ÍË       ³ö");
+	   System.out.println("1.æ–°å¢DVD");
+	   System.out.println("2.æŸ¥çœ‹DVD");
+	   System.out.println("3.åˆ é™¤DVD");
+	   System.out.println("4.å€Ÿå‡ºDVD");
+	   System.out.println("5.å½’è¿˜DVD");
+	   System.out.println("6.æŸ¥çœ‹æ’è¡Œ");
+	   System.out.println("7.é€€       å‡º");
 	   System.out.println("---------------------------");
 	   
-	   System.out.println("ÇëÑ¡Ôñ£º");
+	   System.out.println("è¯·é€‰æ‹©ï¼š");
 	   Scanner input = new Scanner(System.in);
 	   int choice=input.nextInt();
 	   switch(choice){
@@ -50,44 +53,49 @@ public class DVDMgr {
 	    	  returnMain();
 	    	  break;
 	      case 4:
-	    	  System.out.println("´Ë´¦ÊµÏÖ½è³öDVD");
+	    	  lend();
 	    	  System.out.println("--------------");
 	    	  returnMain();
 	    	  break; 
 	      case 5:
-	    	  System.out.println("´Ë´¦ÊµÏÖ¹é»¹DVD");
+	    	  returnDvd();
 	    	  System.out.println("--------------");
 	    	  returnMain();
 	    	  break;
 	      case 6:
-	    	  System.out.println("Ğ»Ğ»Ê¹ÓÃ£¡");
+	    	  list();
+	    	  System.out.println("--------------");
+	    	  returnMain();
+	    	  break;    
+	      case 7:
+	    	  System.out.println("è°¢è°¢ä½¿ç”¨ï¼");
 	    	  break;
 	   }
 	}
 	
-	//·µ»ØÖ÷²Ëµ¥
+	//è¿”å›ä¸»èœå•
 	public void returnMain(){
 	   Scanner input=new Scanner(System.in);
-	   System.out.println("ÊäÈë0·µ»Ø£º");
+	   System.out.println("è¾“å…¥0è¿”å›ï¼š");
 	   if(input.nextInt()==0){
 		   startMenu();
 	   }else{
-		   System.out.println("ÊäÈë´íÎó£¬Òì³£ÖÕÖ¹£¡");
+		   System.out.println("è¾“å…¥é”™è¯¯ï¼Œå¼‚å¸¸ç»ˆæ­¢ï¼");
 	   }
 	}
 	
-	//²é¿´DVD
+	//æŸ¥çœ‹DVD
 	public void search(){
-	  System.out.println("--------->²é¿´DVD\n");
-	  System.out.println("ĞòºÅ\t×´Ì¬\tÃû³Æ\t\t½è³öÈÕÆÚ");
+	  System.out.println("--------->æŸ¥çœ‹DVD\n");
+	  System.out.println("åºå·\tçŠ¶æ€\tåç§°\t\tå€Ÿå‡ºæ—¥æœŸ");
 	  for (int i = 0; i < dvd.name.length; i++) {
 		if(dvd.name[i]==null){
 			break;
 		}else if(dvd.state[i]==0){
-			System.out.println((i+1)+"\tÒÑ½è³ö\t"+"<<"+dvd.name[i]+
+			System.out.println((i+1)+"\tå·²å€Ÿå‡º\t"+"<<"+dvd.name[i]+
 					">>\t"+dvd.date[i]);	
 		}else if(dvd.state[i]==1){
-			System.out.println((i+1)+"¿É½è\t"+"<<"+dvd.name[i]+
+			System.out.println((i+1)+"å¯å€Ÿ\t"+"<<"+dvd.name[i]+
 					">>");
 		}
 	}
@@ -95,17 +103,17 @@ public class DVDMgr {
 	 returnMain();
 	}
 	
-	//ĞÂÔöDVD
+	//æ–°å¢DVD
 	public void add(){
 		Scanner input = new Scanner(System.in);
-		System.out.println("----->ĞÂÔöDVD");
-		System.out.println("ÇëÊäÈëDVDÃû³Æ£º");
+		System.out.println("----->æ–°å¢DVD");
+		System.out.println("è¯·è¾“å…¥DVDåç§°ï¼š");
 		String name=input.next();
 		for (int i = 0; i < dvd.name.length; i++) {
-			if(dvd.name[i]==null){ //²éÑ¯×îºóÒ»¸ö¿ÕÎ»ÖÃ²åÈë
+			if(dvd.name[i]==null){ //æŸ¥è¯¢æœ€åä¸€ä¸ªç©ºä½ç½®æ’å…¥
 				dvd.name[i]=name;
-				dvd.state[i]=1;//ÖÃĞÂÔöµÄDVD¿É½è×´Ì¬
-				System.out.println("ĞÂÔö¡¶"+name+"¡·³É¹¦£¡");
+				dvd.state[i]=1;//ç½®æ–°å¢çš„DVDå¯å€ŸçŠ¶æ€
+				System.out.println("æ–°å¢ã€Š"+name+"ã€‹æˆåŠŸï¼");
 				break;
 				
 			}
@@ -114,14 +122,14 @@ public class DVDMgr {
 		returnMain();
 	}
 	
-	//É¾³ıDVD
+	//åˆ é™¤DVD
 	public void delete(){
 		Scanner input=new Scanner(System.in);
-		boolean flag=false;  //±êÊ¶É¾³ı³É¹¦Óë·ñ
-		System.out.println("----------->É¾³ıDVD\n");
-		System.out.println("ÇëÊäÈëDVDÃû³Æ");
+		boolean flag=false;  //æ ‡è¯†åˆ é™¤æˆåŠŸä¸å¦
+		System.out.println("----------->åˆ é™¤DVD\n");
+		System.out.println("è¯·è¾“å…¥DVDåç§°");
 		String name = input.next();
-		//±éÀúÊı×é£¬²éÕÒÏà¹ØĞÅÏ¢
+		//éå†æ•°ç»„ï¼ŒæŸ¥æ‰¾ç›¸å…³ä¿¡æ¯
 		for (int i = 0; i < dvd.name.length; i++) {
 			if(dvd.name[i]!=null&&dvd.name[i].equalsIgnoreCase(name)
 					&&dvd.state[i]==1){
@@ -132,25 +140,131 @@ public class DVDMgr {
 					dvd.date[j]=dvd.date[j+1];
 					j++;
 				}
-				//×îºóÒ»¸ö²»Îª¿ÕµÄÔªËØÖÃ¿Õ
+				//æœ€åä¸€ä¸ªä¸ä¸ºç©ºçš„å…ƒç´ ç½®ç©º
 				dvd.name[j]=null;
 				dvd.date[j]=null;
-				System.out.println("É¾³ı¡¶"+name+"¡·³É¹¦£¡");
-				flag=true;//ÖÃÎ»£¬±íÊ¾É¾³ı³É¹¦
+				System.out.println("åˆ é™¤ã€Š"+name+"ã€‹æˆåŠŸï¼");
+				flag=true;//ç½®ä½ï¼Œè¡¨ç¤ºåˆ é™¤æˆåŠŸ
 				break;
 			}else if(dvd.name[i]!=null&&dvd.name[i].equalsIgnoreCase(name)
 					&&dvd.state[i]==0){
-				System.out.println("¡¶"+name+"¡·Îª½è³ö×´Ì¬£¬²»ÄÜÉ¾³ı£¡");
-				flag=true;//ÖÃÎ»
+				System.out.println("ã€Š"+name+"ã€‹ä¸ºå€Ÿå‡ºçŠ¶æ€ï¼Œä¸èƒ½åˆ é™¤ï¼");
+				flag=true;//ç½®ä½
 				break;
 			}
 		}
 		if(!flag){
-			System.out.println("Ã»ÓĞÕÒµ½ÒªÉ¾³ıµÄĞÅÏ¢£¡");
+			System.out.println("æ²¡æœ‰æ‰¾åˆ°è¦åˆ é™¤çš„ä¿¡æ¯ï¼");
 		}
 		System.out.println("***************************");
 		returnMain(); 
 	}
 	
+	//å€Ÿå‡ºDVD
+	public void lend(){
+		System.out.println("************å€Ÿå‡ºDVD**********/n");
+		Scanner input = new Scanner(System.in);
+		System.out.println("è¯·è¾“å…¥DVDçš„åç§°ï¼š");
+		String want= input.next();
+		for (int i = 0; i <dvd.name.length; i++) {
+			if(dvd.name[i]==null){
+				System.out.println("æ²¡æœ‰æ‰¾åˆ°åŒ¹é…ä¿¡æ¯ï¼");
+				break;
+			}else if(dvd.name[i].equals(want)&&dvd.state[i]==1){
+				dvd.state[i]=0;
+				System.out.println("è¯·è¾“å…¥å€Ÿå‡ºæ—¥æœŸï¼ˆ****å¹´-**æœˆ-**æ—¥ï¼‰");
+				dvd.date[i]=input.next();
+				System.out.println("å€Ÿå‡ºã€Š"+want+"ã€‹æˆåŠŸï¼");
+				dvd.count[i]++;
+				break;
+			}else if(dvd.name[i].equals(want)&&dvd.state[i]==0){
+				System.out.println("ä½ è¦å€Ÿã€Š"+want+"ã€‹å·²è¢«å€Ÿå‡ºï¼è¯·é‡æ–°é€‰æ‹©ï¼");
+				break;
+			}
+		}
+		System.out.println("***************************");
+		returnMain();
+	}
 	
+	
+	//è®¡ç®—æ—¥æœŸå·®
+	public long charge(String dstr1,String dstr2){
+		long charge=0;
+		SimpleDateFormat sd =new SimpleDateFormat("yyyy-MM-dd");
+		try{
+			Date d1=sd.parse(dstr1);
+			Date d2=sd.parse(dstr2);
+			charge=(d2.getTime()-d1.getTime())/(24*60*60*1000);
+		}catch(ParseException e){
+			e.printStackTrace();
+		}
+		return charge;
+	}
+	
+	//å½’è¿˜DVDå¹¶è®¡ç®—ç§Ÿé‡‘
+	public void returnDvd(){
+		System.out.println("***************å½’è¿˜DVD***********\n");
+		Scanner input=new Scanner(System.in);
+		long loan=0;//ç§Ÿé‡‘
+		System.out.println("è¯·è¾“å…¥DVDåç§°ï¼š");
+		String want=input.next();
+		for (int i = 0; i < dvd.name.length; i++) {
+			if(dvd.name[i]==null){
+				System.out.println("æ²¡æœ‰æ‰¾åˆ°åŒ¹é…ä¿¡æ¯ï¼");
+				break;
+			}else if(dvd.name[i].equals(want)&&dvd.state[i]==0){
+				dvd.state[i]=1;
+				System.out.println("è¯·è¾“å…¥å½’è¿˜æ—¥æœŸï¼ˆ****å¹´-**æœˆ-**æ—¥ï¼‰");
+				String redate = input.next();
+				//è®¡ç®—ç§Ÿé‡‘
+				loan = charge(dvd.date[i],redate);
+				System.out.println("\nå½’è¿˜ã€Š"+want+"ã€‹æˆåŠŸï¼");
+				System.out.println("å€Ÿå‡ºæ—¥æœŸä¸ºï¼š"+dvd.date[i]);
+				System.out.println("å½’è¿˜æ—¥æœŸä¸ºï¼š"+redate);
+				System.out.println("åº”ä»˜ç§Ÿé‡‘ï¼ˆå…ƒï¼‰ï¼š"+loan);
+				break;
+			}else if(dvd.name[i].equals(want)&&dvd.state[i]==1){
+				System.out.println("è¯¥DVDæ²¡æœ‰è¢«å€Ÿå‡ºï¼æ— æ³•è¿›è¡Œå½’è¿˜æ“ä½œï¼");
+				break;
+			}
+		}
+		System.out.println("*****************************");
+		returnMain();
+	}
+	
+	//å€Ÿå‡ºæ’è¡Œæ¦œ
+	public void list(){
+	   //å®šä¹‰æ–°æ•°ç»„ï¼Œç”¨æ¥å­˜æ”¾æ’åºåDVDä¿¡æ¯
+		String[] newname=new String[50];
+		int[] newcount=new int[50];
+		for(int k=0;k<dvd.name.length;k++){
+			newname[k] = dvd.name[k];
+			newcount[k] = dvd.count[k];
+		}
+	
+		//åˆ©ç”¨å†’æ³¡æ’åºç®—æ³•è¿›è¡Œæ’åº
+		for(int i=0;i<newname.length-1;i++){
+			for(int j=0;j<newname.length-i-1;j++){
+				if(newcount[j]>newcount[j+1]){
+					int tempc=newcount[j];
+					newcount[j]=newcount[j+1];
+					newcount[j+1]=tempc;
+					
+					String tempn=newname[j];
+					newname[j]=newname[j+1];
+					newname[j+1]=tempn;
+				}
+			}
+		}
+		System.out.println("**********æ’è¡Œæ¦œ***********");
+		System.out.println("æ¬¡æ•°\tåç§°");
+		//æ˜¾ç¤ºæ’è¡Œæ¦œä¿¡æ¯
+		for(int i =newname.length-1;i>=0;i--){
+			if(newname[i]!=null){
+				System.out.println(newcount[i]+"\t<<"+newname[i]+">>");
+			}
+		}
+		System.out.println("*******************");
+		returnMain();
+	}
 }

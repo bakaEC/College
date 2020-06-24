@@ -6,18 +6,11 @@
   "configurations": [
     {
       "type": "java",
-      "name": "CodeLens (Launch) - FilePathDemo",
+      "name": "Debug (Launch)",
       "request": "launch",
-      "mainClass": "dvd/com.cn.kd.FilePathDemo",
-      "projectName": "DVD"
+      "mainClass": "main"
     },
-    {
-      "type": "java",
-      "name": "CodeLens (Launch) - Main",
-      "request": "launch",
-      "mainClass": "Main",
-      "projectName": "main"
-    },
+
     {
       "type": "java",
       "name": "CodeLens (Launch) - Start",
@@ -49,13 +42,7 @@
       "request": "launch",
       "mainClass": "App"
     },
-    {
-      "type": "java",
-      "name": "Debug (Attach)",
-      "request": "attach",
-      "hostName": "localhost",
-      "port": "<debug port of the debuggee>"
-    },
+
     {
       "type": "java",
       "name": "CodeLens (Launch) - Start",
