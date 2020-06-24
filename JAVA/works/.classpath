@@ -3,5 +3,6 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry kind="src" path="202063/Study - 副本/src"/>
 	<classpathentry kind="src" path="Study/src/com.cn.kd/com/cn/kd/com/cn/kd"/>
+	<classpathentry excluding="com.cn.kd/com/cn/kd/com/cn/kd/" kind="src" path="Study/src"/>
 	<classpathentry kind="output" path="202063/Study - 副本/bin"/>
 </classpath>

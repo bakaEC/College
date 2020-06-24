@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<projectDescription>
+	<name>DVD</name>
+	<comment></comment>
+	<projects>
+	</projects>
+	<buildSpec>
+		<buildCommand>
+			<name>org.eclipse.jdt.core.javabuilder</name>
+			<arguments>
+			</arguments>
+		</buildCommand>
+	</buildSpec>
+	<natures>
+		<nature>org.eclipse.jdt.core.javanature</nature>
+	</natures>
+	<linkedResources>
+		<link>
+			<name>src/com/cn/kd/DVDMgr.java</name>
+			<type>1</type>
+			<location>E:/桌面/DVDMgr.java</location>
+		</link>
+		<link>
+			<name>src/com/cn/kd/DVDSet.java</name>
+			<type>1</type>
+			<location>E:/桌面/DVDSet.java</location>
+		</link>
+		<link>
+			<name>src/com/cn/kd/Start.java</name>
+			<type>1</type>
+			<location>E:/桌面/Start.java</location>
+		</link>
+	</linkedResources>
+</projectDescription>
