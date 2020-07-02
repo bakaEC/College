@@ -6,11 +6,24 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - day4_1",
+      "request": "launch",
+      "mainClass": "day4_1",
+      "projectName": "main"
+    },
+    {
+      "type": "java",
+      "name": "CodeLens (Launch) - test",
+      "request": "launch",
+      "mainClass": "test",
+      "projectName": "main"
+    },
+    {
+      "type": "java",
       "name": "Debug (Launch)",
       "request": "launch",
       "mainClass": "main"
     },
-
     {
       "type": "java",
       "name": "CodeLens (Launch) - Start",
@@ -42,7 +55,6 @@
       "request": "launch",
       "mainClass": "App"
     },
-
     {
       "type": "java",
       "name": "CodeLens (Launch) - Start",
