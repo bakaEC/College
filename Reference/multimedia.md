@@ -1,4 +1,9 @@
-## 10.1 多媒体技术的概念
+# 10.1 多媒体技术的概念
+## Linked
+
+-[second](Bin2Dec-App.md)
+
+[reference]:Bin2Dec-App.md
 
 ### 什么叫媒体
 
