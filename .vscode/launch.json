@@ -6,6 +6,19 @@
   "configurations": [
     {
       "type": "java",
+      "name": "CodeLens (Launch) - a",
+      "request": "launch",
+      "mainClass": "a",
+      "projectName": "main"
+    },
+    {
+      "type": "java",
+      "name": "Debug (Launch)",
+      "request": "launch",
+      "mainClass": ""
+    },
+    {
+      "type": "java",
       "name": "CodeLens (Launch) - day4_1",
       "request": "launch",
       "mainClass": "day4_1",
