@@ -10,7 +10,7 @@ import re
 headers = {
     'user-agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/83.0.4103.61 Safari/537.36'
 }
-main = 'http://www.lyckapp.com/index.php?p=3&type=0&mg_code=999999'
+main = 'http://www.lyckapp.com/index.php?p=3&type=0&mg_code=497669'
 while (True):
     i = 1
     response = requests.get(main, headers=headers)
