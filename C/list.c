@@ -4,9 +4,9 @@ int main(){
     FILE *fp=fopen("data.txt","w+");
     for (int i = 1; i <= 26; i++)    
     {
-        name[i]=i*10000;
+        name[i]=i*1000;
     }
-    for (int j = 1; j <= sizeof(name); j++)
+    for (int j = 1; j <= sizeof(name)-1; j++)
     {
         fprintf(fp,"%d,",name[j]);
         
