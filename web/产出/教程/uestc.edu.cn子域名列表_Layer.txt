@@ -1,0 +1,128 @@
+域名	解析IP	开放端口	WEB服务器	网站状态
+vpn.uestc.edu.cn	202.112.14.6	80,443	Server	80:正常访问
+portal.uestc.edu.cn	222.197.166.5	80,443	******	80:正常访问
+app.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+mail.uestc.edu.cn	202.112.14.176	80,443	nginx	80:正常访问
+www.uestc.edu.cn	202.112.14.178	80,443	nginx	80:正常访问
+en.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+bbs.uestc.edu.cn	202.115.22.221	80,443	nginx	80:正常访问
+service.uestc.edu.cn	222.197.166.2	80,443	none	80:(403) 已禁止
+mobile.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+i.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+live.uestc.edu.cn	222.197.166.2	80,443	none	80:(403) 已禁止
+news.uestc.edu.cn	202.115.22.251	80,443	nginx	80:正常访问
+info.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+vpn1.uestc.edu.cn	202.112.14.34	80,443	Server	80:正常访问
+em.uestc.edu.cn	222.197.166.2	80,443	******	80:正常访问
+photo.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+gis.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+hq.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+alumni.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+im.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+ir.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+enterprise.uestc.edu.cn	222.197.165.167	80,443	-	80:(404) 未找到
+wx.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+sport.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+zs.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+mgmt.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+ms.uestc.edu.cn	222.197.164.142	80	nginx/1.12.0	80:正常访问
+nm.uestc.edu.cn	202.115.22.203	443	nginx	443:(403) 已禁止
+ie.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+dns.uestc.edu.cn	202.112.14.151	-	端口未开放	端口未开放
+old.uestc.edu.cn	202.115.22.202	-	端口未开放	端口未开放
+gr.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+library.uestc.edu.cn	222.197.165.110	-	端口未开放	端口未开放
+study.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+faculty.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+center.uestc.edu.cn	222.197.166.2	80,443	none	80:(405) 不允许的方法
+tz.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+ai.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+wifi.uestc.edu.cn	10.253.0.213	-	端口未开放	端口未开放
+eportal.uestc.edu.cn	222.197.164.165	80,443	openresty	80:正常访问
+cg.uestc.edu.cn	222.197.183.85	80,443	Apache-Coyote/1.1	80:(403) 已禁止
+dm.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+aaa.uestc.edu.cn	10.253.0.237	-	端口未开放	端口未开放
+film.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+nav.uestc.edu.cn	222.197.166.2	80,443	none	80:(403) 已禁止
+nano.uestc.edu.cn	222.197.166.2	80,443	none	80:(502) 错误的网关
+epay.uestc.edu.cn	222.197.166.2	80,443	******	80:正常访问
+vi.uestc.edu.cn	222.197.166.2	80,443	none	80:(403) 已禁止
+audit.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+gms.uestc.edu.cn	222.197.166.2	80,443	none	80:(403) 已禁止
+robot.uestc.edu.cn	222.197.166.2	80,443	none	80:(403) 已禁止
+teacher.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+iptv.uestc.edu.cn	202.115.22.134	80,443	nginx/1.14.2	80:(403) 已禁止
+acm.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+yz.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+workflow.uestc.edu.cn	222.197.167.6	80,443	dws	80:正常访问
+bms.uestc.edu.cn	222.197.165.161	80	Microsoft-IIS/8.0	80:正常访问
+ic.uestc.edu.cn	202.115.31.248	-	端口未开放	端口未开放
+hospital.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+yb.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+rw.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+discovery.uestc.edu.cn	222.197.165.99	-	端口未开放	端口未开放
+intl.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+ssp.uestc.edu.cn	222.197.165.176	80	Microsoft-IIS/8.0	80:正常访问
+lx.uestc.edu.cn	222.197.166.2	80,443	none	80:(403) 已禁止
+ips.uestc.edu.cn	222.197.165.100	80		80:正常访问
+ecard.uestc.edu.cn	222.197.166.5	80,443	******	80:正常访问
+webproxy.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+xcb.uestc.edu.cn	202.115.22.233	80,443	nginx	80:正常访问
+hrm.uestc.edu.cn	222.197.166.5	80,443	******	80:正常访问
+self.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+antivirus.uestc.edu.cn	222.197.164.143	-	端口未开放	端口未开放
+myhome.uestc.edu.cn	222.197.166.2	80,443	******	80:正常访问
+admission.uestc.edu.cn	8.210.231.102	80,443	nginx	80:正常访问
+rz.uestc.edu.cn	192.168.9.8	-	端口未开放	端口未开放
+dag.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+soc.uestc.edu.cn	202.115.31.248	-	端口未开放	端口未开放
+bwc.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+lin.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+icp.uestc.edu.cn	222.197.166.2	80,443	none	80:(502) 错误的网关
+pss.uestc.edu.cn	222.197.165.118	-	端口未开放	端口未开放
+ieee.uestc.edu.cn	222.197.166.2	80,443	none	80:(502) 错误的网关
+cfd.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+epc.uestc.edu.cn	222.197.165.136	80,443	Apache/2.4.7 (Ubuntu)	80:正常访问
+esign.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+pwd.uestc.edu.cn	222.197.164.186	-	端口未开放	端口未开放
+jxjy.uestc.edu.cn	202.115.18.205	-	端口未开放	端口未开放
+materials.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+isl.uestc.edu.cn	202.115.31.248	-	端口未开放	端口未开放
+ime.uestc.edu.cn	222.197.183.43	80	-	80:(404) 未找到
+simulation.uestc.edu.cn	202.115.11.17	-	端口未开放	端口未开放
+mpa.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+bol.uestc.edu.cn	222.197.165.198	80	Apache	80:正常访问
+webpac.uestc.edu.cn	222.197.165.110	-	端口未开放	端口未开放
+new1.uestc.edu.cn	202.115.22.251	80,443	nginx	80:正常访问
+jjc.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+cib.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+cfm.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+edp.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+eec.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+ditu.uestc.edu.cn	222.197.166.2	80,443	none	80:(403) 已禁止
+ggw.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+mapp.uestc.edu.cn	222.197.164.39	80,443	dws	80:正常访问
+yst.uestc.edu.cn	222.197.166.2	80,443	none	80:(502) 错误的网关
+analog.uestc.edu.cn	202.115.31.248	-	端口未开放	端口未开放
+xgb.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+xlzx.uestc.edu.cn	222.197.165.204	443	nginx	443:(404) 未找到
+jiuye.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+medialab.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+sau.uestc.edu.cn	222.197.165.220	-	端口未开放	端口未开放
+tuanwei.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+jjs.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+fgc.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+iaa.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+ea2.uestc.edu.cn	222.197.164.148	-	端口未开放	端口未开放
+cnki.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+iai.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+ea1.uestc.edu.cn	222.197.164.146	-	端口未开放	端口未开放
+rwlib.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+ailab.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+biophysics.uestc.edu.cn	222.197.166.2	80,443	获取失败	80:-
+freshman.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+idas.uestc.edu.cn	222.197.166.5	80,443	******	80:正常访问
+jgb.uestc.edu.cn	222.197.166.2	80,443	none	80:正常访问
+mcgill.uestc.edu.cn	222.197.166.2	80,443	none	80:(404) 未找到
+lunker.uestc.edu.cn	202.112.14.176	80,443	nginx	80:正常访问
+matu.uestc.edu.cn	121.48.165.91	-	端口未开放	端口未开放
