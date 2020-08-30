@@ -1,17 +1,11 @@
-#include <stdio.h>
-int main(){
-    int name[26];
-    FILE *fp=fopen("data.txt","w+");
-    for (int i = 1; i <= 26; i++)    
-    {
-        name[i]=i*1000;
-    }
-    for (int j = 1; j <= sizeof(name)-1; j++)
-    {
-        fprintf(fp,"%d,",name[j]);
-        
-    }
-    
-    fclose(fp);
+#include<stdio.h>
+#include<winsock2.h>
+
+int main(int argc, char const *argv[])
+{
+    WSADATA wsaData;
+    WSAStartup(WINSOCK_VERSION,&wsaData);
+    printf("hell world");
+    WSACleanup;
     return 0;
 }

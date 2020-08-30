@@ -8,6 +8,7 @@
 			"args": [
 				"-g",
 				"${file}",
+				"-lws2_32",
 				"-o",
 				"${fileDirname}\\${fileBasenameNoExtension}.exe"
 			],
