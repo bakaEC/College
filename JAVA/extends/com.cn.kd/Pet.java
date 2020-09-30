@@ -9,6 +9,8 @@ public class Pet{
         this.name=name;
     }
 
+    public abstract void print();
+
     public void print(){
         System.out.println("宠物名称"+name+"健康度"+health+"亲密度"+love);
     }
