@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand />
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="cb61e903-496c-430e-8392-bab4bc9d9651" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workplace.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JAVA/Cars/Cars.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JAVA/Cars/Regal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JAVA/Cars/Sell.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JAVA/Cars/Seller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../../JAVA/workspace/workspace.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_0.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_0.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_1.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_1.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_2.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_2.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_3.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_3.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_4.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_4.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_5.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_5.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_6.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_6.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_7.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_7.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_8.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_8.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.bak_9.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.bak_9.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.cdt.core/.log" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.cdt.core/.log" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/a0/5f/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/a0/5f/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/a0/d6/history.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/a0/d6/history.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/a0/d6/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/a0/d6/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/a0/de/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/a0/de/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/properties.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.indexes/properties.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.markers" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/.markers" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.projects/resume/org.eclipse.jdt.core/state.dat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.root/4.tree" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.resources/.safetable/org.eclipse.core.resources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.core.runtime/.settings/org.eclipse.ui.ide.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.e4.workbench/workbench.xmi" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/2820287934.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/2820287934.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/savedIndexNames.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.jdt.core/variablesAndContainers.dat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/resume/2020/9/39/refactorings.history" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/resume/2020/9/39/refactorings.history" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/resume/2020/9/39/refactorings.index" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ltk.core.refactoring/.refactorings/resume/2020/9/39/refactorings.index" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.metadata/.plugins/org.eclipse.ui.workbench/workingsets.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/BuildConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/BuildConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$attr.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$attr.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$dimen.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$dimen.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$drawable.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$drawable.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$id.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$id.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$layout.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$layout.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$string.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$string.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$style.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R$style.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R.class" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/classes/com/uestc/resume/R.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/resources.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/resources.ap_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/bin/resume.apk" beforeDir="false" afterPath="$PROJECT_DIR$/resume/bin/resume.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/gen/com/uestc/resume/BuildConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/resume/gen/com/uestc/resume/BuildConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/gen/com/uestc/resume/R.java" beforeDir="false" afterPath="$PROJECT_DIR$/resume/gen/com/uestc/resume/R.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resume/res/layout/activity_main.xml" beforeDir="false" afterPath="$PROJECT_DIR$/resume/res/layout/activity_main.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="ProjectId" id="1htYbqdli9K1BcbPvSSSWYeBgmS" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="android.sdk.path" value="$PROJECT_DIR$/../../../SDK/sdk" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.appearance" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android App">
+      <option name="DEPLOY" value="true" />
+      <option name="DEPLOY_APK_FROM_BUNDLE" value="false" />
+      <option name="DEPLOY_AS_INSTANT" value="false" />
+      <option name="ARTIFACT_NAME" value="" />
+      <option name="PM_INSTALL_OPTIONS" value="" />
+      <option name="DYNAMIC_FEATURES_DISABLED_LIST" value="" />
+      <option name="ACTIVITY_EXTRA_FLAGS" value="" />
+      <option name="MODE" value="default_activity" />
+      <option name="CLEAR_LOGCAT" value="false" />
+      <option name="SHOW_LOGCAT_AUTOMATICALLY" value="true" />
+      <option name="SKIP_NOOP_APK_INSTALLATIONS" value="true" />
+      <option name="FORCE_STOP_RUNNING_APP" value="true" />
+      <option name="TARGET_SELECTION_MODE" value="SHOW_DIALOG" />
+      <option name="DEBUGGER_TYPE" value="Java" />
+      <Java />
+      <Profilers>
+        <option name="ADVANCED_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_ENABLED" value="false" />
+        <option name="STARTUP_CPU_PROFILING_CONFIGURATION_NAME" value="Sample Java Methods" />
+      </Profilers>
+      <option name="DEEP_LINK" value="" />
+      <option name="ACTIVITY_CLASS" value="" />
+      <method v="2">
+        <option name="Android.Gradle.BeforeRunTask" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="cb61e903-496c-430e-8392-bab4bc9d9651" name="Default Changelist" comment="" />
+      <created>1600831930262</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1600831930262</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:F:/College/Android/workplace/resume" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="484" y="277" key="#Notifications" timestamp="1600832088294">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="484" y="277" key="#Notifications/0.0.1536.834@0.0.1536.834" timestamp="1600832088294" />
+    <state x="205" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1600832211693">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="205" y="109" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.834@0.0.1536.834" timestamp="1600832211693" />
+    <state x="252" y="99" key="SettingsEditor" timestamp="1600832506153">
+      <screen x="0" y="0" width="1536" height="834" />
+    </state>
+    <state x="252" y="99" key="SettingsEditor/0.0.1536.834@0.0.1536.834" timestamp="1600832506153" />
+  </component>
+</project>
