@@ -1,5 +1,5 @@
 
-page = urllib2.urlopen("http://summer.x5tar.com:50002/")   
+page = urllib2.urlopen("http://recruit.x5tar.com:60002/")   
 contents = page.read()   
 bs = BeautifulSoup(contents,"html.parser") 
 
