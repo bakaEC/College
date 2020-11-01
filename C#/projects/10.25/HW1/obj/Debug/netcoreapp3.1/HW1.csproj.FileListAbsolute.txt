@@ -1,0 +1,13 @@
+F:\College\C#\projects\10.25\HW1\bin\Debug\netcoreapp3.1\HW1.exe
+F:\College\C#\projects\10.25\HW1\bin\Debug\netcoreapp3.1\HW1.deps.json
+F:\College\C#\projects\10.25\HW1\bin\Debug\netcoreapp3.1\HW1.runtimeconfig.json
+F:\College\C#\projects\10.25\HW1\bin\Debug\netcoreapp3.1\HW1.runtimeconfig.dev.json
+F:\College\C#\projects\10.25\HW1\bin\Debug\netcoreapp3.1\HW1.dll
+F:\College\C#\projects\10.25\HW1\bin\Debug\netcoreapp3.1\HW1.pdb
+F:\College\C#\projects\10.25\HW1\obj\Debug\netcoreapp3.1\HW1.csprojAssemblyReference.cache
+F:\College\C#\projects\10.25\HW1\obj\Debug\netcoreapp3.1\HW1.AssemblyInfoInputs.cache
+F:\College\C#\projects\10.25\HW1\obj\Debug\netcoreapp3.1\HW1.AssemblyInfo.cs
+F:\College\C#\projects\10.25\HW1\obj\Debug\netcoreapp3.1\HW1.csproj.CoreCompileInputs.cache
+F:\College\C#\projects\10.25\HW1\obj\Debug\netcoreapp3.1\HW1.dll
+F:\College\C#\projects\10.25\HW1\obj\Debug\netcoreapp3.1\HW1.pdb
+F:\College\C#\projects\10.25\HW1\obj\Debug\netcoreapp3.1\HW1.genruntimeconfig.cache
