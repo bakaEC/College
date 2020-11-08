@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bfmnz13"
+
+    tools:context=".MainActivity">
+    <LinearLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <RadioGroup
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <RadioButton
+            android:id="@+id/radioButton2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:checked="true"
+            android:drawableBottom="@drawable/tab01"
+            android:padding="10dp"
+            android:text="18级强化班"
+            android:textColor="#ff00ff"
+            android:button="@null"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:id="@+id/radioButton3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:checked="false"
+            android:drawableBottom="@drawable/tab01"
+            android:padding="10dp"
+            android:text="19级安卓班"
+            android:textColor="#ff00ff"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+
+        <RadioButton
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:checked="false"
+            android:drawableBottom="@drawable/tab01"
+            android:layout_gravity="center"
+            android:padding="10dp"
+            android:text="18级强化班"
+            android:textColor="#ff00ff"
+            android:textSize="32sp"
+            android:textStyle="bold" />
+    </RadioGroup>
+
+    <Button
+        android:layout_width="278dp"
+        android:layout_height="110dp"
+        android:layout_marginLeft="60dp"
+        android:layout_marginTop="150dp"
+        android:background="#00ff00"
+        android:drawableLeft="@drawable/friends_sends_pictures_select_icon_selected"
+        android:drawableTop="@drawable/tab00"
+        android:drawableRight="@drawable/tab01"
+        android:drawableBottom="@drawable/tab10"
+        android:gravity="center"
+        android:text="电子科技大学九里堤校区"
+        android:textColor="#ffffff"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.167" />
+
+        <EditText
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:background="#0000aa"
+            android:ems="20"
+            android:gravity="center"
+            android:hint="请输入内容"
+            android:inputType="text"
+            android:maxLength="10"
+            android:padding="10dp"
+            android:textColor="#ff00ff"
+            android:textColorHint="#ffffff"
+            android:textSize="32sp"
+            android:textStyle="italic"
+
+            android:typeface="monospace"
+
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="310dp" />
+
+        <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableBottom="@drawable/tab01"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="#ff00ff"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:text="多选按钮"/>
+    <Switch
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:drawableBottom="@drawable/tab01"
+        android:layout_marginLeft="35dp"
+        android:gravity="center"
+        android:padding="10dp"
+        android:textColor="#ff00ff"
+        android:textSize="32sp"
+        android:textStyle="bold"
+        android:text="开关"
+        android:checked="true"
+        tools:ignore="UseSwitchCompatOrMaterialXml" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="202dp"
+            android:layout_height="147dp"
+            app:srcCompat="@drawable/tab10" />
+
+        <ImageButton
+            android:id="@+id/imageButton"
+            android:layout_width="218dp"
+            android:layout_height="97dp"
+            app:srcCompat="@drawable/tab01" />
+    </LinearLayout>
+</ScrollView>

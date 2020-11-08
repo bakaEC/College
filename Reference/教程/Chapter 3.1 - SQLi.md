@@ -307,5 +307,5 @@ Green Academy 《SQL Injection》(https://www.youtube.com/watch?v=4z8N_IdFvtw)
 
 田宇杰，赵泽茂，张海川等《二阶SQL注入攻击防御模型》， 2014．
 
-李元鹏 《SQL注入扫描分析工具的实现与攻击防范技术》， 2014.
+
 
