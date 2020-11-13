@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<AbsoluteLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    android:background="@drawable/c8e087a65d92986c05f543ea3ced634f"
+    tools:context=".MainActivity">
+
+
+    <EditText
+        android:id="@+id/editTextTextPersonName2"
+        android:layout_width="278dp"
+        android:layout_height="56dp"
+        android:layout_weight="1"
+        android:layout_x="94dp"
+        android:layout_y="256dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:selectAllOnFocus="false"
+        android:singleLine="false"
+        android:background="@null"
+        android:hint="用户名"
+        android:visibility="visible"
+        tools:visibility="visible" />
+
+    <EditText
+        android:id="@+id/editTextTextPassword2"
+        android:layout_width="280dp"
+        android:layout_height="57dp"
+        android:background="@null"
+        android:layout_weight="1"
+        android:hint="密码"
+        android:layout_x="92dp"
+        android:layout_y="328dp"
+        android:ems="10"
+        android:inputType="textPassword"
+        android:visibility="visible"
+        tools:visibility="visible" />
+</AbsoluteLayout>
