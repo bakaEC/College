@@ -114,6 +114,7 @@
                 android:background="@drawable/screenshot_2020_11_13_17_54_38_368_com_taobao_tao"
                 android:gravity="center"
                 android:text="新人红包2元"
+
                 android:textColor="#fb5104"
                 android:textSize="11dp" />
 

