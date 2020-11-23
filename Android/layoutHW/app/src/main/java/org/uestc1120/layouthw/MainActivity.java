@@ -1,4 +1,4 @@
-package org.uestc1113.liberallayout;
+package org.uestc1120.layouthw;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -9,6 +9,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_tb);
+        setContentView(R.layout.activity_main);
     }
 }
