@@ -45,12 +45,12 @@ int main(int argc, char const *argv[])
     BindAddr.sin_addr.s_addr = htonl(INADDR_ANY);
     if (bind(ListenerSocket,(SOCKADDR*)&BindAddr,sizeof BindAddr)==SOCKET_ERROR)
     {
-        fprintf(stderr,"绑定TCP端口 %u 失败了，错误代码 %d\n",PORT_NUMBER,h_errno);
+        fprintf(stderr,"绑定TCP端口 %u 失败，错误代码 %d\n",PORT_NUMBER,h_errno);
         goto FailExit;
     }
 
     if(listen(ListenerSocket,MAX_PEERS)==SOCKET_ERROR){
-        fprintf(stderr,"绑定TCP端口 %u 失败了，错误代码 %d\n",PORT_NUMBER,h_errno);
+        fprintf(stderr,"绑定TCP端口 %u 失败，错误代码 %d\n",PORT_NUMBER,h_errno);
         goto FailExit;
     }
     
@@ -60,9 +60,10 @@ int main(int argc, char const *argv[])
     return 0;
 
 FailExit:
-    if (ListenerSocket != INVALID_SOCKET) closesocket(ListenerSocket){
-    WSACleanup();
-    return 1;
+    if (ListenerSocket != INVALID_SOCKET){
+        closesocket(ListenerSocket);
+        wsaclean();
+        return 1;
     }
     
 

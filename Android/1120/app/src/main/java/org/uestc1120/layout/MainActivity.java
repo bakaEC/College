@@ -1,9 +1,13 @@
 package org.uestc1120.layout;
-
+/*
+  @Author: bakaEC | ec@bakaec.design
+ * @Github: github.com/bakaEC
+ * @Date: 2020-12-11
+ */
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.util.TypedValue;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -14,11 +18,10 @@ public class MainActivity extends AppCompatActivity {
     ImageButton del;
     private EditText editText, editText2,editText3;
     StringBuffer stb = new StringBuffer();
-    float x = 0,temp=0,mem=0;
+    double x = 0,temp=0,mem=0;
     int flag = 0; //1+\2-\3*\4÷\5%
-    public Boolean isCalculated=false;
+    public Boolean isCalculated=false ;
 
-    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -55,54 +58,87 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
     @SuppressLint("SetTextI18n")
     public void press(View v) {
 
         if (v == b0) {
-
-            stb.append("0");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("0");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b1) {
-            stb.append("1");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("1");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b2) {
-            stb.append("2");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("2");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b3) {
-            stb.append("3");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("3");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b4) {
-            stb.append("4");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("4");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b5) {
-            stb.append("5");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("5");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b6) {
-            stb.append("6");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("6");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b7) {
-            stb.append("7");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("7");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b8) {
-            stb.append("8");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("8");
+                varyDisplay(stb);
+                
+            }
         }
         if (v == b9) {
-            stb.append("9");
-            editText.setText(stb);
+            if (stb.length() < 35) {
+                StringBufferAppend("9");
+                varyDisplay(stb);
+                
+            }
         }
 
         if (v == bd) {
-            stb.append(".");
-            editText.setText(stb);
+            if (stb.indexOf(".")==-1&&stb.length()<35) {
+                stb.append(".");
+            }
+            varyDisplay(stb);
+            
         }
 
 
@@ -110,52 +146,41 @@ public class MainActivity extends AppCompatActivity {
             if (stb.length() != 0) {
                 stb.delete(stb.length() - 1, stb.length());
             }
-            editText.setText(stb);
+            varyDisplay(stb);
         }
         if (v == c) {
             stb.delete(0, stb.length());
             x = 0;
             flag = 0;
             temp=0;
-            editText.setText(stb);
+            varyDisplay(stb);
             editText2.setText("");
         }
 
         if (v==bp){
-            x = Float.parseFloat(stb.toString())/100;
+            x = Double.parseDouble(stb.toString())/100;
             stb.delete(0,stb.length());
             stb.append(x);
-            editText.setText(stb);
+            varyDisplay(stb);
         }
 
         if (v == ba) {
             if (stb.length() != 0) {
-                x += Float.parseFloat(stb.toString());
-                editText2.setText(DeleteZero(Float.toString(x)));
-                editText.setText("+");
-                flag = 1;
-                stb.delete(0, stb.length());
-//                if (isCalculated){
-//                    if (stb.length()!=0) {
-//                        x = equal(1, temp, Float.parseFloat(stb.toString()));
-//                    }else {
-//                        x=temp;
-//                    }
-//                    editText2.setText(DeleteZero(Float.toString(x)));
-//                    editText.setText("");
-//                    System.out.println("isCaculated");
-//               }
-
+                    x += Double.parseDouble(stb.toString());
+                    editText2.setText(DeleteZero(Double.toString(x)));
+                    editText.setText("+");
+                    flag = 1;
+                    stb.delete(0, stb.length());
             }
         }
         if (v == bm) {
             if (stb.length() != 0) {
                 if (x!=0) {
-                    x -= Float.parseFloat(stb.toString());
+                    x -= Double.parseDouble(stb.toString());
                 }else {
-                    x = Float.parseFloat(stb.toString());
+                    x = Double.parseDouble(stb.toString());
                 }
-                editText2.setText(DeleteZero(Float.toString(x)));
+                editText2.setText(DeleteZero(Double.toString(x)));
                 editText.setText("-");
                 flag = 2;
                 stb.delete(0, stb.length());
@@ -164,11 +189,11 @@ public class MainActivity extends AppCompatActivity {
         if (v == mu) {
             if (stb.length() != 0) {
                 if (x != 0) {
-                    x *= Float.parseFloat(stb.toString());
+                    x *= Double.parseDouble(stb.toString());
                 }else {
-                    x = Float.parseFloat(stb.toString());
+                    x = Double.parseDouble(stb.toString());
                 }
-                editText2.setText(DeleteZero(Float.toString(x)));
+                editText2.setText(DeleteZero(Double.toString(x)));
                 editText.setText("×");
                 flag = 3;
                 stb.delete(0, stb.length());
@@ -177,11 +202,11 @@ public class MainActivity extends AppCompatActivity {
         if (v == d) {
             if (stb.length() != 0) {
                 if (x != 0) {
-                    x /= Float.parseFloat(stb.toString());
+                    x /= Double.parseDouble(stb.toString());
                 }else {
-                    x = Float.parseFloat(stb.toString());
+                    x = Double.parseDouble(stb.toString());
                 }
-                editText2.setText(DeleteZero(Float.toString(x)));
+                editText2.setText(DeleteZero(Double.toString(x)));
                 editText.setText("÷");
                 flag = 4;
                 stb.delete(0, stb.length());
@@ -190,11 +215,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         if (v == equl) {
-            temp=equal(flag,x,Float.parseFloat(stb.toString()));
-            String resultp = DeleteZero(Float.toString(temp));
+            temp=equal(flag,x,Double.parseDouble(stb.toString()));
+            String resultp = DeleteZero(Double.toString(temp));
             editText.setText(resultp);
             editText2.setText("");
             flag = 0;
+            x=0;
             isCalculated=true;
             stb.delete(0, stb.length());
             stb.append(temp);
@@ -204,11 +230,11 @@ public class MainActivity extends AppCompatActivity {
 
 
         if(v==mp){
-            mem+=Float.parseFloat(stb.toString());
+            mem+=Double.parseDouble(stb.toString());
             editText3.setText("M="+DeleteZero(String.valueOf(mem)));
         }
         if(v==mm){
-            mem-=temp;
+            mem-=Double.parseDouble(stb.toString());
             editText3.setText("M="+DeleteZero(String.valueOf(mem)));
         }
         if(v==mc){
@@ -238,8 +264,8 @@ public class MainActivity extends AppCompatActivity {
         return str;
     }
     
-    private float equal(int flag,float x,float y){
-        float result = 0;
+    private double equal(int flag,double x,double y){
+        double result = 0;
             switch (flag) {
                 case 0:
                     result = y;
@@ -259,5 +285,29 @@ public class MainActivity extends AppCompatActivity {
             }
             return result;
     }
-    //http://github.com/bakaEC
+    private void varyDisplay(StringBuffer stb){
+        if(stb.length()>11){
+            editText.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
+        }
+        if (stb.length()>21){
+            editText.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
+        } if(stb.length()<=11) {
+            editText.setTextSize(TypedValue.COMPLEX_UNIT_SP,50);
+        }
+        editText.setText(stb);
+    }
+
+    private void StringBufferAppend(String c){
+        if(stb.length()<25){
+            stb.append(c);
+        }
+        if (isCalculated) {
+            stb.delete(0,stb.length());
+            temp=0;
+            editText.setText("");
+            isCalculated = false;
+            StringBufferAppend(c);
+        }
+    }
+
 }
