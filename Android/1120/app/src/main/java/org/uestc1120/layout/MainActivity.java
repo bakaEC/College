@@ -166,23 +166,20 @@ public class MainActivity extends AppCompatActivity {
 
         if (v == ba) {
             if (stb.length() != 0) {
-                    x += Double.parseDouble(stb.toString());
-                    editText2.setText(DeleteZero(Double.toString(x)));
+                    x = Double.parseDouble(stb.toString());
                     editText.setText("+");
                     flag = 1;
+                    editText2.setText(DeleteZero(EqualPress().toString()));
                     stb.delete(0, stb.length());
             }
         }
         if (v == bm) {
             if (stb.length() != 0) {
-                if (x!=0) {
-                    x -= Double.parseDouble(stb.toString());
-                }else {
-                    x = Double.parseDouble(stb.toString());
-                }
-                editText2.setText(DeleteZero(Double.toString(x)));
+
+                x = Double.parseDouble(stb.toString());
                 editText.setText("-");
                 flag = 2;
+                editText2.setText(DeleteZero(EqualPress().toString()));
                 stb.delete(0, stb.length());
             }
         }
@@ -263,7 +260,16 @@ public class MainActivity extends AppCompatActivity {
         }
         return str;
     }
-    
+    private StringBuffer EqualPress(){
+        temp=equal(flag,x,Double.parseDouble(stb.toString()));
+        String resultp = DeleteZero(Double.toString(temp));
+        editText2.setText(resultp);
+        stb.delete(0, stb.length());
+        stb.append(temp);
+        System.out.println(temp);
+        return stb;
+    }
+
     private double equal(int flag,double x,double y){
         double result = 0;
             switch (flag) {
@@ -277,10 +283,15 @@ public class MainActivity extends AppCompatActivity {
                     result = x - y;
                     break;
                 case 3:
-                    result = x * y;
+                    if (x!=0&&y!=0) {
+                        result = x * y;
+                    }else result=x;
+
                     break;
                 case 4:
-                    result = x / y;
+                    if (x!=0&&y!=0) {
+                        result = x / y;
+                    }else result=x;
                     break;
             }
             return result;
