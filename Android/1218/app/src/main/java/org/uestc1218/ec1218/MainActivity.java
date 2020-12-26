@@ -21,20 +21,20 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LinearLayout linearLayout_706 = new LinearLayout(this);
-        linearLayout_706.setBackgroundResource(Color.parseColor("#000000"));
-        LinearLayout.LayoutParams layout_44 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
-        layout_44.width = LinearLayout.LayoutParams.MATCH_PARENT;
-        layout_44.height = LinearLayout.LayoutParams.MATCH_PARENT;
-        linearLayout_706.setLayoutParams(layout_44);
+        LinearLayout linearLayout_1 = new LinearLayout(this);
+        linearLayout_1.setBackgroundResource(Color.parseColor("#000000"));
+        LinearLayout.LayoutParams layout_1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        layout_1.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        layout_1.height = LinearLayout.LayoutParams.MATCH_PARENT;
+        linearLayout_1.setLayoutParams(layout_1);
 
         ImageView imageView1 = new ImageView(this);
         imageView1.setId(0);
-        LinearLayout.LayoutParams layout_768 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
-        layout_768.width = LinearLayout.LayoutParams.MATCH_PARENT;
-        layout_768.height = 311;
-        imageView1.setLayoutParams(layout_768);
-        linearLayout_706.addView(imageView1);
+        LinearLayout.LayoutParams layout_2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        layout_2.width = LinearLayout.LayoutParams.MATCH_PARENT;
+        layout_2.height = 311;
+        imageView1.setLayoutParams(layout_2);
+        linearLayout_1.addView(imageView1);
 
         TextView textView2 = new TextView(this);
         textView2.setId(1);
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
         layout_716.leftMargin = 30;
         layout_716.topMargin = 20;
         textView2.setLayoutParams(layout_716);
-        linearLayout_706.addView(textView2);
+        linearLayout_1.addView(textView2);
 
         TextView textView3 = new TextView(this);
         textView3.setId(2);
@@ -60,8 +60,7 @@ public class MainActivity extends AppCompatActivity {
         layout_143.leftMargin = 30;
         layout_143.topMargin = 8;
         textView3.setLayoutParams(layout_143);
-        linearLayout_706.addView(textView3);
-
+        linearLayout_1.addView(textView3);
         LinearLayout linearLayout_810 = new LinearLayout(this);
         linearLayout_810.setOrientation(0);
         LinearLayout.LayoutParams layout_24 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -92,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         layout_23.weight = 1;
         imageView2.setLayoutParams(layout_23);
         linearLayout_810.addView(imageView2);
-        linearLayout_706.addView(linearLayout_810);
+        linearLayout_1.addView(linearLayout_810);
 
     }
 }

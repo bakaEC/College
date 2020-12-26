@@ -5,7 +5,6 @@ package org.uestc1120.layout;
  * @Date: 2020-12-11
  */
 import androidx.appcompat.app.AppCompatActivity;
-import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.TypedValue;
 import android.view.View;
@@ -14,17 +13,32 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 
 public class MainActivity extends AppCompatActivity {
-    private Button b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, bd, bm, ba,bp, d, mc, mp, mm, mr, c, mu, equl;
-    ImageButton del;
-    private EditText editText, editText2,editText3;
-    StringBuffer stb = new StringBuffer();
-    double x = 0,temp=0,mem=0;
-    int flag = 0; //1+\2-\3*\4÷\5%
-    public Boolean isCalculated=false ;
+
+    //定义按钮
+    private Button
+            b1, b2, b3, b4, b5, b6, b7, b8, b9, b0, c,
+            button_dot, button_minus, button_add, button_percent, button_divide, button_equal,
+            mc, mp, mm, mr, mu;
+    ImageButton button_delete;
+
+    //定义文本框
+    private EditText Text_main, Text_append, Text_memory;
+
+    //定义基础变量
+    StringBuffer stringBuffer = new StringBuffer();
+    double x = 0,          //计算数
+            temp = 0,       //程序内可调用临时变量
+            memory = 0;     //Memory值
+    int flag = 0;           //1:+ 2:- 3:* 4:÷ 0:Null
+
+    //isCalculated 测试是否生成最终结果(即button_equal是否曾被按下)
+    public Boolean isCalculated = false;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        //实例化View对象
         b0 = findViewById(R.id.b0);
         b1 = findViewById(R.id.b1);
         b2 = findViewById(R.id.b2);
@@ -36,215 +50,209 @@ public class MainActivity extends AppCompatActivity {
         b8 = findViewById(R.id.b8);
         b9 = findViewById(R.id.b9);
 
-        editText = findViewById(R.id.editText);
-        editText2 = findViewById(R.id.editText2);
-        editText3=findViewById(R.id.editText3);
+        Text_main = findViewById(R.id.editText);
+        Text_append = findViewById(R.id.editText2);
+        Text_memory = findViewById(R.id.editText3);
 
-        bm = findViewById(R.id.bm);
-        ba = findViewById(R.id.ba);
-        d = findViewById(R.id.d);
-        equl = findViewById(R.id.bequl);
+        button_minus = findViewById(R.id.bm);
+        button_add = findViewById(R.id.ba);
+        button_divide = findViewById(R.id.d);
+        button_equal = findViewById(R.id.bequl);
         mc = findViewById(R.id.mc);
         mp = findViewById(R.id.mp);
         mm = findViewById(R.id.mm);
         mr = findViewById(R.id.mr);
         c = findViewById(R.id.c);
         mu = findViewById(R.id.mu);
-        bd = findViewById(R.id.bd);
-        bp = findViewById(R.id.bp);
+        button_dot = findViewById(R.id.bd);
+        button_percent = findViewById(R.id.bp);
 
-        del = findViewById(R.id.del);
+        button_delete = findViewById(R.id.del);
 
 
     }
 
 
-    @SuppressLint("SetTextI18n")
     public void press(View v) {
 
         if (v == b0) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("0");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b1) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("1");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b2) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("2");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b3) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("3");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b4) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("4");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b5) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("5");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b6) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("6");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b7) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("7");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b8) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("8");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
         if (v == b9) {
-            if (stb.length() < 35) {
+            if (stringBuffer.length() < 35) {
                 StringBufferAppend("9");
-                varyDisplay(stb);
-                
+                varyDisplay(stringBuffer);
+
             }
         }
 
-        if (v == bd) {
-            if (stb.indexOf(".")==-1&&stb.length()<35) {
-                stb.append(".");
+        if (v == button_dot) {
+            if (stringBuffer.indexOf(".") == -1 && stringBuffer.length() < 35) {
+                stringBuffer.append(".");
             }
-            varyDisplay(stb);
-            
+            varyDisplay(stringBuffer);
+
         }
 
 
-        if (v == del) {
-            if (stb.length() != 0) {
-                stb.delete(stb.length() - 1, stb.length());
+        if (v == button_delete) {
+            if (stringBuffer.length() != 0) {
+                stringBuffer.delete(stringBuffer.length() - 1, stringBuffer.length());
             }
-            varyDisplay(stb);
+            varyDisplay(stringBuffer);
         }
         if (v == c) {
-            stb.delete(0, stb.length());
+            stringBuffer.delete(0, stringBuffer.length());
             x = 0;
             flag = 0;
-            temp=0;
-            varyDisplay(stb);
-            editText2.setText("");
+            temp = 0;
+            varyDisplay(stringBuffer);
+            Text_append.setText("");
         }
 
-        if (v==bp){
-            x = Double.parseDouble(stb.toString())/100;
-            stb.delete(0,stb.length());
-            stb.append(x);
-            varyDisplay(stb);
+        if (v == button_percent) {
+            x = Double.parseDouble(stringBuffer.toString()) / 100;
+            stringBuffer.delete(0, stringBuffer.length());
+            stringBuffer.append(x);
+            varyDisplay(stringBuffer);
         }
 
-        if (v == ba) {
-            if (stb.length() != 0) {
-                    x = Double.parseDouble(stb.toString());
-                    editText.setText("+");
-                    flag = 1;
-                    editText2.setText(DeleteZero(EqualPress().toString()));
-                    stb.delete(0, stb.length());
+        if (v == button_add) {
+            if (stringBuffer.length() != 0) {
+                onFlagInputingResult();
+                stringBuffer.delete(0, stringBuffer.length());
+                Text_main.setText("+");
+                flag = 1;
+                Text_append.setText(DeleteZero(Double.toString(x)));
             }
         }
-        if (v == bm) {
-            if (stb.length() != 0) {
-
-                x = Double.parseDouble(stb.toString());
-                editText.setText("-");
+        if (v == button_minus) {
+            if (stringBuffer.length() != 0) {
+                onFlagInputingResult();
+                stringBuffer.delete(0, stringBuffer.length());
+                Text_main.setText("-");
                 flag = 2;
-                editText2.setText(DeleteZero(EqualPress().toString()));
-                stb.delete(0, stb.length());
+                Text_append.setText(DeleteZero(Double.toString(x)));
+
             }
         }
         if (v == mu) {
-            if (stb.length() != 0) {
-                if (x != 0) {
-                    x *= Double.parseDouble(stb.toString());
-                }else {
-                    x = Double.parseDouble(stb.toString());
-                }
-                editText2.setText(DeleteZero(Double.toString(x)));
-                editText.setText("×");
+            if (stringBuffer.length() != 0) {
+                onFlagInputingResult();
+                Text_append.setText(DeleteZero(Double.toString(x)));
+                Text_main.setText("×");
                 flag = 3;
-                stb.delete(0, stb.length());
+                stringBuffer.delete(0, stringBuffer.length());
             }
         }
-        if (v == d) {
-            if (stb.length() != 0) {
-                if (x != 0) {
-                    x /= Double.parseDouble(stb.toString());
-                }else {
-                    x = Double.parseDouble(stb.toString());
-                }
-                editText2.setText(DeleteZero(Double.toString(x)));
-                editText.setText("÷");
+        if (v == button_divide) {
+            if (stringBuffer.length() != 0) {
+                onFlagInputingResult();
+                Text_append.setText(DeleteZero(Double.toString(x)));
+                Text_main.setText("÷");
                 flag = 4;
-                stb.delete(0, stb.length());
+                stringBuffer.delete(0, stringBuffer.length());
             }
         }
 
 
-        if (v == equl) {
-            temp=equal(flag,x,Double.parseDouble(stb.toString()));
+        if (v == button_equal) {
+            temp = equal(flag, x, Double.parseDouble(stringBuffer.toString()));
             String resultp = DeleteZero(Double.toString(temp));
-            editText.setText(resultp);
-            editText2.setText("");
+            Text_main.setText(resultp);
+            Text_append.setText("");
             flag = 0;
-            x=0;
-            isCalculated=true;
-            stb.delete(0, stb.length());
-            stb.append(temp);
+            x = 0;
+            isCalculated = true;
+            stringBuffer.delete(0, stringBuffer.length());
+            stringBuffer.append(temp);
             System.out.println(temp);
         }
 
 
 
-        if(v==mp){
-            mem+=Double.parseDouble(stb.toString());
-            editText3.setText("M="+DeleteZero(String.valueOf(mem)));
+        if(v==mp) {
+            memory += Double.parseDouble(stringBuffer.toString());
+            String display = "M=" + DeleteZero(String.valueOf(memory));
+            Text_memory.setText(display);
         }
-        if(v==mm){
-            mem-=Double.parseDouble(stb.toString());
-            editText3.setText("M="+DeleteZero(String.valueOf(mem)));
+        if(v==mm) {
+            memory -= Double.parseDouble(stringBuffer.toString());
+            String display = "M=" + DeleteZero(String.valueOf(memory));
+            Text_memory.setText(display);
         }
-        if(v==mc){
-            mem=0;
-            editText3.setText("");
+        if(v==mc) {
+            memory = 0;
+            Text_memory.setText("");
         }
-        if(v==mr){
-            stb.delete(0,stb.length());
-            stb.append(mem);
-            editText.setText(DeleteZero(stb.toString()));
+        if(v==mr) {
+            stringBuffer.delete(0, stringBuffer.length());
+            stringBuffer.append(memory);
+            Text_main.setText(DeleteZero(stringBuffer.toString()));
         }
     }
 
+    //对输出字符串进行去零及小数点操作
     private String DeleteZero(String str) {
         for (int i = 0; i < str.length(); i++) {
             if (str.substring(str.length() - 1).equals("0")) {
@@ -260,16 +268,8 @@ public class MainActivity extends AppCompatActivity {
         }
         return str;
     }
-    private StringBuffer EqualPress(){
-        temp=equal(flag,x,Double.parseDouble(stb.toString()));
-        String resultp = DeleteZero(Double.toString(temp));
-        editText2.setText(resultp);
-        stb.delete(0, stb.length());
-        stb.append(temp);
-        System.out.println(temp);
-        return stb;
-    }
 
+    //集成四则运算
     private double equal(int flag,double x,double y){
         double result = 0;
             switch (flag) {
@@ -289,36 +289,62 @@ public class MainActivity extends AppCompatActivity {
 
                     break;
                 case 4:
-                    if (x!=0&&y!=0) {
+                    if (x != 0 && y != 0) {
                         result = x / y;
-                    }else result=x;
+                    } else result = x;
                     break;
             }
-            return result;
-    }
-    private void varyDisplay(StringBuffer stb){
-        if(stb.length()>11){
-            editText.setTextSize(TypedValue.COMPLEX_UNIT_SP,30);
-        }
-        if (stb.length()>21){
-            editText.setTextSize(TypedValue.COMPLEX_UNIT_SP,20);
-        } if(stb.length()<=11) {
-            editText.setTextSize(TypedValue.COMPLEX_UNIT_SP,50);
-        }
-        editText.setText(stb);
+        return result;
     }
 
-    private void StringBufferAppend(String c){
-        if(stb.length()<25){
-            stb.append(c);
+    //可变大小显示
+    private void varyDisplay(StringBuffer stb) {
+        if (stb.length() > 11) {
+            Text_main.setTextSize(TypedValue.COMPLEX_UNIT_SP, 30);
+        }
+        if (stb.length() > 21) {
+            Text_main.setTextSize(TypedValue.COMPLEX_UNIT_SP, 20);
+        }
+        if (stb.length() <= 11) {
+            Text_main.setTextSize(TypedValue.COMPLEX_UNIT_SP, 50);
+        }
+        Text_main.setText(stb);
+    }
+
+    //带长度检测的添加数字，当已计算时将寄存结果，清除临时变量
+    private void StringBufferAppend(String c) {
+        if (stringBuffer.length() < 25) {
+            stringBuffer.append(c);
         }
         if (isCalculated) {
-            stb.delete(0,stb.length());
-            temp=0;
-            editText.setText("");
+            stringBuffer.delete(0, stringBuffer.length());
+            temp = 0;
+            Text_main.setText("");
             isCalculated = false;
             StringBufferAppend(c);
         }
     }
 
+    //在符号输入时的计算结果（连续计算）
+    private void onFlagInputingResult() {
+        switch (flag) {
+            case 1:
+                x += Double.parseDouble(stringBuffer.toString());
+                break;
+            case 2:
+                x -= Double.parseDouble(stringBuffer.toString());
+                break;
+            case 3:
+                x *= Double.parseDouble(stringBuffer.toString());
+                break;
+            case 4:
+                x /= Double.parseDouble(stringBuffer.toString());
+                break;
+            case 0:
+                x = Double.parseDouble(stringBuffer.toString());
+                break;
+        }
+    }
 }
+
+
