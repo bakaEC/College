@@ -21,18 +21,19 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        LinearLayout linearLayout_1 = new LinearLayout(this);
-        linearLayout_1.setBackgroundResource(Color.parseColor("#000000"));
-        LinearLayout.LayoutParams layout_1 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
-        layout_1.width = LinearLayout.LayoutParams.MATCH_PARENT;
-        layout_1.height = LinearLayout.LayoutParams.MATCH_PARENT;
-        linearLayout_1.setLayoutParams(layout_1);
 
+        LinearLayout linearLayout=new LinearLayout(this);
+        linearLayout.setBackgroundResource(Color.parseColor("#000000"));
+        LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
+        linearLayout.setLayoutParams(layoutParams);
+
+        +
         ImageView imageView1 = new ImageView(this);
         imageView1.setId(0);
         LinearLayout.LayoutParams layout_2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         layout_2.width = LinearLayout.LayoutParams.MATCH_PARENT;
         layout_2.height = 311;
+        imageView1.setImageResource(R.drawable.iconhead);
         imageView1.setLayoutParams(layout_2);
         linearLayout_1.addView(imageView1);
 
@@ -89,6 +90,7 @@ public class MainActivity extends AppCompatActivity {
         layout_23.width = LinearLayout.LayoutParams.WRAP_CONTENT;
         layout_23.height = 31;
         layout_23.weight = 1;
+        imageView2.setImageResource(R.drawable.icon01);
         imageView2.setLayoutParams(layout_23);
         linearLayout_810.addView(imageView2);
         linearLayout_1.addView(linearLayout_810);
