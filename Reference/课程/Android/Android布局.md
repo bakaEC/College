@@ -1,7 +1,5 @@
 # Android  XML布局
 
-[TOC]
-
 ## 帧布局
 
 1. 放置在帧布局中的控件，在不设置方位和边距的情况下，默认放在左上角。
@@ -60,3 +58,46 @@
 
 1. 以屏幕左上角为锚点，使用`android:layout_x="[x]dp"`、`android:layout_y="[x]dp"`设置控件在屏幕中的精确位置
 
+安卓系统的底层建立在Linux系统之上，该平台由操作系统、中间件、用户界面和应用软件4层组成，采用软件叠层的方式进行构造
+
+# Android 8.x 平台架构及特性
+
+### 系统APP
+
+1. Dialer
+2. Email
+3. Calendar
+4. Camera
+
+### Java API框架
+
+1. Content Providers
+2. View System
+3. Managers
+   1. Activity
+   2. Location
+   3. Package
+   4. Notification
+   5. Resource
+   6. Telephony
+   7. Window
+
+### 原生C/C++库
+
+1. Web Kit
+2. OpenMax AL
+3. Libc
+4. Media Framework
+5. OpenGL ES
+
+### Android运行时
+
+1. Android Runtime
+2. Core Libraries
+
+### 硬件抽象层（HAL）
+
+1. Audio
+2. Bluetooth
+3. Camera
+4. Sensors

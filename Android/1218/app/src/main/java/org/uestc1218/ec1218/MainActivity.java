@@ -26,8 +26,6 @@ public class MainActivity extends AppCompatActivity {
         linearLayout.setBackgroundResource(Color.parseColor("#000000"));
         LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
         linearLayout.setLayoutParams(layoutParams);
-
-        +
         ImageView imageView1 = new ImageView(this);
         imageView1.setId(0);
         LinearLayout.LayoutParams layout_2 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -35,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         layout_2.height = 311;
         imageView1.setImageResource(R.drawable.iconhead);
         imageView1.setLayoutParams(layout_2);
-        linearLayout_1.addView(imageView1);
+        linearLayout.addView(imageView1);
 
         TextView textView2 = new TextView(this);
         textView2.setId(1);
@@ -48,7 +46,7 @@ public class MainActivity extends AppCompatActivity {
         layout_716.leftMargin = 30;
         layout_716.topMargin = 20;
         textView2.setLayoutParams(layout_716);
-        linearLayout_1.addView(textView2);
+        linearLayout.addView(textView2);
 
         TextView textView3 = new TextView(this);
         textView3.setId(2);
@@ -61,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
         layout_143.leftMargin = 30;
         layout_143.topMargin = 8;
         textView3.setLayoutParams(layout_143);
-        linearLayout_1.addView(textView3);
+        linearLayout.addView(textView3);
         LinearLayout linearLayout_810 = new LinearLayout(this);
         linearLayout_810.setOrientation(0);
         LinearLayout.LayoutParams layout_24 = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT,LinearLayout.LayoutParams.WRAP_CONTENT);
@@ -93,7 +91,7 @@ public class MainActivity extends AppCompatActivity {
         imageView2.setImageResource(R.drawable.icon01);
         imageView2.setLayoutParams(layout_23);
         linearLayout_810.addView(imageView2);
-        linearLayout_1.addView(linearLayout_810);
+        linearLayout.addView(linearLayout_810);
 
     }
 }

