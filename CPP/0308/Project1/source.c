@@ -13,6 +13,9 @@ int main() {
 	double dl = 3.14;					//-2^31~2^31-1,dot1.79*e^-64
 	long double dl2 = 3.1415926;		//-2^63~2^63-1,dot1.79*e^-96
 
-	char str[] = "Jerry";
+	char a[];
+	a = scanf_s("%c", &a);
+	printf("%c", a);
+	system("pause");
 	return 0;
 }
