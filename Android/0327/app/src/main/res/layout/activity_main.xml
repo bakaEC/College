@@ -1,0 +1,74 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    android:orientation="vertical"
+    tools:context=".MainActivity" >
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="48sp"
+        android:text="    "
+        android:background="@drawable/shape_text01"/>
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="   "
+        android:background="@drawable/btn_selector01"
+        android:layout_marginTop="30dp"
+        />
+
+    <Button
+        android:id="@+id/btn2"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="   "
+        android:background="@drawable/btn_selector02"
+        />
+    <!-- android:background="@null"去掉控件的背景 -->
+    <ImageButton
+        android:id="@+id/btn3"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/imgbtn_selector"
+        android:background="@null"
+        />
+    <!-- android:button="@null"去掉多选按钮前面的方框图样 -->
+    <CheckBox
+        android:id="@+id/check"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="多选按钮"
+        android:button="@drawable/check_selector"
+        />
+
+    <RadioButton
+        android:id="@+id/radio"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="单选按钮"
+        android:button="@drawable/radio_selector"
+        />
+
+    <RatingBar
+        android:id="@+id/ratingbar"
+        android:layout_marginTop="30dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:isIndicator="false"
+        android:numStars="8"
+        android:rating="5"
+        android:stepSize="1.5"
+        android:progressDrawable="@drawable/rating_layer"
+        />
+
+
+</LinearLayout>

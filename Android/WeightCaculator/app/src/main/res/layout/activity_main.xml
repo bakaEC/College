@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="81dp"
+        android:text="体重计算器"
+        android:textSize="30sp"
+        android:gravity="center"
+        tools:layout_editor_absoluteX="92dp"
+        tools:layout_editor_absoluteY="80dp" />
+
+    <TextView
+        android:id="@+id/text1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/textView"
+        android:layout_marginLeft="90dp"
+        android:layout_marginBottom="-72dp"
+        android:text="性别"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/RG"
+        android:layout_width="164dp"
+        android:layout_height="84dp"
+        android:layout_alignBottom="@id/textView"
+        android:layout_marginLeft="49dp"
+        android:layout_marginBottom="-101dp"
+        android:layout_toRightOf="@id/text1">
+
+        <RadioButton
+            android:id="@+id/radButtonMan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="男" />
+
+        <RadioButton
+            android:id="@+id/radButtonWoman"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="女" />
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="105dp"
+        android:layout_height="42dp"
+        android:layout_alignBottom="@id/text1"
+        android:layout_marginRight="-52dp"
+        android:layout_marginBottom="-111dp"
+        android:layout_toLeftOf="@id/RG"
+        android:text="输入身高"
+        android:textSize="20sp" />
+
+    <EditText
+        android:id="@+id/input"
+        android:layout_width="168dp"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@id/textView2"
+        android:layout_alignBottom="@id/RG"
+        android:layout_marginLeft="101dp"
+        android:layout_marginBottom="-76dp"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/input"
+        android:layout_marginStart="-19dp"
+        android:layout_marginBottom="-93dp"
+        android:layout_toEndOf="@+id/textView2"
+        android:text="计算" />
+
+    <TextView
+        android:id="@+id/textViewResult"
+        android:layout_width="229dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/button"
+        android:layout_alignEnd="@+id/button"
+        android:layout_marginTop="110dp"
+        android:layout_marginEnd="-44dp"
+        android:text="计算结果:"
+        android:textSize="15sp" />
+
+
+</RelativeLayout>

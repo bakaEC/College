@@ -1,0 +1,6 @@
+﻿  sort.c
+F:\College\CPP\0330\0330\sort.c(17,8): warning C4013: “system”未定义；假设外部返回 int
+F:\College\CPP\0330\0330\sort.c(34,13): warning C4020: “pPrint”: 实参太多
+F:\College\CPP\0330\0330\sort.c(51,14): warning C4020: “pPrint”: 实参太多
+F:\College\CPP\0330\0330\sort.c(54,35): warning C4029: 声明的形参表不同于定义
+  0330.vcxproj -> F:\College\CPP\0330\0330\Debug\0330.exe
